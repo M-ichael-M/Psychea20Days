@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Psychea</string>
+    <string name="back_button">Back</string>
+    <string name="strefa_wicze">Strefa ćwiczeń</string>
+    <string name="strefa_ciekawostek">Strefa ciekawostek</string>
+    <string name="strefa_wiedzy">Strefa wiedzy</string>
+    <string name="zdrowe_nawyki">Zdrowe nawyki</string>
+    <string name="o_projekcie">O projekcie</string>
+    <string name="o_nas">O nas</string>
+    <string name="test_1">TEST 1</string>
+    <string name="test_2">TEST 2</string>
+
+</resources>
