@@ -38,26 +38,25 @@ import com.example.basicpsychea.data.WiedzaData
 import com.example.basicpsychea.data.wiedza_list
 
 @Composable
-fun Wiedza(    onNextButtonClicked: (Int) -> Unit,
-               modifier: Modifier = Modifier) {
-    Column(modifier = Modifier) {
-        Card(
-            modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth(), // Rozciąga ramkę na całą dostępną szerokość
-
-        ) {
-            Text(
-                "Strefa wiedzy",
-                style = MaterialTheme.typography.displayLarge,
-                modifier = Modifier.padding(16.dp),
-                textAlign = TextAlign.Center,
-            )
-        }
-        LazyColumn {
-            items(wiedza_list) {
-                BodyItemWi(exercises = it, modifier = Modifier)
+fun Wiedza(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+        item {
+            Card(
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth(),
+            ) {
+                Text(
+                    "Strefa wiedzy",
+                    style = MaterialTheme.typography.displayLarge,
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center,
+                )
             }
+        }
+
+        items(wiedza_list) { exercises ->
+            BodyItemWi(exercises = exercises, modifier = Modifier)
         }
     }
 }
@@ -76,14 +75,15 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier) {
                         stiffness = Spring.StiffnessMedium
                     )
                 )
-
         ) {
-            Button(onClick = { expanded = !expanded },
+            Button(
+                onClick = { expanded = !expanded },
                 shape = CutCornerShape(10),
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
-                    .clip(MaterialTheme.shapes.medium)) {
+                    .clip(MaterialTheme.shapes.medium)
+            ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -105,19 +105,23 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier) {
                         bottom = dimensionResource(R.dimen.padding_medium)
                     )
                 )
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                Box(
+                    modifier = Modifier.fillMaxSize(),
+                    contentAlignment = Alignment.Center
+                ) {
                     Wiedza_image(
                         wiedzaImage = exercises.imageResourceId,
                         modifier = Modifier
                             .fillMaxSize()
                             .height(100.dp)
-                            .clip(MaterialTheme.shapes.medium))
-
+                            .clip(MaterialTheme.shapes.medium)
+                    )
                 }
             }
         }
     }
 }
+
 
 
 @Composable

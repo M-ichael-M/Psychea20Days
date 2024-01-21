@@ -40,12 +40,11 @@ import com.example.basicpsychea.data.nawyki_list
 
 @Composable
 fun nawyki(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
-    Column(modifier = Modifier) {
+    Column(modifier = modifier) {
         Card(
             modifier = Modifier
                 .padding(8.dp)
-                .fillMaxWidth(), // Rozciąga ramkę na całą dostępną szerokość
-
+                .fillMaxWidth(),
         ) {
             Text(
                 "Zdrowe nawyki",
@@ -55,8 +54,8 @@ fun nawyki(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
             )
         }
         LazyColumn {
-            items(nawyki_list) {
-                BodyItemNa(exercises = it, modifier = Modifier)
+            items(nawyki_list) { nawykiItem ->
+                BodyItemNa(exercises = nawykiItem, modifier = Modifier)
             }
         }
     }
@@ -76,14 +75,15 @@ fun BodyItemNa(exercises: nawykiData, modifier: Modifier = Modifier) {
                         stiffness = Spring.StiffnessMedium
                     )
                 )
-
         ) {
-            Button(onClick = { expanded = !expanded },
+            Button(
+                onClick = { expanded = !expanded },
                 shape = CutCornerShape(10),
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
-                    .clip(MaterialTheme.shapes.medium)) {
+                    .clip(MaterialTheme.shapes.medium)
+            ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -111,36 +111,38 @@ fun BodyItemNa(exercises: nawykiData, modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .fillMaxSize()
                             .height(100.dp)
-                            .clip(MaterialTheme.shapes.medium))
-
+                            .clip(MaterialTheme.shapes.medium)
+                    )
                 }
             }
         }
     }
 }
 
-
 @Composable
 fun nawyki_image(
     @DrawableRes nawykiImage: Int,
     modifier: Modifier = Modifier
 ) {
-    Image(modifier = modifier
-        .clip(MaterialTheme.shapes.medium),
-
+    Image(
+        modifier = modifier.clip(MaterialTheme.shapes.medium),
         painter = painterResource(nawykiImage),
-        contentDescription = null)
+        contentDescription = null
+    )
 }
 
 @Composable
-fun nawyki_Description(@StringRes nawyki_Description: Int, modifier: Modifier = Modifier)
-{
-    Text(text = stringResource(nawyki_Description), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(
-        start = dimensionResource(R.dimen.padding_medium),
-        top = dimensionResource(R.dimen.padding_small),
-        end = dimensionResource(R.dimen.padding_medium),
-        bottom = dimensionResource(R.dimen.padding_medium)
-    ))
+fun nawyki_Description(@StringRes nawyki_Description: Int, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(nawyki_Description),
+        style = MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.padding(
+            start = dimensionResource(R.dimen.padding_medium),
+            top = dimensionResource(R.dimen.padding_small),
+            end = dimensionResource(R.dimen.padding_medium),
+            bottom = dimensionResource(R.dimen.padding_medium)
+        )
+    )
 }
 
 @Preview(showBackground = true)

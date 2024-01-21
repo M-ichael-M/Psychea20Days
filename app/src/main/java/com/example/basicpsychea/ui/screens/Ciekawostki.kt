@@ -38,26 +38,25 @@ import com.example.basicpsychea.data.CiewkawostkiData
 import com.example.basicpsychea.data.ciekawostki_list
 
 @Composable
-fun Ciekawostki(    onNextButtonClicked: (Int) -> Unit,
-                    modifier: Modifier = Modifier) {
-    Column(modifier = Modifier) {
-        Card(
-            modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth(), // Rozciąga ramkę na całą dostępną szerokość
-
-        ) {
-            Text(
-                "Strefa ciekawostek",
-                style = MaterialTheme.typography.displayLarge,
-                modifier = Modifier.padding(16.dp),
-                textAlign = TextAlign.Center,
-            )
-        }
-        LazyColumn {
-            items(ciekawostki_list) {
-                BodyItem(exercises = it, modifier = Modifier)
+fun Ciekawostki(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
+    LazyColumn(modifier = modifier) {
+        item {
+            Card(
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth(),
+            ) {
+                Text(
+                    "Strefa ciekawostek",
+                    style = MaterialTheme.typography.displayLarge,
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center,
+                )
             }
+        }
+
+        items(ciekawostki_list) { exercises ->
+            BodyItem(exercises = exercises, modifier = Modifier)
         }
     }
 }

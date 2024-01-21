@@ -16,25 +16,27 @@
 package com.example.basicpsychea
 
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.material3.TopAppBar
 import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
@@ -50,15 +52,29 @@ import com.example.basicpsychea.ui.screens.my
 import com.example.basicpsychea.ui.screens.nawyki
 import com.example.basicpsychea.ui.screens.projekt
 
+enum class PsycheaScreen(@StringRes val title: Int) {
+    Start(title = R.string.app_name),
+    Wiedza(title = R.string.strefa_wiedzy),
+    Ciekawostki(title = R.string.strefa_ciekawostek),
+    Cwiczenia(title = R.string.strefa_wicze),
+    Nawyki(title = R.string.zdrowe_nawyki),
+    Projekt(title = R.string.o_projekcie),
+    My(title = R.string.o_nas)
+
+}
+
+// ... (existing code)
+
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PsycheaAppBar(
+    currentScreen: PsycheaScreen,
     canNavigateBack: Boolean,
     navigateUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     TopAppBar(
-        title = { Text("Psychea") },
+        title = { Text(stringResource(currentScreen.title)) },
         colors = TopAppBarDefaults.mediumTopAppBarColors(
             containerColor = MaterialTheme.colorScheme.primaryContainer
         ),
@@ -77,77 +93,81 @@ fun PsycheaAppBar(
 }
 
 @Composable
-fun PsycheaApp(navController: NavHostController = rememberNavController()) {
+fun PsycheaApp(navController: NavController = rememberNavController()) {
     val backStackEntry by navController.currentBackStackEntryAsState()
-    // Get the name of the current screen
+    val currentScreen = PsycheaScreen.valueOf(
+        backStackEntry?.destination?.route ?: PsycheaScreen.Start.name
+    )
 
-    PsycheaAppBar(true, navigateUp = { navController.popBackStack() })
+    Column(
+        modifier = Modifier.fillMaxSize()
+    ) {
+        PsycheaAppBar(
+            currentScreen = currentScreen,
+            canNavigateBack = navController.previousBackStackEntry != null,
+            navigateUp = { navController.popBackStack() },
+            modifier = Modifier
+                .fillMaxWidth()
+                .wrapContentHeight()
+        )
 
-    NavHost(navController = navController, startDestination = "home") {
-        composable("Home") {
-            HomeScreen(
-                screens = DataSource.screens,
-                onNextButtonClicked = { screenId ->
-                    // Navigate to the selected screen
-                    navController.navigate("screens/$screenId")
-                }
-            )
-        }
-        composable("Wiedza") {
-            Wiedza(
-                onNextButtonClicked = { screenId ->
-                    // Navigate to the selected screen
-                    navController.navigate("screens/$screenId")
-                }
-            )
-        }
-        composable("Ciekawostki") {
-            Ciekawostki(
-                onNextButtonClicked = { screenId ->
-                    // Navigate to the selected screen
-                    navController.navigate("screens/$screenId")
-                }
-            )
-        }
-        composable("Cwiczenia") {
-            Cwiczenia(
-                onNextButtonClicked = { screenId ->
-                    // Navigate to the selected screen
-                    navController.navigate("screens/$screenId")
-                }
-            )
-        }
-        composable("Nawyki") {
-            nawyki(
-                onNextButtonClicked = { screenId ->
-                    // Navigate to the selected screen
-                    navController.navigate("screens/$screenId")
-                }
-            )
-        }
-        composable("Projekt") {
-            projekt(
-                onNextButtonClicked = { screenId ->
-                    // Navigate to the selected screen
-                    navController.navigate("screens/$screenId")
-                }
-            )
-        }
-        composable("My") {
-            my(
-                onNextButtonClicked = { screenId ->
-                    // Navigate to the selected screen
-                    navController.navigate("screens/$screenId")
-                }
-            )
-        }
+        NavHost(navController = navController as NavHostController, startDestination = PsycheaScreen.Start.name) {
+            composable(PsycheaScreen.Start.name) {
+                HomeScreen(
+                    screens = listOf(
+                        PsycheaScreen.Wiedza,
+                        PsycheaScreen.Ciekawostki,
+                        PsycheaScreen.Cwiczenia,
+                        PsycheaScreen.Nawyki,
+                        PsycheaScreen.Projekt,
+                        PsycheaScreen.My
+                    ),
+                    onNextButtonClicked = { screen ->
+                        when (screen) {
+                            PsycheaScreen.Wiedza -> navController.navigate(PsycheaScreen.Wiedza.name)
+                            PsycheaScreen.Ciekawostki -> navController.navigate(PsycheaScreen.Ciekawostki.name)
+                            PsycheaScreen.Cwiczenia -> navController.navigate(PsycheaScreen.Cwiczenia.name)
+                            PsycheaScreen.Nawyki -> navController.navigate(PsycheaScreen.Nawyki.name)
+                            PsycheaScreen.Projekt -> navController.navigate(PsycheaScreen.Projekt.name)
+                            PsycheaScreen.My -> navController.navigate(PsycheaScreen.My.name)
+                            else -> {}
+                        }
+                    },
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .padding(16.dp)
+                )
+            }
 
+            composable(PsycheaScreen.Wiedza.name) {
+                Wiedza(onNextButtonClicked = {})
+            }
+
+            composable(PsycheaScreen.Ciekawostki.name) {
+                Ciekawostki(onNextButtonClicked = {})
+            }
+
+            composable(PsycheaScreen.Cwiczenia.name) {
+                Cwiczenia(onNextButtonClicked = {})
+            }
+
+            composable(PsycheaScreen.Nawyki.name) {
+                nawyki(onNextButtonClicked = {})
+            }
+
+            composable(PsycheaScreen.Projekt.name) {
+                projekt(onNextButtonClicked = {})
+            }
+
+            composable(PsycheaScreen.My.name) {
+                my(onNextButtonClicked = {})
+            }
+        }
     }
 }
 
 @Composable
 @Preview
-fun Preview()
-{
+fun Preview() {
     PsycheaApp()
 }

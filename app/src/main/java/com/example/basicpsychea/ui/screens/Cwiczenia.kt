@@ -43,8 +43,7 @@ fun Cwiczenia(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier)
         Card(
             modifier = Modifier
                 .padding(8.dp)
-                .fillMaxWidth(), // Rozciąga ramkę na całą dostępną szerokość
-
+                .fillMaxWidth(),
         ) {
             Text(
                 "Strefa ćwiczeń",
@@ -54,8 +53,8 @@ fun Cwiczenia(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier)
             )
         }
         LazyColumn {
-            items(cwiczenia_list) {
-                BodyItemCw(exercises = it, modifier = Modifier)
+            items(cwiczenia_list) { cwiczeniaItem ->
+                BodyItemCw(exercises = cwiczeniaItem, modifier = Modifier)
             }
         }
     }
@@ -75,14 +74,15 @@ fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier) {
                         stiffness = Spring.StiffnessMedium
                     )
                 )
-
         ) {
-            Button(onClick = { expanded = !expanded },
+            Button(
+                onClick = { expanded = !expanded },
                 shape = CutCornerShape(10),
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
-                    .clip(MaterialTheme.shapes.medium)) {
+                    .clip(MaterialTheme.shapes.medium)
+            ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -110,36 +110,38 @@ fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .fillMaxSize()
                             .height(100.dp)
-                            .clip(MaterialTheme.shapes.medium))
-
+                            .clip(MaterialTheme.shapes.medium)
+                    )
                 }
             }
         }
     }
 }
 
-
 @Composable
 fun cwiczenia_image(
     @DrawableRes cwiczeniaImage: Int,
     modifier: Modifier = Modifier
 ) {
-    Image(modifier = modifier
-        .clip(MaterialTheme.shapes.medium),
-
+    Image(
+        modifier = modifier.clip(MaterialTheme.shapes.medium),
         painter = painterResource(cwiczeniaImage),
-        contentDescription = null)
+        contentDescription = null
+    )
 }
 
 @Composable
-fun cwiczenia_Description(@StringRes cwiczenia_Description: Int, modifier: Modifier = Modifier)
-{
-    Text(text = stringResource(cwiczenia_Description), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(
-        start = dimensionResource(R.dimen.padding_medium),
-        top = dimensionResource(R.dimen.padding_small),
-        end = dimensionResource(R.dimen.padding_medium),
-        bottom = dimensionResource(R.dimen.padding_medium)
-    ))
+fun cwiczenia_Description(@StringRes cwiczenia_Description: Int, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(cwiczenia_Description),
+        style = MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.padding(
+            start = dimensionResource(R.dimen.padding_medium),
+            top = dimensionResource(R.dimen.padding_small),
+            end = dimensionResource(R.dimen.padding_medium),
+            bottom = dimensionResource(R.dimen.padding_medium)
+        )
+    )
 }
 
 @Preview(showBackground = true)

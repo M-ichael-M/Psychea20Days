@@ -44,71 +44,85 @@ import com.example.basicpsychea.data.nawyki_list
 
 @Composable
 fun projekt(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
-    Column(modifier = Modifier, verticalArrangement = Arrangement.SpaceBetween) {
-        Card(
-            modifier = Modifier
-                .padding(8.dp)
-                .fillMaxWidth(), // Rozciąga ramkę na całą dostępną szerokość
-
-        ) {
-            Text(
-                "O projekcie",
-                style = MaterialTheme.typography.displayLarge,
-                modifier = Modifier.padding(16.dp),
-                textAlign = TextAlign.Center,
-            )
-            Image(modifier = modifier
-                .clip(MaterialTheme.shapes.medium),
-
-                painter = painterResource(R.drawable.ikona),
-                contentDescription = null)
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
-            Text(
-                text = "PSYCHEA - 20 dni do zdrowej psychiki",
-                style = MaterialTheme.typography.headlineLarge
-                    .copy(
-                        color = Color.White, // Zmiana koloru tekstu
-                        shadow = Shadow(
-                            color = Color.Gray, // Dodanie cienia
-                            offset = Offset(6f, 6f),
-                            blurRadius = 4f
-                        ),
-
-                        textAlign = TextAlign.Center // Wyśrodkowanie tekstu
-                    )
-            )
-            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
-            Text(text = "Opis:",
-                style = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.padding(16.dp),
-                textAlign = TextAlign.Center)
-            Text(text = "Tu jest opis",
-                style = MaterialTheme.typography.labelLarge,
-                modifier = Modifier.padding(16.dp),
-                textAlign = TextAlign.Center)
-            Text(text = "Zwolnieni z teorii",
-                style = MaterialTheme.typography.headlineLarge,
-                modifier = Modifier.padding(16.dp),
-                textAlign = TextAlign.Center)
-            Text(text = "O zwolnionych z teorii",
-                style = MaterialTheme.typography.labelLarge,
-                modifier = Modifier.padding(16.dp),
-                textAlign = TextAlign.Center)
-            Box(contentAlignment = Alignment.Center, modifier = modifier.padding(10.dp)) {
-                Row(modifier = modifier) {
-
-                    Image(
-                        modifier = Modifier
-                            .height(40.dp),
-                        painter = painterResource(R.drawable.ig),
-                        contentDescription = null
-                    )
-                    ClickableInstagramProfileLink()
+    LazyColumn(
+        modifier = modifier,
+        verticalArrangement = Arrangement.SpaceBetween
+    ) {
+        item {
+            Card(
+                modifier = Modifier
+                    .padding(8.dp)
+                    .fillMaxWidth(),
+            ) {
+                Text(
+                    "O projekcie",
+                    style = MaterialTheme.typography.displayLarge,
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center,
+                )
+                Image(
+                    modifier = Modifier
+                        .clip(MaterialTheme.shapes.medium),
+                    painter = painterResource(R.drawable.ikona),
+                    contentDescription = null
+                )
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+                Text(
+                    text = "PSYCHEA - 20 dni do zdrowej psychiki",
+                    style = MaterialTheme.typography.headlineLarge
+                        .copy(
+                            color = Color.White,
+                            shadow = Shadow(
+                                color = Color.Gray,
+                                offset = Offset(6f, 6f),
+                                blurRadius = 4f
+                            ),
+                            textAlign = TextAlign.Center
+                        )
+                )
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+                Text(
+                    text = "Opis:",
+                    style = MaterialTheme.typography.headlineLarge,
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    text = "Tu jest opis",
+                    style = MaterialTheme.typography.labelLarge,
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    text = "Zwolnieni z teorii",
+                    style = MaterialTheme.typography.headlineLarge,
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center
+                )
+                Text(
+                    text = "O zwolnionych z teorii",
+                    style = MaterialTheme.typography.labelLarge,
+                    modifier = Modifier.padding(16.dp),
+                    textAlign = TextAlign.Center
+                )
+                Box(
+                    contentAlignment = Alignment.Center,
+                    modifier = modifier.padding(10.dp)
+                ) {
+                    Row(
+                        modifier = modifier
+                    ) {
+                        Image(
+                            modifier = Modifier
+                                .height(40.dp),
+                            painter = painterResource(R.drawable.ig),
+                            contentDescription = null
+                        )
+                        ClickableInstagramProfileLink()
+                    }
                 }
             }
-
         }
-
     }
 }
 
@@ -117,11 +131,10 @@ fun ClickableInstagramProfileLink() {
     val instagramProfileUrl = "https://www.instagram.com/psychea_20dni/"
     val context = LocalContext.current
 
-
-
     ClickableText(
         text = buildAnnotatedString {
-                append("Instagram: @psychea_20dni") },
+            append("Instagram: @psychea_20dni")
+        },
         onClick = { offset ->
             if (offset in 19..24) {
                 val intent = Intent(Intent.ACTION_VIEW, Uri.parse(instagramProfileUrl))
@@ -129,12 +142,12 @@ fun ClickableInstagramProfileLink() {
             }
         },
         style = MaterialTheme.typography.labelLarge,
-        modifier = Modifier.padding(16.dp))
-}
-@Preview(showBackground = true)
-@Composable
-fun Projekt_preview()
-{
-    projekt({})
+        modifier = Modifier.padding(16.dp)
+    )
 }
 
+@Preview(showBackground = true)
+@Composable
+fun ProjektPreview() {
+    projekt({})
+}

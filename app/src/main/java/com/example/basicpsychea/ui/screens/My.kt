@@ -44,8 +44,7 @@ fun my(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
         Card(
             modifier = Modifier
                 .padding(8.dp)
-                .fillMaxWidth(), // Rozciąga ramkę na całą dostępną szerokość
-
+                .fillMaxWidth(),
         ) {
             Text(
                 "O nas",
@@ -55,8 +54,8 @@ fun my(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
             )
         }
         LazyColumn {
-            items(my_list) {
-                BodyItemMy(exercises = it, modifier = Modifier)
+            items(my_list) { myItem ->
+                BodyItemMy(exercises = myItem, modifier = Modifier)
             }
         }
     }
@@ -76,14 +75,15 @@ fun BodyItemMy(exercises: myData, modifier: Modifier = Modifier) {
                         stiffness = Spring.StiffnessMedium
                     )
                 )
-
         ) {
-            Button(onClick = { expanded = !expanded },
+            Button(
+                onClick = { expanded = !expanded },
                 shape = CutCornerShape(10),
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
-                    .clip(MaterialTheme.shapes.medium)) {
+                    .clip(MaterialTheme.shapes.medium)
+            ) {
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -111,36 +111,38 @@ fun BodyItemMy(exercises: myData, modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .fillMaxSize()
                             .height(100.dp)
-                            .clip(MaterialTheme.shapes.medium))
-
+                            .clip(MaterialTheme.shapes.medium)
+                    )
                 }
             }
         }
     }
 }
 
-
 @Composable
 fun my_image(
     @DrawableRes myImage: Int,
     modifier: Modifier = Modifier
 ) {
-    Image(modifier = modifier
-        .clip(MaterialTheme.shapes.medium),
-
+    Image(
+        modifier = modifier.clip(MaterialTheme.shapes.medium),
         painter = painterResource(myImage),
-        contentDescription = null)
+        contentDescription = null
+    )
 }
 
 @Composable
-fun my_Description(@StringRes my_Description: Int, modifier: Modifier = Modifier)
-{
-    Text(text = stringResource(my_Description), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(
-        start = dimensionResource(R.dimen.padding_medium),
-        top = dimensionResource(R.dimen.padding_small),
-        end = dimensionResource(R.dimen.padding_medium),
-        bottom = dimensionResource(R.dimen.padding_medium)
-    ))
+fun my_Description(@StringRes my_Description: Int, modifier: Modifier = Modifier) {
+    Text(
+        text = stringResource(my_Description),
+        style = MaterialTheme.typography.bodyLarge,
+        modifier = Modifier.padding(
+            start = dimensionResource(R.dimen.padding_medium),
+            top = dimensionResource(R.dimen.padding_small),
+            end = dimensionResource(R.dimen.padding_medium),
+            bottom = dimensionResource(R.dimen.padding_medium)
+        )
+    )
 }
 
 @Preview(showBackground = true)
