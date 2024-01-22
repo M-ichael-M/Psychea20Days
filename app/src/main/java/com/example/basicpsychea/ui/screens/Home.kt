@@ -1,7 +1,10 @@
 package com.example.basicpsychea.ui.screens
 
+import android.annotation.SuppressLint
 import android.content.Context
+import android.content.Intent
 import android.content.SharedPreferences
+import android.net.Uri
 import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
@@ -19,11 +22,15 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
+import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.foundation.text.ClickableText
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -34,13 +41,19 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.Shadow
+import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontStyle
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.style.TextDecoration
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -56,6 +69,7 @@ import java.util.Locale
 import kotlin.time.ExperimentalTime
 
 
+@SuppressLint("PrivateResource")
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun HomeScreen(
@@ -63,10 +77,8 @@ fun HomeScreen(
     onNextButtonClicked: (PsycheaScreen) -> Unit,
     modifier: Modifier = Modifier
 ) {
-    // Pobierz datę instalacji z SharedPreferences
     val installDate = getInstallDate()
-    // Oblicz liczbę dni od instalacji do dzisiaj
-    val daysSinceInstall = calculateDaysSinceInstall(installDate)+1
+    val daysSinceInstall = calculateDaysSinceInstall(installDate)
 
     LazyColumn(
         modifier = modifier.padding(top = 20.dp),
@@ -80,32 +92,41 @@ fun HomeScreen(
             ) {
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
                 Image(
-                    painter = painterResource(R.drawable.ikona),
+                    painter = painterResource(R.drawable.logo2),
                     contentDescription = null,
                     modifier = Modifier.width(300.dp)
                 )
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
                 Text(
-                    text = "PSYCHEA",
-                    style = MaterialTheme.typography.headlineLarge
-                        .copy(
-                            color = Color.White,
-                            shadow = Shadow(
-                                color = Color.Gray,
-                                offset = Offset(6f, 6f),
-                                blurRadius = 4f
-                            ),
-                            textAlign = TextAlign.Center
+                    text = stringResource(R.string.psychea),
+                    style = TextStyle(
+                        fontSize = 50.sp,
+                        color = Color.White,
+                        shadow = Shadow(
+                            color = Color.LightGray, offset = Offset(10.0f, 10.0f), blurRadius = 3f
                         )
+                    )
                 )
+
+                Text(text = "20 dni do zdrowej psychiki",
+                    style = TextStyle(
+                        color = MaterialTheme.colorScheme.outline,
+                        fontSize = 25.sp)
+                )
+
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
                 Column(
                     modifier = Modifier
-                        .padding(horizontal = 75.dp)
+                        .padding(horizontal = 50.dp)
                         .fillMaxWidth()
                 ) {
                     Box(
                         modifier = Modifier
-                            .background(Color.LightGray, shape = RoundedCornerShape(10.dp))
+                            .background(
+                                MaterialTheme.colorScheme.surfaceVariant,
+                                shape = RoundedCornerShape(10.dp)
+                            )
                             .padding(16.dp)
                             .aspectRatio(3f / 2f)
                     ) {
@@ -120,19 +141,38 @@ fun HomeScreen(
                                 text = "$daysSinceInstall",
                                 fontStyle = FontStyle.Italic,
                                 fontWeight = FontWeight.ExtraBold,
-                                fontSize = 60.sp, // Adjusted font size
-                                color = Color.DarkGray,
+                                fontSize = 60.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
                             Text(
-                                text = "DZIEŃ",
+                                text = stringResource(R.string.dzie),
                                 fontStyle = FontStyle.Italic,
-                                fontSize = 30.sp, // Adjusted font size
-                                color = Color.DarkGray,
+                                fontSize = 30.sp,
+                                color = MaterialTheme.colorScheme.onSurfaceVariant,
                             )
                         }
                     }
                 }
 
+                if(daysSinceInstall>=20) {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = modifier
+                            .padding(10.dp)
+                            .background(MaterialTheme.colorScheme.secondary)
+                    ) {
+                        Column(
+                            modifier = modifier
+                        ) {
+                            Text(
+                                text = stringResource(R.string.komunikat),
+                                color = MaterialTheme.colorScheme.onSecondary,
+                                modifier = Modifier.padding(16.dp)
+                            )
+                            ClickableFormLink()
+                        }
+                    }
+                }
 
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
 
@@ -170,14 +210,17 @@ fun SelectQuantityButton(
         onClick = onClick,
         modifier = modifier.widthIn(min = 250.dp)
     ) {
-        Text(stringResource(labelResourceId))
+        Text(
+            stringResource(labelResourceId),
+            color = MaterialTheme.colorScheme.onPrimary
+        )
     }
 }
+
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun calculateDaysSinceInstall(installDate: String): Long {
-    // Oblicz liczbę dni od daty instalacji do dzisiaj
     val currentDate = LocalDate.now()
     val startDate = LocalDate.parse(installDate)
     return ChronoUnit.DAYS.between(startDate, currentDate)
@@ -186,13 +229,11 @@ fun calculateDaysSinceInstall(installDate: String): Long {
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun getInstallDate(): String {
-    // Pobierz datę instalacji z SharedPreferences
     val sharedPreferences: SharedPreferences =
         LocalContext.current.getSharedPreferences("InstallDate", Context.MODE_PRIVATE)
     var installDate = sharedPreferences.getString("InstallDate", "")
 
     if (installDate.isNullOrBlank()) {
-        // Jeśli nie ma zapisanej daty instalacji, zapisz aktualną datę
         val currentDate = LocalDate.now().toString()
         sharedPreferences.edit {
             putString("InstallDate", currentDate)
@@ -201,4 +242,23 @@ fun getInstallDate(): String {
     }
 
     return installDate
+}
+
+@Composable
+fun ClickableFormLink() {
+    val formLink = "https://www.google.com"
+    val context = LocalContext.current
+
+    Button(
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(formLink))
+            context.startActivity(intent)
+        },
+        modifier = Modifier.padding(16.dp)
+    ) {
+        Text(
+            stringResource(R.string.we_udzia),
+            color = MaterialTheme.colorScheme.onPrimary
+        )
+    }
 }

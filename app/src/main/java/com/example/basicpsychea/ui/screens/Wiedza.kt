@@ -6,6 +6,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -78,10 +79,10 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier) {
         ) {
             Button(
                 onClick = { expanded = !expanded },
-                shape = CutCornerShape(10),
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
+                    .background(MaterialTheme.colorScheme.primary) // Use your preferred color here
                     .clip(MaterialTheme.shapes.medium)
             ) {
                 Column(

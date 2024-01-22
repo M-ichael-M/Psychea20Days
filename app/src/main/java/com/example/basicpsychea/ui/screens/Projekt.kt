@@ -16,6 +16,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.text.ClickableText
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.LocalContentColor
 import androidx.compose.material3.MaterialTheme
@@ -31,6 +32,7 @@ import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.style.TextAlign
@@ -62,8 +64,9 @@ fun projekt(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
                 )
                 Image(
                     modifier = Modifier
-                        .clip(MaterialTheme.shapes.medium),
-                    painter = painterResource(R.drawable.ikona),
+                        .clip(MaterialTheme.shapes.medium)
+                        .align(Alignment.CenterHorizontally),
+                    painter = painterResource(R.drawable.logo2),
                     contentDescription = null
                 )
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
@@ -82,44 +85,33 @@ fun projekt(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
                 )
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
                 Text(
-                    text = "Opis:",
+                    text = stringResource(R.string.opis),
                     style = MaterialTheme.typography.headlineLarge,
                     modifier = Modifier.padding(16.dp),
                     textAlign = TextAlign.Center
                 )
                 Text(
-                    text = "Tu jest opis",
+                    text = stringResource(R.string.opis_aplikacji),
                     style = MaterialTheme.typography.labelLarge,
                     modifier = Modifier.padding(16.dp),
                     textAlign = TextAlign.Center
                 )
                 Text(
-                    text = "Zwolnieni z teorii",
+                    text = stringResource(R.string.zwolnieni_z_teorii),
                     style = MaterialTheme.typography.headlineLarge,
                     modifier = Modifier.padding(16.dp),
                     textAlign = TextAlign.Center
                 )
                 Text(
-                    text = "O zwolnionych z teorii",
+                    text = stringResource(R.string.o_zwolnionych),
                     style = MaterialTheme.typography.labelLarge,
                     modifier = Modifier.padding(16.dp),
                     textAlign = TextAlign.Center
                 )
-                Box(
-                    contentAlignment = Alignment.Center,
-                    modifier = modifier.padding(10.dp)
-                ) {
-                    Row(
-                        modifier = modifier
-                    ) {
-                        Image(
-                            modifier = Modifier
-                                .height(40.dp),
-                            painter = painterResource(R.drawable.ig),
-                            contentDescription = null
-                        )
-                        ClickableInstagramProfileLink()
-                    }
+                Column {
+                    ClickableFacebookProfileLink()
+                    ClickableInstagramProfileLink()
+                    ClickableMail()
                 }
             }
         }
@@ -131,19 +123,81 @@ fun ClickableInstagramProfileLink() {
     val instagramProfileUrl = "https://www.instagram.com/psychea_20dni/"
     val context = LocalContext.current
 
-    ClickableText(
-        text = buildAnnotatedString {
-            append("Instagram: @psychea_20dni")
+    Button(
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(instagramProfileUrl))
+            context.startActivity(intent)
         },
-        onClick = { offset ->
-            if (offset in 19..24) {
-                val intent = Intent(Intent.ACTION_VIEW, Uri.parse(instagramProfileUrl))
-                context.startActivity(intent)
+        modifier = Modifier.padding(16.dp).fillMaxWidth()
+    ) {
+        Image(
+            modifier = Modifier
+                .height(40.dp),
+            painter = painterResource(R.drawable.ig),
+            contentDescription = null
+        )
+        Text(
+            "Instagram",
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
+}
+
+
+@Composable
+    fun ClickableFacebookProfileLink() {
+    val facebookProfileUrl = "https://www.facebook.com/profile.php?id=61555384814923"
+    val context = LocalContext.current
+
+    Button(
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookProfileUrl))
+            context.startActivity(intent)
+        },
+        modifier = Modifier.padding(16.dp).fillMaxWidth()
+    ) {
+        Image(
+            modifier = Modifier
+                .height(40.dp),
+            painter = painterResource(R.drawable.fb),
+            contentDescription = null
+        )
+        Text(
+            "Facebook",
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
+}
+
+@Composable
+fun ClickableMail() {
+    val mail = "psychea075@gmail.com"
+    val context = LocalContext.current
+
+    Button(
+        onClick = {
+            val intent = Intent(Intent.ACTION_SENDTO).apply {
+                data = Uri.parse("mailto:$mail")
+                putExtra(Intent.EXTRA_EMAIL, arrayOf(mail))
             }
+            context.startActivity(intent)
         },
-        style = MaterialTheme.typography.labelLarge,
-        modifier = Modifier.padding(16.dp)
-    )
+        modifier = Modifier.padding(16.dp).fillMaxWidth()
+    ) {
+        Image(
+            modifier = Modifier
+                .height(40.dp),
+            painter = painterResource(R.drawable.baseline_email_24),
+            contentDescription = null
+        )
+        Text(
+            "Mail",
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
 }
 
 @Preview(showBackground = true)

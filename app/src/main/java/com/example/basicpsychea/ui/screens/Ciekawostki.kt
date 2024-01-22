@@ -6,15 +6,18 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CutCornerShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -66,7 +69,11 @@ fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier) {
     var expanded by remember {
         mutableStateOf(false)
     }
-    Card(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small))) {
+    Card(
+        modifier = modifier
+            .padding(dimensionResource(id = R.dimen.padding_small))
+            .clip(RoundedCornerShape(8.dp)) // Adjust the radius as needed for the background
+    ) {
         Column(
             modifier = Modifier
                 .animateContentSize(
@@ -75,24 +82,20 @@ fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier) {
                         stiffness = Spring.StiffnessMedium
                     )
                 )
-
         ) {
-            Button(onClick = { expanded = !expanded },
-                shape = CutCornerShape(10),
+            Button(
+                onClick = { expanded = !expanded },
                 modifier = Modifier
-                    .fillMaxSize()
-                    .height(150.dp)
-                    .clip(MaterialTheme.shapes.medium)) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(dimensionResource(R.dimen.padding_small))
-                ) {
-                    Text(
-                        text = stringResource(exercises.title),
-                        style = MaterialTheme.typography.displayMedium
-                    )
-                }
+                    .fillMaxWidth()
+                    .heightIn(min = 150.dp) // Set a minimum height for the button
+                    .clip(RoundedCornerShape(8.dp)) // Adjust the radius as needed for the button
+                    .background(MaterialTheme.colorScheme.primary) // Use the primary color for the button background
+            ) {
+                Text(
+                    text = stringResource(exercises.title),
+                    style = MaterialTheme.typography.displayMedium,
+                    modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
+                )
             }
             if (expanded) {
                 Ciekawostki_Description(
@@ -110,13 +113,15 @@ fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier) {
                         modifier = Modifier
                             .fillMaxSize()
                             .height(100.dp)
-                            .clip(MaterialTheme.shapes.medium))
-
+                            .clip(MaterialTheme.shapes.medium)
+                    )
                 }
             }
         }
     }
 }
+
+
 
 
 @Composable

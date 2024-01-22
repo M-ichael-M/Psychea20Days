@@ -9,5 +9,19 @@
     <string name="o_nas">O nas</string>
     <string name="test_1">TEST 1</string>
     <string name="test_2">TEST 2</string>
+    <string name="notification">Notification</string>
+    <string name="dzie">DZIEŃ</string>
+    <string name="we_udzia">WEŹ UDZIAŁ!</string>
+    <string name="komunikat">"Korzystasz z Psychea już 20 dni! Zachęcamy do wzięcia udziału w ankiecie o zdrowiu psychicznym. "</string>
+    <string name="psychea">PSYCHEA</string>
+    <string name="o_zwolnionych">Zwolnieni z Teorii to platforma dla studentów i licealistów do tworzenia własnych projektów społecznych.</string>
+    <string name="zwolnieni_z_teorii">Zwolnieni z teorii</string>
+    <string name="opis">Opis:</string>
+    <string name="opis_aplikacji">W ramach projektu \"Psychea - 20 Dni do Zdrowej Psychiki\" tworzymy innowacyjną aplikację na platformę Android, dedykowaną wszystkim zainteresowanym poprawą zdrowia psychicznego. Nasza aplikacja skupia się na różnorodnych aspektach zdrowia psychicznego, oferując kompleksowy zestaw narzędzi.</string>
+    <string name="micha_ma_eczek">Michał Małeczek</string>
+    <string name="krzysztof_rataj">Krzysztof Rataj</string>
+    <string name="jacek_rogalski">Jacek Rogalski</string>
+    <string name="szymon_piekutowski">Szymon Piekutowski</string>
+    <string name="mateusz_daczkowski">Mateusz Daczkowski</string>
 
 </resources>

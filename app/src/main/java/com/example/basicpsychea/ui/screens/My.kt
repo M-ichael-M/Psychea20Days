@@ -7,6 +7,7 @@ import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -28,9 +29,11 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -39,7 +42,7 @@ import com.example.basicpsychea.data.myData
 import com.example.basicpsychea.data.my_list
 
 @Composable
-fun my(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
+fun my(modifier: Modifier = Modifier) {
     Column(modifier = Modifier) {
         Card(
             modifier = Modifier
@@ -63,90 +66,15 @@ fun my(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
 
 @Composable
 fun BodyItemMy(exercises: myData, modifier: Modifier = Modifier) {
-    var expanded by remember {
-        mutableStateOf(false)
+    Card(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)) ) {
+        Text(text = stringResource(
+    exercises.title),
+        modifier.fillMaxSize().padding(16.dp))
     }
-    Card(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small))) {
-        Column(
-            modifier = Modifier
-                .animateContentSize(
-                    animationSpec = spring(
-                        dampingRatio = Spring.DampingRatioNoBouncy,
-                        stiffness = Spring.StiffnessMedium
-                    )
-                )
-        ) {
-            Button(
-                onClick = { expanded = !expanded },
-                shape = CutCornerShape(10),
-                modifier = Modifier
-                    .fillMaxSize()
-                    .height(150.dp)
-                    .clip(MaterialTheme.shapes.medium)
-            ) {
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                        .padding(dimensionResource(R.dimen.padding_small))
-                ) {
-                    Text(
-                        text = stringResource(exercises.title),
-                        style = MaterialTheme.typography.displayMedium
-                    )
-                }
-            }
-            if (expanded) {
-                my_Description(
-                    my_Description = exercises.description,
-                    modifier = Modifier.padding(
-                        start = dimensionResource(R.dimen.padding_medium),
-                        top = dimensionResource(R.dimen.padding_small),
-                        end = dimensionResource(R.dimen.padding_medium),
-                        bottom = dimensionResource(R.dimen.padding_medium)
-                    )
-                )
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    my_image(
-                        myImage = exercises.imageResourceId,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .height(100.dp)
-                            .clip(MaterialTheme.shapes.medium)
-                    )
-                }
-            }
-        }
-    }
-}
-
-@Composable
-fun my_image(
-    @DrawableRes myImage: Int,
-    modifier: Modifier = Modifier
-) {
-    Image(
-        modifier = modifier.clip(MaterialTheme.shapes.medium),
-        painter = painterResource(myImage),
-        contentDescription = null
-    )
-}
-
-@Composable
-fun my_Description(@StringRes my_Description: Int, modifier: Modifier = Modifier) {
-    Text(
-        text = stringResource(my_Description),
-        style = MaterialTheme.typography.bodyLarge,
-        modifier = Modifier.padding(
-            start = dimensionResource(R.dimen.padding_medium),
-            top = dimensionResource(R.dimen.padding_small),
-            end = dimensionResource(R.dimen.padding_medium),
-            bottom = dimensionResource(R.dimen.padding_medium)
-        )
-    )
 }
 
 @Preview(showBackground = true)
 @Composable
 fun myPreview() {
-    my({})
+    my()
 }
