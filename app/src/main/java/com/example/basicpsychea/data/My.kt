@@ -5,11 +5,12 @@ import androidx.annotation.StringRes
 import com.example.basicpsychea.R
 
 data class myData(
-    @DrawableRes val imageResourceId: Int,
-    @StringRes val title: Int,
-    @StringRes val description: Int
-)
+    @StringRes val title: Int, )
 
 val my_list = listOf(
-    myData(R.drawable.ikona, R.string.test_1, R.string.test_2)
+    myData(R.string.micha_ma_eczek),
+    myData(R.string.krzysztof_rataj),
+    myData(R.string.jacek_rogalski),
+    myData(R.string.szymon_piekutowski),
+    myData(R.string.mateusz_daczkowski)
 )

@@ -15,6 +15,8 @@
  */
 package com.example.basicpsychea
 
+import android.os.Build
+import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -92,6 +94,7 @@ fun PsycheaAppBar(
     )
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun PsycheaApp(navController: NavController = rememberNavController()) {
     val backStackEntry by navController.currentBackStackEntryAsState()
@@ -160,12 +163,13 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
             }
 
             composable(PsycheaScreen.My.name) {
-                my(onNextButtonClicked = {})
+                my()
             }
         }
     }
 }
 
+@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 @Preview
 fun Preview() {
