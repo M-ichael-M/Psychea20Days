@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -40,7 +39,7 @@ import com.example.basicpsychea.data.nawykiData
 import com.example.basicpsychea.data.nawyki_list
 
 @Composable
-fun nawyki(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
+fun nawyki(modifier: Modifier = Modifier) {
     Column(modifier = modifier) {
         Card(
             modifier = Modifier
@@ -149,5 +148,5 @@ fun nawyki_Description(@StringRes nawyki_Description: Int, modifier: Modifier = 
 @Preview(showBackground = true)
 @Composable
 fun nawykiPreview() {
-    nawyki({})
+    nawyki()
 }

@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -39,7 +38,7 @@ import com.example.basicpsychea.data.CwiczeniaData
 import com.example.basicpsychea.data.cwiczenia_list
 
 @Composable
-fun Cwiczenia(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
+fun Cwiczenia() {
     Column(modifier = Modifier) {
         Card(
             modifier = Modifier
@@ -148,5 +147,5 @@ fun cwiczenia_Description(@StringRes cwiczenia_Description: Int, modifier: Modif
 @Preview(showBackground = true)
 @Composable
 fun CwiczeniaPreview() {
-    Cwiczenia({})
+    Cwiczenia()
 }

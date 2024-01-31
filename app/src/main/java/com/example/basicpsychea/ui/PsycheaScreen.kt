@@ -44,8 +44,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
-import com.example.basicpsychea.R
-import com.example.basicpsychea.data.DataSource
 import com.example.basicpsychea.ui.screens.Ciekawostki
 import com.example.basicpsychea.ui.screens.Cwiczenia
 import com.example.basicpsychea.ui.screens.HomeScreen
@@ -143,23 +141,23 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
             }
 
             composable(PsycheaScreen.Wiedza.name) {
-                Wiedza(onNextButtonClicked = {})
+                Wiedza()
             }
 
             composable(PsycheaScreen.Ciekawostki.name) {
-                Ciekawostki(onNextButtonClicked = {})
+                Ciekawostki()
             }
 
             composable(PsycheaScreen.Cwiczenia.name) {
-                Cwiczenia(onNextButtonClicked = {})
+                Cwiczenia()
             }
 
             composable(PsycheaScreen.Nawyki.name) {
-                nawyki(onNextButtonClicked = {})
+                nawyki()
             }
 
             composable(PsycheaScreen.Projekt.name) {
-                projekt(onNextButtonClicked = {})
+                projekt()
             }
 
             composable(PsycheaScreen.My.name) {

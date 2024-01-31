@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
@@ -41,7 +40,7 @@ import com.example.basicpsychea.data.CiewkawostkiData
 import com.example.basicpsychea.data.ciekawostki_list
 
 @Composable
-fun Ciekawostki(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
+fun Ciekawostki(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         item {
             Card(
@@ -108,8 +107,8 @@ fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier) {
                     )
                 )
                 Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    Wiedza_image(
-                        wiedzaImage = exercises.imageResourceId,
+                    Ciekawostki_Image(
+                        ciekawostkiImage = exercises.imageResourceId,
                         modifier = Modifier
                             .fillMaxSize()
                             .height(100.dp)
@@ -150,5 +149,5 @@ fun Ciekawostki_Description(@StringRes ciekawostki_Description: Int, modifier: M
 @Composable
 fun CiekawostkiPreview() {
 
-        Ciekawostki({})
+        Ciekawostki()
 }

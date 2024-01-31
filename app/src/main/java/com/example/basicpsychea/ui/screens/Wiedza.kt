@@ -15,7 +15,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
-import androidx.compose.foundation.shape.CutCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.MaterialTheme
@@ -39,7 +38,7 @@ import com.example.basicpsychea.data.WiedzaData
 import com.example.basicpsychea.data.wiedza_list
 
 @Composable
-fun Wiedza(onNextButtonClicked: (Int) -> Unit, modifier: Modifier = Modifier) {
+fun Wiedza(modifier: Modifier = Modifier) {
     LazyColumn(modifier = modifier) {
         item {
             Card(
@@ -82,7 +81,7 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier) {
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
-                    .background(MaterialTheme.colorScheme.primary) // Use your preferred color here
+                    .background(MaterialTheme.colorScheme.primary)
                     .clip(MaterialTheme.shapes.medium)
             ) {
                 Column(
@@ -151,5 +150,5 @@ fun Wiedza_Description(@StringRes wiedza_Description: Int, modifier: Modifier = 
 @Preview(showBackground = true)
 @Composable
 fun WiedzaPreview() {
-    Wiedza({})
+    Wiedza()
 }
