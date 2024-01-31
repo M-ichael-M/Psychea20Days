@@ -29,7 +29,7 @@ fun my(modifier: Modifier = Modifier) {
                 .fillMaxWidth(),
         ) {
             Text(
-                "Sponsors",
+                stringResource(R.string.o_nas_),
                 style = MaterialTheme.typography.displayLarge,
                 modifier = Modifier.padding(16.dp),
                 textAlign = TextAlign.Center,
@@ -48,7 +48,9 @@ fun BodyItemMy(exercises: myData, modifier: Modifier = Modifier) {
     Card(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small)) ) {
         Text(text = stringResource(
     exercises.title),
-        modifier.fillMaxSize().padding(16.dp))
+            modifier
+                .fillMaxSize()
+                .padding(16.dp))
     }
 }
 

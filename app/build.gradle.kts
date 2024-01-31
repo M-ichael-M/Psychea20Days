@@ -63,6 +63,7 @@ dependencies {
     implementation("com.google.android.material:material:1.11.0")
     implementation("androidx.test:monitor:1.6.1")
     implementation("androidx.test.ext:junit-ktx:1.1.5")
+    implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
     androidTestImplementation("junit:junit:4.13.2")
 
 

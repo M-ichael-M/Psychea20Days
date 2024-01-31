@@ -38,7 +38,7 @@ import com.example.basicpsychea.data.CwiczeniaData
 import com.example.basicpsychea.data.cwiczenia_list
 
 @Composable
-fun Cwiczenia() {
+fun Cwiczenia(viewModel: CwiczeniaViewModel) {
     Column(modifier = Modifier) {
         Card(
             modifier = Modifier
@@ -54,16 +54,16 @@ fun Cwiczenia() {
         }
         LazyColumn {
             items(cwiczenia_list) { cwiczeniaItem ->
-                BodyItemCw(exercises = cwiczeniaItem, modifier = Modifier)
+                BodyItemCw(exercises = cwiczeniaItem, modifier = Modifier, viewModel = viewModel)
             }
         }
     }
 }
 
 @Composable
-fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier) {
+fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier, viewModel: CwiczeniaViewModel) {
     var expanded by remember {
-        mutableStateOf(false)
+        mutableStateOf(viewModel.expandedStateMap[exercises.id] ?: false)
     }
     Card(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small))) {
         Column(
@@ -76,7 +76,10 @@ fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier) {
                 )
         ) {
             Button(
-                onClick = { expanded = !expanded },
+                onClick = {
+                    expanded = !expanded
+                    viewModel.expandedStateMap[exercises.id] = expanded
+                },
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
@@ -147,5 +150,5 @@ fun cwiczenia_Description(@StringRes cwiczenia_Description: Int, modifier: Modif
 @Preview(showBackground = true)
 @Composable
 fun CwiczeniaPreview() {
-    Cwiczenia()
+    //Cwiczenia()
 }

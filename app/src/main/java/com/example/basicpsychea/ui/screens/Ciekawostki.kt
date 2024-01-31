@@ -35,12 +35,13 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.CiewkawostkiData
 import com.example.basicpsychea.data.ciekawostki_list
 
 @Composable
-fun Ciekawostki(modifier: Modifier = Modifier) {
+fun Ciekawostki(modifier: Modifier = Modifier, viewModel: CiekawostkiViewModel) {
     LazyColumn(modifier = modifier) {
         item {
             Card(
@@ -58,15 +59,15 @@ fun Ciekawostki(modifier: Modifier = Modifier) {
         }
 
         items(ciekawostki_list) { exercises ->
-            BodyItem(exercises = exercises, modifier = Modifier)
+            BodyItem(exercises = exercises, modifier = Modifier, viewModel = viewModel)
         }
     }
 }
 
 @Composable
-fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier) {
+fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier, viewModel: CiekawostkiViewModel) {
     var expanded by remember {
-        mutableStateOf(false)
+        mutableStateOf(viewModel.expandedStateMap[exercises.id] ?: false)
     }
     Card(
         modifier = modifier
@@ -83,7 +84,10 @@ fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier) {
                 )
         ) {
             Button(
-                onClick = { expanded = !expanded },
+                onClick = {
+                    expanded = !expanded
+                    viewModel.expandedStateMap[exercises.id] = expanded
+                },
                 modifier = Modifier
                     .fillMaxWidth()
                     .heightIn(min = 150.dp) // Set a minimum height for the button
@@ -149,5 +153,5 @@ fun Ciekawostki_Description(@StringRes ciekawostki_Description: Int, modifier: M
 @Composable
 fun CiekawostkiPreview() {
 
-        Ciekawostki()
+        //Ciekawostki()
 }

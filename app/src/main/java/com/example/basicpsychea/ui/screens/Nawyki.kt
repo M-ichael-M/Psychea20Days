@@ -39,7 +39,7 @@ import com.example.basicpsychea.data.nawykiData
 import com.example.basicpsychea.data.nawyki_list
 
 @Composable
-fun nawyki(modifier: Modifier = Modifier) {
+fun nawyki(modifier: Modifier = Modifier, viewModel: NawykiViewModel) {
     Column(modifier = modifier) {
         Card(
             modifier = Modifier
@@ -55,16 +55,16 @@ fun nawyki(modifier: Modifier = Modifier) {
         }
         LazyColumn {
             items(nawyki_list) { nawykiItem ->
-                BodyItemNa(exercises = nawykiItem, modifier = Modifier)
+                BodyItemNa(exercises = nawykiItem, modifier = Modifier, viewModel = viewModel)
             }
         }
     }
 }
 
 @Composable
-fun BodyItemNa(exercises: nawykiData, modifier: Modifier = Modifier) {
+fun BodyItemNa(exercises: nawykiData, modifier: Modifier = Modifier, viewModel: NawykiViewModel) {
     var expanded by remember {
-        mutableStateOf(false)
+        mutableStateOf(viewModel.expandedStateMap[exercises.id] ?: false)
     }
     Card(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small))) {
         Column(
@@ -77,7 +77,10 @@ fun BodyItemNa(exercises: nawykiData, modifier: Modifier = Modifier) {
                 )
         ) {
             Button(
-                onClick = { expanded = !expanded },
+                onClick = {
+                    expanded = !expanded
+                    viewModel.expandedStateMap[exercises.id] = expanded
+                },
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
@@ -148,5 +151,5 @@ fun nawyki_Description(@StringRes nawyki_Description: Int, modifier: Modifier = 
 @Preview(showBackground = true)
 @Composable
 fun nawykiPreview() {
-    nawyki()
+    //nawyki()
 }

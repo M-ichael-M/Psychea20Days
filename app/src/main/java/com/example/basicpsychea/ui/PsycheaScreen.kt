@@ -16,6 +16,7 @@
 package com.example.basicpsychea
 
 import android.os.Build
+import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
@@ -23,6 +24,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -38,6 +40,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -45,12 +48,17 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.basicpsychea.ui.screens.Ciekawostki
+import com.example.basicpsychea.ui.screens.CiekawostkiViewModel
 import com.example.basicpsychea.ui.screens.Cwiczenia
+import com.example.basicpsychea.ui.screens.CwiczeniaViewModel
 import com.example.basicpsychea.ui.screens.HomeScreen
+import com.example.basicpsychea.ui.screens.NawykiViewModel
 import com.example.basicpsychea.ui.screens.Wiedza
+import com.example.basicpsychea.ui.screens.WiedzaViewModel
 import com.example.basicpsychea.ui.screens.my
 import com.example.basicpsychea.ui.screens.nawyki
 import com.example.basicpsychea.ui.screens.projekt
+
 
 enum class PsycheaScreen(@StringRes val title: Int) {
     Start(title = R.string.app_name),
@@ -94,12 +102,12 @@ fun PsycheaAppBar(
 
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
-fun PsycheaApp(navController: NavController = rememberNavController()) {
+fun PsycheaApp(navController: NavController = rememberNavController(), viewModelCiekawostki: CiekawostkiViewModel, viewModelCwiczenia: CwiczeniaViewModel, viewModelNawyki: NawykiViewModel, viewModelWiedza: WiedzaViewModel) {
+
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = PsycheaScreen.valueOf(
         backStackEntry?.destination?.route ?: PsycheaScreen.Start.name
     )
-
     Column(
         modifier = Modifier.fillMaxSize()
     ) {
@@ -141,19 +149,19 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
             }
 
             composable(PsycheaScreen.Wiedza.name) {
-                Wiedza()
+                Wiedza(viewModel = viewModelWiedza)
             }
 
             composable(PsycheaScreen.Ciekawostki.name) {
-                Ciekawostki()
+                Ciekawostki(viewModel = viewModelCiekawostki)
             }
 
             composable(PsycheaScreen.Cwiczenia.name) {
-                Cwiczenia()
+                Cwiczenia(viewModel = viewModelCwiczenia)
             }
 
             composable(PsycheaScreen.Nawyki.name) {
-                nawyki()
+                nawyki(viewModel = viewModelNawyki)
             }
 
             composable(PsycheaScreen.Projekt.name) {
@@ -171,5 +179,5 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
 @Composable
 @Preview
 fun Preview() {
-    PsycheaApp()
+    //PsycheaApp()
 }

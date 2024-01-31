@@ -38,7 +38,7 @@ import com.example.basicpsychea.data.WiedzaData
 import com.example.basicpsychea.data.wiedza_list
 
 @Composable
-fun Wiedza(modifier: Modifier = Modifier) {
+fun Wiedza(modifier: Modifier = Modifier, viewModel: WiedzaViewModel) {
     LazyColumn(modifier = modifier) {
         item {
             Card(
@@ -56,15 +56,15 @@ fun Wiedza(modifier: Modifier = Modifier) {
         }
 
         items(wiedza_list) { exercises ->
-            BodyItemWi(exercises = exercises, modifier = Modifier)
+            BodyItemWi(exercises = exercises, modifier = Modifier, viewModel = viewModel)
         }
     }
 }
 
 @Composable
-fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier) {
+fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier, viewModel: WiedzaViewModel) {
     var expanded by remember {
-        mutableStateOf(false)
+        mutableStateOf(viewModel.expandedStateMap[exercises.id] ?: false)
     }
     Card(modifier = Modifier.padding(dimensionResource(id = R.dimen.padding_small))) {
         Column(
@@ -77,7 +77,10 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier) {
                 )
         ) {
             Button(
-                onClick = { expanded = !expanded },
+                onClick = {
+                    expanded = !expanded
+                    viewModel.expandedStateMap[exercises.id] = expanded
+                },
                 modifier = Modifier
                     .fillMaxSize()
                     .height(150.dp)
@@ -150,5 +153,5 @@ fun Wiedza_Description(@StringRes wiedza_Description: Int, modifier: Modifier = 
 @Preview(showBackground = true)
 @Composable
 fun WiedzaPreview() {
-    Wiedza()
+    //Wiedza()
 }
