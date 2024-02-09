@@ -1,13 +1,10 @@
 package com.example.basicpsychea.ui.screens
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,11 +21,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -46,7 +41,7 @@ fun Cwiczenia(viewModel: CwiczeniaViewModel) {
                 .fillMaxWidth(),
         ) {
             Text(
-                "Strefa ćwiczeń",
+                stringResource(R.string.strefa_wiczen),
                 style = MaterialTheme.typography.displayLarge,
                 modifier = Modifier.padding(16.dp),
                 textAlign = TextAlign.Center,
@@ -107,30 +102,10 @@ fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier, viewMode
                         bottom = dimensionResource(R.dimen.padding_medium)
                     )
                 )
-                Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                    cwiczenia_image(
-                        cwiczeniaImage = exercises.imageResourceId,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .height(100.dp)
-                            .clip(MaterialTheme.shapes.medium)
-                    )
-                }
+
             }
         }
     }
-}
-
-@Composable
-fun cwiczenia_image(
-    @DrawableRes cwiczeniaImage: Int,
-    modifier: Modifier = Modifier
-) {
-    Image(
-        modifier = modifier.clip(MaterialTheme.shapes.medium),
-        painter = painterResource(cwiczeniaImage),
-        contentDescription = null
-    )
 }
 
 @Composable

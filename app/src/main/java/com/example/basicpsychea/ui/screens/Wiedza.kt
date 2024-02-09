@@ -1,13 +1,10 @@
 package com.example.basicpsychea.ui.screens
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
-import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,11 +21,9 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -99,25 +94,24 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier, viewModel: 
                 }
             }
             if (expanded) {
-                Wiedza_Description(
-                    wiedza_Description = exercises.description,
-                    modifier = Modifier.padding(
-                        start = dimensionResource(R.dimen.padding_medium),
-                        top = dimensionResource(R.dimen.padding_small),
-                        end = dimensionResource(R.dimen.padding_medium),
-                        bottom = dimensionResource(R.dimen.padding_medium)
+                Column {
+                    Wiedza_Definicja(
+                        wiedza_Description = exercises.definicja,
+                        modifier = Modifier.padding(
+                            start = dimensionResource(R.dimen.padding_medium),
+                            top = dimensionResource(R.dimen.padding_small),
+                            end = dimensionResource(R.dimen.padding_medium),
+                            bottom = dimensionResource(R.dimen.padding_medium)
+                        )
                     )
-                )
-                Box(
-                    modifier = Modifier.fillMaxSize(),
-                    contentAlignment = Alignment.Center
-                ) {
-                    Wiedza_image(
-                        wiedzaImage = exercises.imageResourceId,
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .height(100.dp)
-                            .clip(MaterialTheme.shapes.medium)
+                    Wiedza_Objawy(
+                        wiedza_Description = exercises.objawy,
+                        modifier = Modifier.padding(
+                            start = dimensionResource(R.dimen.padding_medium),
+                            top = dimensionResource(R.dimen.padding_small),
+                            end = dimensionResource(R.dimen.padding_medium),
+                            bottom = dimensionResource(R.dimen.padding_medium)
+                        )
                     )
                 }
             }
@@ -126,21 +120,18 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier, viewModel: 
 }
 
 
-
 @Composable
-fun Wiedza_image(
-    @DrawableRes wiedzaImage: Int,
-    modifier: Modifier = Modifier
-) {
-    Image(modifier = modifier
-        .clip(MaterialTheme.shapes.medium),
-
-        painter = painterResource(wiedzaImage),
-        contentDescription = null)
+fun Wiedza_Definicja(@StringRes wiedza_Description: Int, modifier: Modifier = Modifier)
+{
+    Text(text = stringResource(wiedza_Description), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(
+        start = dimensionResource(R.dimen.padding_medium),
+        top = dimensionResource(R.dimen.padding_small),
+        end = dimensionResource(R.dimen.padding_medium),
+        bottom = dimensionResource(R.dimen.padding_medium)
+    ))
 }
-
 @Composable
-fun Wiedza_Description(@StringRes wiedza_Description: Int, modifier: Modifier = Modifier)
+fun Wiedza_Objawy(@StringRes wiedza_Description: Int, modifier: Modifier = Modifier)
 {
     Text(text = stringResource(wiedza_Description), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(
         start = dimensionResource(R.dimen.padding_medium),

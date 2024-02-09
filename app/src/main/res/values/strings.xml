@@ -25,5 +25,101 @@
     <string name="mateusz_daczkowski">Mateusz Daczkowski</string>
     <string name="you_can_be_here">You can be here!</string>
     <string name="o_nas_">O nas</string>
+    <string name="tworcze_zajecia">Twórcze zajęcia</string>
+    <string name="tworcze_zajecia_opis">Malowanie, rysowanie, granie na instrumencie czy tworzenie czegoś z papieru lub plasteliny daje możliwość wyrażania siebie i relaksacji. Zajęcia twórcze pozytywnie wpływają na psychikę, redukując napięcie i stres.</string>
+
+    <string name="czytanie">Czytanie</string>
+    <string name="czytanie_opis">Regularne czytanie książek, zwłaszcza tych pozytywnych i motywujących, rozwija wyobraźnię, pozwala oderwać się od codziennych trosk i przynosi relaks. Czytanie korzystnie wpływa również na koncentrację i elokwencję.</string>
+
+    <string name="kontakt_z_natura">Kontakt z naturą</string>
+    <string name="kontakt_z_natura_opis">Spacery, wycieczki do parku czy wyjazdy na łono natury pomagają odstresować się i odłączyć od miejskiego zamieszania. Kontakt z naturą pozwala się zrelaksować, poprawia nastrój i redukuje negatywne myśli.</string>
+
+    <string name="medytacja">Medytacja</string>
+    <string name="medytacja_opis">Regularna praktyka medytacji pomaga zredukować stres, poprawić koncentrację i zwiększyć poczucie spokoju. Polega na skupieniu uwagi na oddechu i uspokajaniu umysłu, co prowadzi do poprawy samopoczucia psychicznego. Możesz zacząć od kilku minut dziennie i stopniowo wydłużać czas trwania medytacji.</string>
+
+    <string name="aktywnosc_fizyczna">Aktywność fizyczna</string>
+    <string name="aktywnosc_fizyczna_opis">Wykonywanie regularnego ćwiczenia fizycznego, takiego jak jogging, jazda na rowerze lub tańczenie, pomaga w uwalnianiu endorfin - hormonów szczęścia. Poprawia to nastrój, redukuje stres i zwiększa ogólną wydajność.</string>
+
+    <string name="prowadzenie_dziennika">Prowadzenie dziennika</string>
+    <string name="prowadzenie_dziennika_opis">Pisanie codziennego dziennika jest doskonałym sposobem na wyrażenie emocji i refleksję nad przeszłymi doświadczeniami. Pomaga to w zrozumieniu własnych uczuć, rozwiązaniu trudności i skupieniu uwagi na pozytywnych aspektach życia.</string>
+
+    <string name="dbanie_o_odpoczynek_i_sen">Dbanie o odpoczynek i sen</string>
+    <string name="dbanie_o_odpoczynek_i_sen_opis">Regularne 7-9 godzin snu na dobę oraz zapewnienie sobie czasu na odpoczynek jest kluczowe dla dobrego stanu psychicznego. Warto zaplanować czas na relaks, czytanie, słuchanie muzyki lub rozmowy z bliskimi, aby zregenerować umysł i poprawić ogólną równowagę.</string>
+
+    <string name="wsparcie_spoleczne">Wyszukiwanie wsparcia społecznego</string>
+    <string name="wsparcie_spoleczne_opis">Nawiązywanie zdrowych relacji społecznych z rodziną, przyjaciółmi lub grupami wsparcia może pomóc w radzeniu sobie z trudnościami życiowymi. Dzielenie się problemami i obopólna pomoc może znacznie zwiększyć poczucie bezpieczeństwa i zadowolenia emocjonalnego.</string>
+
+    <string name="zdrowa_dieta">Zdrowa dieta</string>
+    <string name="zdrowa_dieta_opis">Równowaga między odpowiednim odżywieniem a psychiką jest bardzo ważna. Spożywanie zdrowych, pełnowartościowych posiłków, bogatych w witaminy i minerały, ma pozytywny wpływ na funkcjonowanie mózgu, a tym samym na zdrową psychikę.</string>
+
+    <string name="cwiczenia_relaksacyjne">Ćwiczenia relaksacyjne</string>
+    <string name="cwiczenia_relaksacyjne_opis">Ćwiczenia relaksacyjne, takie jak głębokie oddychanie, rozciąganie mięśni i progresywna relaksacja, pomagają zrelaksować ciało i umysł, zmniejszyć napięcie, zwiększyć skoncentrowanie i poprawić samopoczucie.</string>
+
+    <string name="rownowaga_pracy_i_odpoczynku">Równowaga</string>
+    <string name="rownowaga_pracy_i_odpoczynku_opis">Utrzymywanie równowagi między pracą a odpoczynkiem jest niezwykle ważne dla zdrowej psychiki. Odpowiedni odpoczynek i czas dla siebie pozwala zredukować stres, regenerować się i utrzymywać energię. To także zapobiega wypaleniu zawodowemu i problemom zdrowotnym wynikającym z przeciążenia psychicznego.</string>
+
+    <string name="pozytywne_afirmacje">Pozytywne afirmacje</string>
+    <string name="pozytywne_afirmacje_opis"> Pozytywne afirmacje: Powtarzanie pozytywnych afirmacji, takich jak "jestem silny" lub "jestem wartościową osobą", pomaga wzmocnić pozytywne myślenie i budować pewność siebie. To proste ćwiczenie pomaga wzmocnić zdrową psychikę i budować pozytywne podejście do życia.</string>
+    <string name="regularna_aktywnosc_fizyczna_title">Regularna aktywność fizyczna</string>
+    <string name="regularna_aktywnosc_fizyczna_description">Regularne ćwiczenia fizyczne mają korzystny wpływ na zdrowie psychiczne. Ćwiczenia wyzwalają endorfiny, substancje chemiczne w mózgu, które działają jako naturalny środek przeciwbólowy i przeciwstresowy. Mogą także poprawić sen i zwiększyć poziom energii.</string>
+
+    <string name="zrownowazona_dieta_title">Zrównoważona dieta</string>
+    <string name="zrownowazona_dieta_description">Odżywianie odgrywa istotną rolę w funkcjonowaniu mózgu. Spożywanie różnorodnych, bogatych w składniki odżywcze posiłków wspiera zdrowie psychiczne. Staraj się unikać nadmiernego spożycia cukru, tłuszczów nasyconych i procesowanych produktów.</string>
+
+    <string name="wystarczajacy_sen_title">Wystarczający sen</string>
+    <string name="wystarczajacy_sen_description">Sen pełni kluczową rolę w regeneracji fizycznej i psychicznej. Brak odpowiedniej ilości snu może prowadzić do problemów ze zdrowiem psychicznym, takich jak zwiększone uczucie stresu czy obniżone samopoczucie.</string>
+
+    <string name="zarzadzanie_stresem_title">Zarządzanie stresem</string>
+    <string name="zarzadzanie_stresem_description">Techniki relaksacyjne, takie jak medytacja, głębokie oddychanie czy joga, mogą pomóc w redukcji poziomu stresu. Praktykowanie tych metod regularnie może poprawić zdolność radzenia sobie z trudnymi sytuacjami.</string>
+
+    <string name="spoleczne_wsparcie_title">Społeczne wsparcie</string>
+    <string name="spoleczne_wsparcie_description">Utrzymywanie zdrowych relacji społecznych jest kluczowe dla dobrej kondycji psychicznej. Dzielenie się uczuciami z bliskimi, rozmowy i wsparcie emocjonalne mogą pomóc w radzeniu sobie z trudnościami życiowymi.</string>
+
+    <string name="rozwoj_pasji_title">Rozwijanie pasji</string>
+    <string name="rozwoj_pasji_description">Znalezienie czasu na hobby i zajęcia, które sprawiają radość, może działać jak naturalny sposób na rozładowanie stresu i poprawę nastroju. Pasje stanowią również ważny element samorozwoju.</string>
+
+    <string name="utrzymanie_rownowagi_zycia_title">Utrzymywanie równowagi życia</string>
+    <string name="utrzymanie_rownowagi_zycia_description">Stawianie granic między pracą a życiem prywatnym pomaga w utrzymaniu równowagi. Nadmierne zaangażowanie w pracę może prowadzić do przemęczenia i problemów psychicznych.</string>
+
+    <string name="depresja">Depresja</string>
+    <string name="definicja_depresji">Depresja to stan zaburzenia nastroju charakteryzujący się uczuciem smutku, bezwartościowości, utraty zainteresowania życiem i przyjemnością, a także zmianami w psychice i funkcjonowaniu fizycznym.</string>
+    <string name="objawy_depresji">Objawy depresji mogą obejmować smutek, utratę energii, trudności w koncentracji, zmiany w apetycie, bezsenność lub nadmierną senność, uczucie bezwartościowości lub nadmierna poczucie winy, myśli samobójcze.</string>
+
+    <string name="zaburzenia_lękowe">Zaburzenia lękowe</string>
+    <string name="definicja_zaburzeń_lękowych">Lękowe zaburzenia to grupa zaburzeń psychicznych charakteryzujących się nadmiernym lękiem lub obawami, które są nieproporcjonalne do rzeczywistych zagrożeń i mogą prowadzić do znacznego cierpienia i ograniczeń w codziennym funkcjonowaniu.</string>
+    <string name="przykłady_zaburzeń_lękowych">Przykłady: Zaburzenie lękowe uogólnione (GAD), fobia społeczna, fobia specyficzna, zaburzenie obsesyjno-kompulsyjne (OCD), zaburzenie stresu pourazowego (PTSD).</string>
+
+    <string name="zaburzenia_osobowości">Zaburzenia osobowości</string>
+    <string name="definicja_zaburzeń_osobowości">Zaburzenia osobowości to wzorce zachowań, emocji i myślenia, które są stałe, starannie utrwalone i prowadzą do znaczących problemów w funkcjonowaniu społecznym i zawodowym.</string>
+    <string name="przykłady_zaburzeń_osobowości">Przykłady: Zaburzenie osobowości borderline (BPD), zaburzenie osobowości narcystycznej (NPD), zaburzenie osobowości unikającej (AvPD).</string>
+
+    <string name="zaburzenia_afektywne_dwubiegunowe">Zaburzenia afektywne dwubiegunowe (bipolarność)</string>
+    <string name="definicja_zaburzeń_afektywnych_dwubiegunowych">Zaburzenia afektywne dwubiegunowe to grupa zaburzeń psychicznych charakteryzujących się okresami manii, podczas których występuje nadmierny nastrój lub energia, oraz okresami depresji.</string>
+    <string name="objawy_zaburzeń_afektywnych_dwubiegunowych">Objawy: W okresie manii mogą występować nadmierna ekscytacja, nadmierne poczucie własnej wartości, szybkie myślenie, impulsywność. W okresie depresji mogą wystąpić smutek, uczucie beznadziei, zmęczenie, zmniejszone zainteresowanie życiem.</string>
+
+    <string name="zaburzenia_psychotyczne">Zaburzenia psychotyczne</string>
+    <string name="definicja_zaburzeń_psychotycznych">Zaburzenia psychotyczne to grupa zaburzeń, które charakteryzują się utratą kontaktu z rzeczywistością, co może objawiać się halucynacjami, urojeniami, dezorganizacją myślenia i zachowania.</string>
+    <string name="przykłady_zaburzeń_psychotycznych">Przykłady: Schizofrenia, zaburzenie schizoafektywne, zaburzenie psychotyczne krótkotrwałe (reaktywne).</string>
+
+    <string name="zaburzenia_odżywiania">Zaburzenia odżywiania</string>
+    <string name="definicja_zaburzeń_odżywiania">Zaburzenia odżywiania to zaburzenia psychiczne, które wpływają na sposób, w jaki jednostka spożywa pokarmy, prowadząc często do niezdrowych zachowań żywieniowych i poważnych konsekwencji zdrowotnych.</string>
+    <string name="przykłady_zaburzeń_odżywiania">Przykłady: Anoreksja nervosa, bulimia nervosa, zaburzenie napadowego objadania się (BED).</string>
+
+    <string name="adhd">Zaburzenia uwagi i hiperaktywności (ADHD)</string>
+    <string name="definicja_adhd">Zaburzenie uwagi i hiperaktywności (ADHD) to zaburzenie neurobiologiczne, które objawia się trudnościami w koncentracji, nadmierną impulsywnością i nadmierną aktywnością.</string>
+    <string name="objawy_adhd">Objawy: Utrudnione skupienie uwagi, impulsywność, nadmierna aktywność motoryczna, trudności w organizacji zadań i planowaniu.</string>
+
+    <string name="zaburzenia_snu">Zaburzenia snu</string>
+    <string name="definicja_zaburzeń_snu">Zaburzenia snu to różnorodne zaburzenia, które wpływają na zdolność osoby do osiągnięcia satysfakcjonującego i regenerującego snu.</string>
+    <string name="przykłady_zaburzeń_snu">Przykłady: Bezsenność, bezdech senny, zaburzenia rytmu snu- czuwania.</string>
+
+    <string name="zaburzenia_używania_substancji">Zaburzenia związane z używaniem substancji</string>
+    <string name="definicja_zaburzeń_używania_substancji">Zaburzenia związane z używaniem substancji to grupa zaburzeń, które wynikają z nadużywania lub uzależnienia od substancji psychoaktywnych, takich jak alkohol, narkotyki, leki.</string>
+    <string name="przykłady_zaburzeń_używania_substancji">Przykłady: Alkoholizm, uzależnienie od narkotyków, uzależnienie od leków przeciwbólowych.</string>
+
+    <string name="zaburzenia_nerwicowe">Zaburzenia nerwicowe</string>
+    <string name="definicja_zaburzeń_nerwicowych">Zaburzenia nerwicowe to grupa zaburzeń psychicznych, które charakteryzują się występowaniem silnych i przewlekłych objawów lękowych, które często prowadzą do unikania sytuacji wyzwalających niepokój.</string>
+    <string name="przykłady_zaburzeń_nerwicowych">Przykłady: Zespół lęku uogólnionego, zespół lęku napadowego, zaburzenie obsesyjno-kompulsyjne (OCD).</string>
+    <string name="strefa_wiczen">Strefa ćwiczeń</string>
 
 </resources>
