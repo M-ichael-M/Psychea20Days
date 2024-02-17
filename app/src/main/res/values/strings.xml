@@ -149,5 +149,9 @@
     <string name="psychea_20_dni_do_zdrowej_psychiki">PSYCHEA - 20 dni do zdrowej psychiki</string>
     <string name="_116111">+48116111</string>
     <string name="_800702222">+48800702222</string>
+    <string name="boxer">Waves</string>
+    <string name="informacja">Informacja</string>
+    <string name="waves_info">Uwolnij umysł! Jest to swego rodzaju clicker. Jeśli jesteś zestresowany zacznij klikać w ekran, aby rozładować złość. Pomaga również, gdy potrzebujesz się skupić, a jesteś rozkojarzony.</string>
+    <string name="info">Info</string>
 
 </resources>

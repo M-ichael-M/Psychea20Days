@@ -56,6 +56,7 @@ import com.example.basicpsychea.ui.screens.WiedzaViewModel
 import com.example.basicpsychea.ui.screens.my
 import com.example.basicpsychea.ui.screens.nawyki
 import com.example.basicpsychea.ui.screens.projekt
+import com.example.basicpsychea.ui.screens.tools.BoxerScreen
 import com.example.basicpsychea.ui.screens.tools.InfoliniaScreen
 
 
@@ -69,7 +70,8 @@ enum class PsycheaScreen(@StringRes val title: Int) {
     Projekt(title = R.string.o_projekcie),
     My(title = R.string.o_nas),
 
-    Infolinia(title = R.string.infolinia)
+    Infolinia(title = R.string.infolinia),
+    Boxer(title = R.string.boxer)
 
 }
 @OptIn(ExperimentalMaterial3Api::class)
@@ -169,10 +171,12 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
             composable(PsycheaScreen.Narzedzia.name){
                 ToolsScreen(
                     screens = listOf(
-                    PsycheaScreen.Infolinia
+                    PsycheaScreen.Infolinia,
+                        PsycheaScreen.Boxer
                 ), onNextButtonClicked = {screen ->
                 when (screen) {
                     PsycheaScreen.Infolinia -> navController.navigate(PsycheaScreen.Infolinia.name)
+                    PsycheaScreen.Boxer ->navController.navigate(PsycheaScreen.Boxer.name)
 
                     else -> {}
                 }
@@ -190,6 +194,11 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
             composable(PsycheaScreen.Infolinia.name)
             {
                 InfoliniaScreen()
+            }
+
+            composable(PsycheaScreen.Boxer.name)
+            {
+                BoxerScreen(modifier = Modifier)
             }
         }
     }

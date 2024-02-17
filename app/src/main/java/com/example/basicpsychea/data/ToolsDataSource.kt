@@ -4,6 +4,7 @@ import com.example.basicpsychea.R
 
 object ToolsDataSource {
     val screens = listOf(
-        R.string.infolinia
+        R.string.infolinia,
+        R.string.boxer
     )
 }
