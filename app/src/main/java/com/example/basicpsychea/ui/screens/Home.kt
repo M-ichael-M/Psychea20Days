@@ -20,11 +20,13 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.layout.widthIn
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -45,6 +47,7 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.edit
 import com.example.basicpsychea.PsycheaScreen
 import com.example.basicpsychea.R
+import com.example.basicpsychea.data.quotes_list
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
@@ -58,6 +61,7 @@ fun HomeScreen(
 ) {
     val installDate = getInstallDate()
     val daysSinceInstall = calculateDaysSinceInstall(installDate)
+    val quoteIndex = (daysSinceInstall % quotes_list.size).toInt() // Ustalanie indeksu cytatu na podstawie dni od instalacji
 
     LazyColumn(
         modifier = modifier.padding(top = 20.dp),
@@ -133,6 +137,42 @@ fun HomeScreen(
                     }
                 }
 
+                Column(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .background(
+                                MaterialTheme.colorScheme.surfaceVariant,
+                                shape = RoundedCornerShape(10.dp)
+                            )
+                            .padding(16.dp)
+                    ) {
+                        Icon(
+                            painter = painterResource(id = R.drawable.baseline_format_quote_24),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .align(Alignment.TopStart)
+                                .size(35.dp)
+                        )
+                        Text(
+                            text = stringResource(quotes_list[quoteIndex].quote),
+                            modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 36.dp, top = 36.dp),
+                            fontStyle = FontStyle.Italic,
+                            color = Color.Black,
+                            fontSize = 18.sp
+                        )
+                        Icon(
+                            painter = painterResource(id = R.drawable.baseline_format_quote_24),
+                            contentDescription = null,
+                            modifier = Modifier
+                                .align(Alignment.BottomEnd)
+                                .size(35.dp)
+                        )
+                    }
+                }
+
                 if(daysSinceInstall>=20) {
                     Box(
                         contentAlignment = Alignment.Center,
@@ -178,6 +218,7 @@ fun HomeScreen(
         }
     }
 }
+
 
 @Composable
 fun SelectQuantityButton(

@@ -60,7 +60,7 @@
 
     <string name="pozytywne_afirmacje">Pozytywne afirmacje</string>
     <string name="pozytywne_afirmacje_opis"> Pozytywne afirmacje: Powtarzanie pozytywnych afirmacji, takich jak "jestem silny" lub "jestem wartościową osobą", pomaga wzmocnić pozytywne myślenie i budować pewność siebie. To proste ćwiczenie pomaga wzmocnić zdrową psychikę i budować pozytywne podejście do życia.</string>
-    <string name="regularna_aktywnosc_fizyczna_title">Regularna aktywność fizyczna</string>
+    <string name="regularna_aktywnosc_fizyczna_title">Regularna aktywność</string>
     <string name="regularna_aktywnosc_fizyczna_description">Regularne ćwiczenia fizyczne mają korzystny wpływ na zdrowie psychiczne. Ćwiczenia wyzwalają endorfiny, substancje chemiczne w mózgu, które działają jako naturalny środek przeciwbólowy i przeciwstresowy. Mogą także poprawić sen i zwiększyć poziom energii.</string>
 
     <string name="zrownowazona_dieta_title">Zrównoważona dieta</string>
@@ -153,5 +153,27 @@
     <string name="informacja">Informacja</string>
     <string name="waves_info">Uwolnij umysł! Jest to swego rodzaju clicker. Jeśli jesteś zestresowany zacznij klikać w ekran, aby rozładować złość. Pomaga również, gdy potrzebujesz się skupić, a jesteś rozkojarzony.</string>
     <string name="info">Info</string>
+
+    <string name="quote_1">"Twoje zdrowie psychiczne jest równie ważne, co twoje zdrowie fizyczne." - Unknown</string>
+    <string name="quote_2">"Zacznij od tego, co możliwe. Potem zrobisz to, co konieczne, i nagle odkryjesz, że osiągasz to, co niemożliwe." - Franciszek z Asyżu</string>
+    <string name="quote_3">"Pozytywne myślenie przyciąga pozytywne wyniki." - Michael Josephson</string>
+    <string name="quote_4">"Siła nie polega na tym, by nigdy nie upadać, ale na tym, by za każdym razem wstać, kiedy to zrobisz." - Confucjusz</string>
+    <string name="quote_5">"Największym triumfem jest raz jeszcze podnieść się, gdy już upadłeś." - Vince Lombardi</string>
+    <string name="quote_6">"Droga do sukcesu jest pełna klęsk, ale to właśnie one uczą nas najwięcej." - Unknown</string>
+    <string name="quote_7">"Codzienne wysiłki są kluczem do długotrwałego sukcesu." - Unknown</string>
+    <string name="quote_8">"Twoje myśli kształtują Twoje życie. Jeśli chcesz zmienić swoje życie, musisz najpierw zmienić swoje myśli." - Unknown</string>
+    <string name="quote_9">"Nawet najdłuższa podróż zaczyna się od pierwszego kroku." - Laozi</string>
+    <string name="quote_10">"Działanie jest lekiem na strach, działanie jest lekiem na niepewność, działanie jest lekiem na wątpliwości." - Anthony Robbins</string>
+    <string name="quote_11">"Nigdy nie rezygnuj z rzeczy, o których marzysz." - Unknown</string>
+    <string name="quote_12">"Życie to nie podróż po prostej drodze, ale taniec po wznosach i upadkach." - Unknown</string>
+    <string name="quote_13">"Jeżeli idziesz przez piekło, nie zatrzymuj się, idź dalej. Wszystko się kiedyś kończy." - Winston Churchill</string>
+    <string name="quote_14">"Sukces nie jest kluczem do szczęścia. Szczęście jest kluczem do sukcesu. Jeśli kochasz to, co robisz, odniesiesz sukces." - Albert Schweitzer</string>
+    <string name="quote_15">"Czasem najmniejszy krok w dobrą stronę jest najważniejszy." - Unknown</string>
+    <string name="quote_16">"Twoje ograniczenia są tylko w twojej wyobraźni." - Unknown</string>
+    <string name="quote_17">"Dzielność polega na tym, by podnosić się po każdym upadku." - Confucjusz</string>
+    <string name="quote_18">"Odpoczynek to nieporozumienie dla tych, którzy pracują." - John Lennon</string>
+    <string name="quote_19">"Ważne jest, by patrzeć w przyszłość z optymizmem, ale zawsze pamiętaj o lekcjach przeszłości." - Unknown</string>
+    <string name="quote_20">"Życie jest jak rower. Aby utrzymać równowagę, musisz się poruszać." - Albert Einstein</string>
+
 
 </resources>
