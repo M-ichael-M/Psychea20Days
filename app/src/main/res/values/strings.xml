@@ -18,11 +18,11 @@
     <string name="zwolnieni_z_teorii">Zwolnieni z teorii</string>
     <string name="opis">Opis:</string>
     <string name="opis_aplikacji">W ramach projektu \"Psychea - 20 Dni do Zdrowej Psychiki\" tworzymy innowacyjną aplikację na platformę Android, dedykowaną wszystkim zainteresowanym poprawą zdrowia psychicznego. Nasza aplikacja skupia się na różnorodnych aspektach zdrowia psychicznego, oferując kompleksowy zestaw narzędzi.</string>
-    <string name="micha_ma_eczek">Michał Małeczek</string>
-    <string name="krzysztof_rataj">Krzysztof Rataj</string>
-    <string name="jacek_rogalski">Jacek Rogalski</string>
-    <string name="szymon_piekutowski">Szymon Piekutowski</string>
-    <string name="mateusz_daczkowski">Mateusz Daczkowski</string>
+    <string name="micha_ma_eczek">Michał Małeczek - CEO, Programmer, Designer</string>
+    <string name="krzysztof_rataj">Krzysztof Rataj - Social Media Specialist, Designer, Main Text Content Editor</string>
+    <string name="jacek_rogalski">Jacek Rogalski - Text Content Editor</string>
+    <string name="szymon_piekutowski">Szymon Piekutowski - Text Content Editor</string>
+    <string name="mateusz_daczkowski">Mateusz Daczkowski - Text Content Editor</string>
     <string name="you_can_be_here">You can be here!</string>
     <string name="o_nas_">O nas</string>
     <string name="tworcze_zajecia">Twórcze zajęcia</string>
@@ -44,7 +44,7 @@
     <string name="prowadzenie_dziennika_opis">Pisanie codziennego dziennika jest doskonałym sposobem na wyrażenie emocji i refleksję nad przeszłymi doświadczeniami. Pomaga to w zrozumieniu własnych uczuć, rozwiązaniu trudności i skupieniu uwagi na pozytywnych aspektach życia.</string>
 
     <string name="dbanie_o_odpoczynek_i_sen">Dbanie o odpoczynek i sen</string>
-    <string name="dbanie_o_odpoczynek_i_sen_opis">Regularne 7-9 godzin snu na dobę oraz zapewnienie sobie czasu na odpoczynek jest kluczowe dla dobrego stanu psychicznego. Warto zaplanować czas na relaks, czytanie, słuchanie muzyki lub rozmowy z bliskimi, aby zregenerować umysł i poprawić ogólną równowagę.</string>
+    <string name="dbanie_o_odpoczynek_i_sen_opis">Regularne 7–9 godzin snu na dobę oraz zapewnienie sobie czasu na odpoczynek jest kluczowe dla dobrego stanu psychicznego. Warto zaplanować czas na relaks, czytanie, słuchanie muzyki lub rozmowy z bliskimi, aby zregenerować umysł i poprawić ogólną równowagę.</string>
 
     <string name="wsparcie_spoleczne">Wyszukiwanie wsparcia społecznego</string>
     <string name="wsparcie_spoleczne_opis">Nawiązywanie zdrowych relacji społecznych z rodziną, przyjaciółmi lub grupami wsparcia może pomóc w radzeniu sobie z trudnościami życiowymi. Dzielenie się problemami i obopólna pomoc może znacznie zwiększyć poczucie bezpieczeństwa i zadowolenia emocjonalnego.</string>
@@ -121,5 +121,25 @@
     <string name="definicja_zaburzeń_nerwicowych">Zaburzenia nerwicowe to grupa zaburzeń psychicznych, które charakteryzują się występowaniem silnych i przewlekłych objawów lękowych, które często prowadzą do unikania sytuacji wyzwalających niepokój.</string>
     <string name="przykłady_zaburzeń_nerwicowych">Przykłady: Zespół lęku uogólnionego, zespół lęku napadowego, zaburzenie obsesyjno-kompulsyjne (OCD).</string>
     <string name="strefa_wiczen">Strefa ćwiczeń</string>
+    <string name="strefa_ciekawostekk">Strefa ciekawostek</string>
+
+    <string name="nieswiadomosc_title">Nieświadomość</string>
+    <string name="nieswiadomosc_description">Większość procesów myślowych, emocji i motywacji zachodzi poza świadomą percepcją jednostki. Nieświadome procesy mogą mieć znaczący wpływ na nasze zachowanie i decyzje, nawet jeśli nie jesteśmy sobie tego świadomi.</string>
+
+    <string name="deja_vu_title">Zjawisko Deja vu</string>
+    <string name="deja_vu_description">Deja vu to uczucie, że doświadczyliśmy danej sytuacji lub miejsca wcześniej, chociaż nie możemy sobie przypomnieć, kiedy i gdzie to miało miejsce. Pomimo że naukowcy nie są pewni jego dokładnej przyczyny, uważa się, że zjawisko to jest związane z krótkotrwałym zakłóceniem w procesach percepcyjnych.</string>
+
+    <string name="sklonnosc_do_ulegania_wplywom_grupowym_title">Uległość grupie</string>
+    <string name="sklonnosc_do_ulegania_wplywom_grupowym_description">Ludzie mają tendencję do dostosowywania się do zachowań i opinii innych osób w grupie, nawet jeśli oznacza to sprzeczność z własnymi przekonaniami. To zjawisko, znane jako presja grupy, może prowadzić do podejmowania decyzji, które nie są w zgodzie z własnymi wartościami i przekonaniami.</string>
+
+    <string name="efekt_bumerangu_title">Efekt bumerangu</string>
+    <string name="efekt_bumerangu_description">Efekt bumerangu to zjawisko, w którym przekonywanie kogoś do zmiany swoich poglądów lub zachowań może spowodować przeciwny efekt, tj. utwierdzenie ich w swoich pierwotnych przekonaniach. Jest to ważne zjawisko w kontekście komunikacji społecznej i edukacji.</string>
+
+    <string name="plastycznosc_mozgu_title">Plastyczność mózgu</string>
+    <string name="plastycznosc_mozgu_description">Mózg ludzki posiada zdolność do adaptacji i zmiany, zwane plastycznością mózgu. Dzięki temu, na przykład, można się uczyć nowych umiejętności, odzyskiwać funkcje po urazach mózgu oraz zmieniać swoje nawyki i przekonania. Plastyczność mózgu umożliwia nam ciągłe przystosowanie się do zmieniających się warunków życiowych i środowiska.</string>
+    <string name="greggames">GREG GAMES Grzegorz Mikulski - Wydawca aplikacji na platformie Google Play</string>
+    <string name="partnerzy">Partnerzy:</string>
+    <string name="zesp">Zespół:</string>
+    <string name="_20_dni_do_zdrowej_psychiki">20 dni do zdrowej psychiki</string>
 
 </resources>

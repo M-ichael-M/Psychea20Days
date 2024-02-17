@@ -87,7 +87,7 @@ fun HomeScreen(
                     )
                 )
 
-                Text(text = "20 dni do zdrowej psychiki",
+                Text(text = stringResource(R.string._20_dni_do_zdrowej_psychiki),
                     style = TextStyle(
                         color = MaterialTheme.colorScheme.outline,
                         fontSize = 25.sp)
@@ -225,7 +225,7 @@ fun getInstallDate(): String {
 
 @Composable
 fun ClickableFormLink() {
-    val formLink = "https://www.google.com"
+    val formLink = "https://forms.gle/a5au7aDKoGpmG83Y6"
     val context = LocalContext.current
 
     Button(

@@ -29,7 +29,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.basicpsychea.R
-import com.example.basicpsychea.data.CiewkawostkiData
+import com.example.basicpsychea.data.CiekawostkiData
 import com.example.basicpsychea.data.ciekawostki_list
 
 @Composable
@@ -42,7 +42,7 @@ fun Ciekawostki(modifier: Modifier = Modifier, viewModel: CiekawostkiViewModel) 
                     .fillMaxWidth(),
             ) {
                 Text(
-                    "Strefa ciekawostek",
+                    stringResource(R.string.strefa_ciekawostekk),
                     style = MaterialTheme.typography.displayLarge,
                     modifier = Modifier.padding(16.dp),
                     textAlign = TextAlign.Center,
@@ -57,7 +57,7 @@ fun Ciekawostki(modifier: Modifier = Modifier, viewModel: CiekawostkiViewModel) 
 }
 
 @Composable
-fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier, viewModel: CiekawostkiViewModel) {
+fun BodyItem(exercises: CiekawostkiData, modifier: Modifier = Modifier, viewModel: CiekawostkiViewModel) {
     var expanded by remember {
         mutableStateOf(viewModel.expandedStateMap[exercises.id] ?: false)
     }
@@ -82,9 +82,9 @@ fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier, viewMod
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .heightIn(min = 150.dp) // Set a minimum height for the button
-                    .clip(RoundedCornerShape(8.dp)) // Adjust the radius as needed for the button
-                    .background(MaterialTheme.colorScheme.primary) // Use the primary color for the button background
+                    .heightIn(min = 150.dp)
+                    .clip(RoundedCornerShape(8.dp))
+                    .background(MaterialTheme.colorScheme.primary)
             ) {
                 Text(
                     text = stringResource(exercises.title),
@@ -103,6 +103,7 @@ fun BodyItem(exercises: CiewkawostkiData, modifier: Modifier = Modifier, viewMod
                     )
                 )
             }
+
         }
     }
 }
