@@ -57,7 +57,7 @@ fun projekt(modifier: Modifier = Modifier) {
                 )
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
                 Text(
-                    text = "PSYCHEA - 20 dni do zdrowej psychiki",
+                    text = stringResource(R.string.psychea_20_dni_do_zdrowej_psychiki),
                     style = MaterialTheme.typography.headlineLarge
                         .copy(
                             color = Color.White,
@@ -114,7 +114,9 @@ fun ClickableInstagramProfileLink() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(instagramProfileUrl))
             context.startActivity(intent)
         },
-        modifier = Modifier.padding(16.dp).fillMaxWidth()
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
     ) {
         Image(
             modifier = Modifier
@@ -141,7 +143,9 @@ fun ClickableInstagramProfileLink() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookProfileUrl))
             context.startActivity(intent)
         },
-        modifier = Modifier.padding(16.dp).fillMaxWidth()
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
     ) {
         Image(
             modifier = Modifier
@@ -170,7 +174,9 @@ fun ClickableMail() {
             }
             context.startActivity(intent)
         },
-        modifier = Modifier.padding(16.dp).fillMaxWidth()
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
     ) {
         Image(
             modifier = Modifier

@@ -16,7 +16,6 @@
 package com.example.basicpsychea
 
 import android.os.Build
-import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
@@ -24,7 +23,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
-import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -40,7 +38,6 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavController
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -53,11 +50,13 @@ import com.example.basicpsychea.ui.screens.Cwiczenia
 import com.example.basicpsychea.ui.screens.CwiczeniaViewModel
 import com.example.basicpsychea.ui.screens.HomeScreen
 import com.example.basicpsychea.ui.screens.NawykiViewModel
+import com.example.basicpsychea.ui.screens.ToolsScreen
 import com.example.basicpsychea.ui.screens.Wiedza
 import com.example.basicpsychea.ui.screens.WiedzaViewModel
 import com.example.basicpsychea.ui.screens.my
 import com.example.basicpsychea.ui.screens.nawyki
 import com.example.basicpsychea.ui.screens.projekt
+import com.example.basicpsychea.ui.screens.tools.InfoliniaScreen
 
 
 enum class PsycheaScreen(@StringRes val title: Int) {
@@ -66,13 +65,13 @@ enum class PsycheaScreen(@StringRes val title: Int) {
     Ciekawostki(title = R.string.strefa_ciekawostek),
     Cwiczenia(title = R.string.strefa_wicze),
     Nawyki(title = R.string.zdrowe_nawyki),
+    Narzedzia(title = R.string.narz_dzia),
     Projekt(title = R.string.o_projekcie),
-    My(title = R.string.o_nas)
+    My(title = R.string.o_nas),
+
+    Infolinia(title = R.string.infolinia)
 
 }
-
-// ... (existing code)
-
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PsycheaAppBar(
@@ -128,6 +127,7 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                         PsycheaScreen.Ciekawostki,
                         PsycheaScreen.Cwiczenia,
                         PsycheaScreen.Nawyki,
+                        PsycheaScreen.Narzedzia,
                         PsycheaScreen.Projekt,
                         PsycheaScreen.My
                     ),
@@ -137,8 +137,10 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                             PsycheaScreen.Ciekawostki -> navController.navigate(PsycheaScreen.Ciekawostki.name)
                             PsycheaScreen.Cwiczenia -> navController.navigate(PsycheaScreen.Cwiczenia.name)
                             PsycheaScreen.Nawyki -> navController.navigate(PsycheaScreen.Nawyki.name)
+                            PsycheaScreen.Narzedzia -> navController.navigate(PsycheaScreen.Narzedzia.name)
                             PsycheaScreen.Projekt -> navController.navigate(PsycheaScreen.Projekt.name)
                             PsycheaScreen.My -> navController.navigate(PsycheaScreen.My.name)
+
                             else -> {}
                         }
                     },
@@ -164,12 +166,30 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                 nawyki(viewModel = viewModelNawyki)
             }
 
+            composable(PsycheaScreen.Narzedzia.name){
+                ToolsScreen(
+                    screens = listOf(
+                    PsycheaScreen.Infolinia
+                ), onNextButtonClicked = {screen ->
+                when (screen) {
+                    PsycheaScreen.Infolinia -> navController.navigate(PsycheaScreen.Infolinia.name)
+
+                    else -> {}
+                }
+                })
+            }
+
             composable(PsycheaScreen.Projekt.name) {
                 projekt()
             }
 
             composable(PsycheaScreen.My.name) {
                 my()
+            }
+
+            composable(PsycheaScreen.Infolinia.name)
+            {
+                InfoliniaScreen()
             }
         }
     }

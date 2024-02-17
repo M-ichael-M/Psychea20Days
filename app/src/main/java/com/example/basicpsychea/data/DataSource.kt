@@ -8,6 +8,7 @@ object DataSource {
         R.string.strefa_ciekawostek,
         R.string.strefa_wicze,
         R.string.zdrowe_nawyki,
+        R.string.narz_dzia,
         R.string.o_projekcie,
         R.string.o_nas
     )

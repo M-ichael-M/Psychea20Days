@@ -141,5 +141,13 @@
     <string name="partnerzy">Partnerzy:</string>
     <string name="zesp">Zespół:</string>
     <string name="_20_dni_do_zdrowej_psychiki">20 dni do zdrowej psychiki</string>
+    <string name="narz_dzia">Narzędzia</string>
+    <string name="infolinia">Infolinia</string>
+    <string name="ca_odobowa_linia_wsparcia">Całodobowa Linia Wsparcia</string>
+    <string name="telefon_zaufania_dla_dzieci_i_m_odzie_y">Telefon Zaufania dla Dzieci i Młodzieży</string>
+    <string name="telefony_wsprcia_infolinia_jest_bezp_atne_dzwonienie_na_te_numery_jest_pierwsz_rzecz_jak_mo_emy_zrobi_gdy_nasz_stan_si_pogarsza_a_nie_mo_emy_uda_si_do_psychologa">"Telefony wsprcia - infolinia jest bezpłatna. Dzwonienie na te numery jest pierwszą rzeczą jaką możemy zrobić, gdy nasz stan psychiczny się pogarsza, a nie możemy udać się do psychologa. "</string>
+    <string name="psychea_20_dni_do_zdrowej_psychiki">PSYCHEA - 20 dni do zdrowej psychiki</string>
+    <string name="_116111">+48116111</string>
+    <string name="_800702222">+48800702222</string>
 
 </resources>
