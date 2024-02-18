@@ -61,7 +61,7 @@ fun HomeScreen(
 ) {
     val installDate = getInstallDate()
     val daysSinceInstall = calculateDaysSinceInstall(installDate)
-    val quoteIndex = (daysSinceInstall % quotes_list.size).toInt() // Ustalanie indeksu cytatu na podstawie dni od instalacji
+    val quoteIndex = (daysSinceInstall % quotes_list.size).toInt()
 
     LazyColumn(
         modifier = modifier.padding(top = 20.dp),
