@@ -6,6 +6,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
 import androidx.annotation.RequiresApi
+import com.example.basicpsychea.ui.PsycheaApp
 import com.example.basicpsychea.ui.screens.CiekawostkiViewModel
 import com.example.basicpsychea.ui.screens.CwiczeniaViewModel
 import com.example.basicpsychea.ui.screens.NawykiViewModel

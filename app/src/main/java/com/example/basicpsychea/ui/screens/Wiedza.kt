@@ -42,7 +42,7 @@ fun Wiedza(modifier: Modifier = Modifier, viewModel: WiedzaViewModel) {
                     .fillMaxWidth(),
             ) {
                 Text(
-                    "Strefa wiedzy",
+                    stringResource(R.string.strefa_wiedzy1),
                     style = MaterialTheme.typography.displayLarge,
                     modifier = Modifier.padding(16.dp),
                     textAlign = TextAlign.Center,
@@ -51,13 +51,13 @@ fun Wiedza(modifier: Modifier = Modifier, viewModel: WiedzaViewModel) {
         }
 
         items(wiedza_list) { exercises ->
-            BodyItemWi(exercises = exercises, modifier = Modifier, viewModel = viewModel)
+            BodyItemWi(exercises = exercises, viewModel = viewModel)
         }
     }
 }
 
 @Composable
-fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier, viewModel: WiedzaViewModel) {
+fun BodyItemWi(exercises: WiedzaData, viewModel: WiedzaViewModel) {
     var expanded by remember {
         mutableStateOf(viewModel.expandedStateMap[exercises.id] ?: false)
     }
@@ -96,22 +96,10 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier, viewModel: 
             if (expanded) {
                 Column {
                     Wiedza_Definicja(
-                        wiedza_Description = exercises.definicja,
-                        modifier = Modifier.padding(
-                            start = dimensionResource(R.dimen.padding_medium),
-                            top = dimensionResource(R.dimen.padding_small),
-                            end = dimensionResource(R.dimen.padding_medium),
-                            bottom = dimensionResource(R.dimen.padding_medium)
-                        )
+                        wiedza_Description = exercises.definicja
                     )
                     Wiedza_Objawy(
-                        wiedza_Description = exercises.objawy,
-                        modifier = Modifier.padding(
-                            start = dimensionResource(R.dimen.padding_medium),
-                            top = dimensionResource(R.dimen.padding_small),
-                            end = dimensionResource(R.dimen.padding_medium),
-                            bottom = dimensionResource(R.dimen.padding_medium)
-                        )
+                        wiedza_Description = exercises.objawy
                     )
                 }
             }
@@ -121,7 +109,7 @@ fun BodyItemWi(exercises: WiedzaData, modifier: Modifier = Modifier, viewModel: 
 
 
 @Composable
-fun Wiedza_Definicja(@StringRes wiedza_Description: Int, modifier: Modifier = Modifier)
+fun Wiedza_Definicja(@StringRes wiedza_Description: Int)
 {
     Text(text = stringResource(wiedza_Description), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(
         start = dimensionResource(R.dimen.padding_medium),
@@ -131,7 +119,7 @@ fun Wiedza_Definicja(@StringRes wiedza_Description: Int, modifier: Modifier = Mo
     ))
 }
 @Composable
-fun Wiedza_Objawy(@StringRes wiedza_Description: Int, modifier: Modifier = Modifier)
+fun Wiedza_Objawy(@StringRes wiedza_Description: Int)
 {
     Text(text = stringResource(wiedza_Description), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(
         start = dimensionResource(R.dimen.padding_medium),

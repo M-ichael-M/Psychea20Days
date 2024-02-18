@@ -45,7 +45,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.edit
-import com.example.basicpsychea.PsycheaScreen
+import com.example.basicpsychea.ui.PsycheaScreen
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.quotes_list
 import java.time.LocalDate

@@ -43,7 +43,7 @@ fun projekt(modifier: Modifier = Modifier) {
                     .fillMaxWidth(),
             ) {
                 Text(
-                    "O projekcie",
+                    stringResource(R.string.o_projekcie1),
                     style = MaterialTheme.typography.displayLarge,
                     modifier = Modifier.padding(16.dp),
                     textAlign = TextAlign.Center,
@@ -185,7 +185,7 @@ fun ClickableMail() {
             contentDescription = null
         )
         Text(
-            "Mail",
+            stringResource(R.string.mail),
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier.padding(16.dp)
         )

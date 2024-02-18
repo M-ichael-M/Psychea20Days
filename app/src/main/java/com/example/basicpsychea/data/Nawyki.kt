@@ -1,6 +1,5 @@
 package com.example.basicpsychea.data
 
-import androidx.annotation.DrawableRes
 import androidx.annotation.StringRes
 import com.example.basicpsychea.R
 

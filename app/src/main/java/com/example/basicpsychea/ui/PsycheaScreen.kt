@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.example.basicpsychea
+package com.example.basicpsychea.ui
 
 import android.os.Build
 import androidx.annotation.RequiresApi
@@ -44,6 +44,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.basicpsychea.R
 import com.example.basicpsychea.ui.screens.Ciekawostki
 import com.example.basicpsychea.ui.screens.CiekawostkiViewModel
 import com.example.basicpsychea.ui.screens.Cwiczenia
@@ -175,7 +176,7 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
             composable(PsycheaScreen.Narzedzia.name){
                 ToolsScreen(
                     screens = listOf(
-                    PsycheaScreen.Infolinia,
+                        PsycheaScreen.Infolinia,
                         PsycheaScreen.Boxer,
                         PsycheaScreen.ClearWorries,
                         PsycheaScreen.Quotes

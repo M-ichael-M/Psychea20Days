@@ -49,14 +49,14 @@ fun Cwiczenia(viewModel: CwiczeniaViewModel) {
         }
         LazyColumn {
             items(cwiczenia_list) { cwiczeniaItem ->
-                BodyItemCw(exercises = cwiczeniaItem, modifier = Modifier, viewModel = viewModel)
+                BodyItemCw(exercises = cwiczeniaItem, viewModel = viewModel)
             }
         }
     }
 }
 
 @Composable
-fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier, viewModel: CwiczeniaViewModel) {
+fun BodyItemCw(exercises: CwiczeniaData, viewModel: CwiczeniaViewModel) {
     var expanded by remember {
         mutableStateOf(viewModel.expandedStateMap[exercises.id] ?: false)
     }
@@ -94,13 +94,7 @@ fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier, viewMode
             }
             if (expanded) {
                 cwiczenia_Description(
-                    cwiczenia_Description = exercises.description,
-                    modifier = Modifier.padding(
-                        start = dimensionResource(R.dimen.padding_medium),
-                        top = dimensionResource(R.dimen.padding_small),
-                        end = dimensionResource(R.dimen.padding_medium),
-                        bottom = dimensionResource(R.dimen.padding_medium)
-                    )
+                    cwiczenia_Description = exercises.description
                 )
 
             }
@@ -109,7 +103,7 @@ fun BodyItemCw(exercises: CwiczeniaData, modifier: Modifier = Modifier, viewMode
 }
 
 @Composable
-fun cwiczenia_Description(@StringRes cwiczenia_Description: Int, modifier: Modifier = Modifier) {
+fun cwiczenia_Description(@StringRes cwiczenia_Description: Int) {
     Text(
         text = stringResource(cwiczenia_Description),
         style = MaterialTheme.typography.bodyLarge,

@@ -34,7 +34,7 @@ fun BoxerScreen(modifier: Modifier) {
     var showDialog by remember { mutableStateOf(false) }
 
     val targetSize = if (isClicked) 1000.dp else 1000.dp
-    val size by animateDpAsState(targetValue = targetSize, animationSpec = tween(1000))
+    val size by animateDpAsState(targetValue = targetSize, animationSpec = tween(1000), label = "")
 
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Box(

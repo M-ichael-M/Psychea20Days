@@ -94,13 +94,7 @@ fun BodyItem(exercises: CiekawostkiData, modifier: Modifier = Modifier, viewMode
             }
             if (expanded) {
                 Ciekawostki_Description(
-                    ciekawostki_Description = exercises.description,
-                    modifier = Modifier.padding(
-                        start = dimensionResource(R.dimen.padding_medium),
-                        top = dimensionResource(R.dimen.padding_small),
-                        end = dimensionResource(R.dimen.padding_medium),
-                        bottom = dimensionResource(R.dimen.padding_medium)
-                    )
+                    ciekawostki_Description = exercises.description
                 )
             }
 
@@ -108,7 +102,7 @@ fun BodyItem(exercises: CiekawostkiData, modifier: Modifier = Modifier, viewMode
     }
 }
 @Composable
-fun Ciekawostki_Description(@StringRes ciekawostki_Description: Int, modifier: Modifier = Modifier)
+fun Ciekawostki_Description(@StringRes ciekawostki_Description: Int)
 {
     Text(text = stringResource(ciekawostki_Description), style = MaterialTheme.typography.bodyLarge, modifier = Modifier.padding(
         start = dimensionResource(R.dimen.padding_medium),

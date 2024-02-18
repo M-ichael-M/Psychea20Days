@@ -180,6 +180,12 @@
     <string name="wpisz_swoje_zmartwienia">Wpisz swoje zmartwienia...</string>
     <string name="usu_zmartwienia">Usuń zmartwienia!</string>
     <string name="twoje_cytaty">Twoje Cytaty</string>
+    <string name="zablokowane">Zablokowane</string>
+    <string name="lock">lock</string>
+    <string name="zdrowe_nawyki6">Zdrowe nawyki</string>
+    <string name="o_projekcie1">O projekcie</string>
+    <string name="mail">Mail</string>
+    <string name="strefa_wiedzy1">Strefa wiedzy</string>
 
 
 </resources>

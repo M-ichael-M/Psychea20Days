@@ -42,7 +42,7 @@ fun nawyki(modifier: Modifier = Modifier, viewModel: NawykiViewModel) {
                 .fillMaxWidth(),
         ) {
             Text(
-                "Zdrowe nawyki",
+                stringResource(R.string.zdrowe_nawyki6),
                 style = MaterialTheme.typography.displayLarge,
                 modifier = Modifier.padding(16.dp),
                 textAlign = TextAlign.Center,
@@ -50,14 +50,14 @@ fun nawyki(modifier: Modifier = Modifier, viewModel: NawykiViewModel) {
         }
         LazyColumn {
             items(nawyki_list) { nawykiItem ->
-                BodyItemNa(exercises = nawykiItem, modifier = Modifier, viewModel = viewModel)
+                BodyItemNa(exercises = nawykiItem, viewModel = viewModel)
             }
         }
     }
 }
 
 @Composable
-fun BodyItemNa(exercises: NawykiData, modifier: Modifier = Modifier, viewModel: NawykiViewModel) {
+fun BodyItemNa(exercises: NawykiData, viewModel: NawykiViewModel) {
     var expanded by remember {
         mutableStateOf(viewModel.expandedStateMap[exercises.id] ?: false)
     }
@@ -95,13 +95,7 @@ fun BodyItemNa(exercises: NawykiData, modifier: Modifier = Modifier, viewModel: 
             }
             if (expanded) {
                 nawyki_Description(
-                    nawyki_Description = exercises.description,
-                    modifier = Modifier.padding(
-                        start = dimensionResource(R.dimen.padding_medium),
-                        top = dimensionResource(R.dimen.padding_small),
-                        end = dimensionResource(R.dimen.padding_medium),
-                        bottom = dimensionResource(R.dimen.padding_medium)
-                    )
+                    nawyki_Description = exercises.description
                 )
             }
         }
@@ -109,7 +103,7 @@ fun BodyItemNa(exercises: NawykiData, modifier: Modifier = Modifier, viewModel: 
 }
 
 @Composable
-fun nawyki_Description(@StringRes nawyki_Description: Int, modifier: Modifier = Modifier) {
+fun nawyki_Description(@StringRes nawyki_Description: Int) {
     Text(
         text = stringResource(nawyki_Description),
         style = MaterialTheme.typography.bodyLarge,
