@@ -68,7 +68,7 @@ fun BoxerScreen(modifier: Modifier) {
                 },
                 confirmButton = {
                     TextButton(onClick = { showDialog = false }) {
-                        Text("OK")
+                        Text(stringResource(id = R.string.ok))
                     }
                 }
             )
