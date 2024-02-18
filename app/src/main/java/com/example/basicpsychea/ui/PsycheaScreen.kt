@@ -59,6 +59,7 @@ import com.example.basicpsychea.ui.screens.projekt
 import com.example.basicpsychea.ui.screens.tools.BoxerScreen
 import com.example.basicpsychea.ui.screens.tools.ClearWorriesScreen
 import com.example.basicpsychea.ui.screens.tools.InfoliniaScreen
+import com.example.basicpsychea.ui.screens.tools.QuotesScreen
 
 
 enum class PsycheaScreen(@StringRes val title: Int) {
@@ -73,7 +74,8 @@ enum class PsycheaScreen(@StringRes val title: Int) {
 
     Infolinia(title = R.string.infolinia),
     Boxer(title = R.string.boxer),
-    ClearWorries(title = R.string.clearworries)
+    ClearWorries(title = R.string.clearworries),
+    Quotes(title = R.string.twoje_cytaty)
 
 }
 @OptIn(ExperimentalMaterial3Api::class)
@@ -175,12 +177,14 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                     screens = listOf(
                     PsycheaScreen.Infolinia,
                         PsycheaScreen.Boxer,
-                        PsycheaScreen.ClearWorries
+                        PsycheaScreen.ClearWorries,
+                        PsycheaScreen.Quotes
                 ), onNextButtonClicked = {screen ->
                 when (screen) {
                     PsycheaScreen.Infolinia -> navController.navigate(PsycheaScreen.Infolinia.name)
                     PsycheaScreen.Boxer ->navController.navigate(PsycheaScreen.Boxer.name)
                     PsycheaScreen.ClearWorries -> navController.navigate(PsycheaScreen.ClearWorries.name)
+                    PsycheaScreen.Quotes -> navController.navigate(PsycheaScreen.Quotes.name)
 
                     else -> {}
                 }
@@ -208,6 +212,11 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
             composable(PsycheaScreen.ClearWorries.name)
             {
                 ClearWorriesScreen()
+            }
+
+            composable(PsycheaScreen.Quotes.name)
+            {
+                QuotesScreen()
             }
         }
     }

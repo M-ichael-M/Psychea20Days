@@ -25,7 +25,7 @@ import com.example.basicpsychea.data.myData
 import com.example.basicpsychea.data.my_list
 
 @Composable
-fun my(modifier: Modifier = Modifier) {
+fun my( ) {
     Column(modifier = Modifier) {
         Card(
             modifier = Modifier
@@ -63,8 +63,8 @@ fun my(modifier: Modifier = Modifier) {
             }
         }
         Box(modifier = Modifier.padding(8.dp)) {
-            Column(modifier=Modifier.border(1.dp, color = Color.LightGray, shape = RoundedCornerShape(8.dp))) {
-                Card(
+            LazyColumn(modifier=Modifier.border(1.dp, color = Color.LightGray, shape = RoundedCornerShape(8.dp))) {
+                item{Card(
                     modifier = Modifier
                         .padding(8.dp)
                         .fillMaxWidth(),
@@ -75,15 +75,15 @@ fun my(modifier: Modifier = Modifier) {
                         modifier = Modifier.padding(16.dp),
                         textAlign = TextAlign.Center
                     )
-                }
+                }}
 
-                Card(
+                item{Card(
                     modifier = Modifier
                         .padding(8.dp)
                         .fillMaxWidth(),
                 ){
                     Text(text = stringResource(R.string.greggames),modifier = Modifier.padding(16.dp))
-                }
+                }}
             }
         }
     }

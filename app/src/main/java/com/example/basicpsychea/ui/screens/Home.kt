@@ -61,7 +61,22 @@ fun HomeScreen(
 ) {
     val installDate = getInstallDate()
     val daysSinceInstall = calculateDaysSinceInstall(installDate)
-    val quoteIndex = (daysSinceInstall % quotes_list.size).toInt()
+    var daysSinceInstallTo20 = daysSinceInstall
+    var quoteIndex = daysSinceInstall
+    if(daysSinceInstall<20)
+    {
+        quoteIndex = daysSinceInstall
+    }
+    else
+    {
+        while(daysSinceInstallTo20>=20)
+        {
+            daysSinceInstallTo20=-20
+        }
+
+        quoteIndex = daysSinceInstallTo20
+    }
+
 
     LazyColumn(
         modifier = modifier.padding(top = 20.dp),
@@ -157,7 +172,7 @@ fun HomeScreen(
                                 .size(35.dp)
                         )
                         Text(
-                            text = stringResource(quotes_list[quoteIndex].quote),
+                            text = stringResource(quotes_list[quoteIndex.toInt()].quote),
                             modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 36.dp, top = 36.dp),
                             fontStyle = FontStyle.Italic,
                             color = Color.Black,
