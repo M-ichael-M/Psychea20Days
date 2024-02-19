@@ -8,7 +8,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "com.example.basicpsychea"
+        applicationId = "com.psychea.basicpsychea"
         minSdk = 23
         targetSdk = 34
         versionCode = 1
