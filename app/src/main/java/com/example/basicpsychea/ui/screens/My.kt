@@ -59,33 +59,12 @@ fun my( ) {
                     items(my_list) { myItem ->
                         BodyItemMy(exercises = myItem, modifier = Modifier)
                     }
-                }
-            }
-        }
-        Box(modifier = Modifier.padding(8.dp)) {
-            LazyColumn(modifier=Modifier.border(1.dp, color = Color.LightGray, shape = RoundedCornerShape(8.dp))) {
-                item{Card(
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth(),
-                )
-                {
-                    Text(
-                        text = stringResource(R.string.partnerzy), style = MaterialTheme.typography.headlineLarge,
-                        modifier = Modifier.padding(16.dp),
-                        textAlign = TextAlign.Center
-                    )
-                }}
 
-                item{Card(
-                    modifier = Modifier
-                        .padding(8.dp)
-                        .fillMaxWidth(),
-                ){
-                    Text(text = stringResource(R.string.greggames),modifier = Modifier.padding(16.dp))
-                }}
+                }
+
             }
         }
+
     }
 }
 

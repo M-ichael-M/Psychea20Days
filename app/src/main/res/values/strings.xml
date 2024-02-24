@@ -137,7 +137,7 @@
 
     <string name="plastycznosc_mozgu_title">Plastyczność mózgu</string>
     <string name="plastycznosc_mozgu_description">Mózg ludzki posiada zdolność do adaptacji i zmiany, zwane plastycznością mózgu. Dzięki temu, na przykład, można się uczyć nowych umiejętności, odzyskiwać funkcje po urazach mózgu oraz zmieniać swoje nawyki i przekonania. Plastyczność mózgu umożliwia nam ciągłe przystosowanie się do zmieniających się warunków życiowych i środowiska.</string>
-    <string name="greggames">GREG GAMES Grzegorz Mikulski - Wydawca aplikacji na platformie Google Play</string>
+    <string name="greggames">GREG GAMES Grzegorz Mikulski - Partner, Wydawca aplikacji na platformie Google Play</string>
     <string name="partnerzy">Partnerzy:</string>
     <string name="zesp">Zespół:</string>
     <string name="_20_dni_do_zdrowej_psychiki">20 dni do zdrowej psychiki</string>
@@ -191,5 +191,68 @@
     <string name="instagram">Instagram</string>
 <string name="info_quotes">Every day you unlock a new quote. You can see the Quote of the Day on the main screen. All the quotes you\'ve already unlocked are available here. Keep using Psychea to unlock more quotes!</string>
     <string name="share">Share</string>
+
+    <string name="todo1_1">Idź na spacer</string>
+    <string name="todo1_2">Zrób listę miłych rzeczy, które przydarzyły ci się w tym tygodniu</string>
+
+    <string name="todo2_1">Zjedz jakiś owoc</string>
+    <string name="todo2_2">Przed pójściem spać, wyobraź sobie siebie dryfującego beztrosko na pięknym, spokojnym morzu w pontonie</string>
+
+    <string name="todo3_1">Posłuchaj ulubionej muzyki</string>
+    <string name="todo3_2">Przygotuj sobie herbatę lub kawę i delektuj się jej smakiem</string>
+
+    <string name="todo4_1">Wykonaj krótką sesję jogi lub strechingu</string>
+    <string name="todo4_2">Spędź kilka minut na czytaniu ulubionej książki</string>
+
+    <string name="todo5_1">Zrób sobie pyszne, zdrowe śniadanie</string>
+    <string name="todo5_2">Zapisz w dzienniku trzy rzeczy, za które jesteś wdzięczny</string>
+
+    <string name="todo6_1">Zorganizuj swoje miejsce pracy lub miejsce nauki</string>
+    <string name="todo6_2">Wykonaj kilka głębokich oddechów i skoncentruj się na teraźniejszym momencie</string>
+
+    <string name="todo7_1">Zaplanuj spotkanie ze znajomymi lub rodziną</string>
+    <string name="todo7_2">Zrób sobie kilka zdjęć, aby utrwalić piękne chwile</string>
+
+    <string name="todo8_1">Zrób sobie przerwę od mediów społecznościowych przez kilka godzin</string>
+    <string name="todo8_2">Posłuchaj relaksacyjnej medytacji lub dźwięków natury przed snem</string>
+
+    <string name="todo9_1">Napisz list do przyjaciela lub bliskiej osoby</string>
+    <string name="todo9_2">Obejrzyj ulubiony film lub serial, ciesząc się czasem dla siebie</string>
+
+    <string name="todo10_1">Wyjdź na spacer po zachodzie słońca</string>
+    <string name="todo10_2">Zrób sobie gorącą kąpiel z solami do kąpieli i olejkami eterycznymi</string>
+
+    <string name="todo11_1">Przygotuj sobie ulubioną potrawę</string>
+    <string name="todo11_2">Zapisz w dzienniku swoje cele i marzenia na przyszłość</string>
+
+    <string name="todo12_1">Zajrzyj do albumu ze zdjęciami z pięknymi wspomnieniami</string>
+    <string name="todo12_2">Wykonaj kilka prostych ćwiczeń rozciągających dla poprawy elastyczności</string>
+
+    <string name="todo13_1">Posłuchaj inspirującego podcastu lub wykładu</string>
+    <string name="todo13_2">Zrób sobie kilka głębokich oddechów i skoncentruj się na teraźniejszym momencie</string>
+
+    <string name="todo14_1">Znajdź ciche miejsce i wykonaj kilka minut medytacji</string>
+    <string name="todo14_2">Przeczytaj artykuł na temat czegoś, co Cię interesuje, poszerzając swoją wiedzę</string>
+
+    <string name="todo15_1">Posłuchaj ulubionej piosenki i zatańcz</string>
+    <string name="todo15_2">Wyjdź na zewnątrz i zrób kilka zdjęć przyrodzie lub architekturze</string>
+
+    <string name="todo16_1">Zrób sobie pyszną, orzeźwiającą sałatkę</string>
+    <string name="todo16_2">Posłuchaj dźwięków natury i pozwól, by relaksowały Twój umysł</string>
+
+    <string name="todo17_1">Prowadź dziennik emocji, zapisując swoje uczucia i myśli</string>
+    <string name="todo17_2">Zrób sobie kilka minut praktyki mindfulnes, skupiając się na obecnej chwili</string>
+
+    <string name="todo18_1">Zrób sobie przerwę od pracy lub nauki i odpocznij na kanapie</string>
+    <string name="todo18_2">Obejrzyj zachód słońca i podziwiaj piękno otaczającego świata</string>
+
+    <string name="todo19_1">Wyjdź na przejażdżkę rowerową po okolicy</string>
+    <string name="todo19_2">Przygotuj sobie gorący napój i ciesz się chwilą relaksu</string>
+
+    <string name="todo20_1">Wypełnij ankietę!!!</string>
+    <string name="todo20_2">Zapisz w dzienniku co najmniej trzy rzeczy, które masz zamiar osiągnąć w przyszłym tygodniu</string>
+    <string name="todo">ToDo</string>
+    <string name="zadania_na_dzis">Zadania dla ciebie na dziś:</string>
+
 
 </resources>

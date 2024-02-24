@@ -52,6 +52,7 @@ import com.example.basicpsychea.ui.screens.Cwiczenia
 import com.example.basicpsychea.ui.screens.CwiczeniaViewModel
 import com.example.basicpsychea.ui.screens.HomeScreen
 import com.example.basicpsychea.ui.screens.NawykiViewModel
+import com.example.basicpsychea.ui.screens.ToDoScreen
 import com.example.basicpsychea.ui.screens.ToolsScreen
 import com.example.basicpsychea.ui.screens.Wiedza
 import com.example.basicpsychea.ui.screens.WiedzaViewModel
@@ -73,6 +74,7 @@ enum class PsycheaScreen(@StringRes val title: Int) {
     Narzedzia(title = R.string.narz_dzia),
     Projekt(title = R.string.o_projekcie),
     My(title = R.string.o_nas),
+    ToDo(title = R.string.todo),
 
     Infolinia(title = R.string.infolinia),
     Boxer(title = R.string.boxer),
@@ -131,6 +133,7 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
             composable(PsycheaScreen.Start.name) {
                 HomeScreen(
                     screens = listOf(
+                        PsycheaScreen.ToDo,
                         PsycheaScreen.Wiedza,
                         PsycheaScreen.Ciekawostki,
                         PsycheaScreen.Cwiczenia,
@@ -141,6 +144,7 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                     ),
                     onNextButtonClicked = { screen ->
                         when (screen) {
+                            PsycheaScreen.ToDo -> navController.navigate(PsycheaScreen.ToDo.name)
                             PsycheaScreen.Wiedza -> navController.navigate(PsycheaScreen.Wiedza.name)
                             PsycheaScreen.Ciekawostki -> navController.navigate(PsycheaScreen.Ciekawostki.name)
                             PsycheaScreen.Cwiczenia -> navController.navigate(PsycheaScreen.Cwiczenia.name)
@@ -219,6 +223,11 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
             composable(PsycheaScreen.Quotes.name)
             {
                 QuotesScreen()
+            }
+
+            composable(PsycheaScreen.ToDo.name)
+            {
+                ToDoScreen()
             }
         }
     }

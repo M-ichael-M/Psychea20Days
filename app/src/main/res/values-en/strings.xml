@@ -136,7 +136,7 @@
 
     <string name="plastycznosc_mozgu_title">Brain Plasticity</string>
     <string name="plastycznosc_mozgu_description">The human brain has the ability to adapt and change, known as brain plasticity. This enables us, for example, to learn new skills, recover functions after brain injuries, and change our habits and beliefs. Brain plasticity allows us to continuously adapt to changing life circumstances and environments.</string>
-    <string name="greggames">GREG GAMES Grzegorz Mikulski - Publisher of applications on Google Play platform</string>
+    <string name="greggames">GREG GAMES Grzegorz Mikulski - Partner, Publisher of applications on Google Play platform</string>
     <string name="partnerzy">Partners:</string>
     <string name="zesp">Team:</string>
     <string name="_20_dni_do_zdrowej_psychiki">20 days to a healthy mind</string>
@@ -189,5 +189,67 @@
     <string name="instagram">Instagram</string>
     <string name="info_quotes">Every day you unlock a new quote. You can see the Quote of the Day on the main screen. All the quotes you\'ve already unlocked are available here. Keep using Psychea to unlock more quotes!</string>
     <string name="share">Share</string>
+    <string name="todo1_1">Go for a walk</string>
+    <string name="todo1_2">Make a list of nice things that happened to you this week</string>
+
+    <string name="todo2_1">Eat some fruit</string>
+    <string name="todo2_2">Before going to bed, imagine yourself drifting carefree on a beautiful, calm sea in a pontoon</string>
+
+    <string name="todo3_1">Listen to your favorite music</string>
+    <string name="todo3_2">Prepare yourself a cup of tea or coffee and savor its taste</string>
+
+    <string name="todo4_1">Do a short yoga or stretching session</string>
+    <string name="todo4_2">Spend a few minutes reading your favorite book</string>
+
+    <string name="todo5_1">Make yourself a delicious, healthy breakfast</string>
+    <string name="todo5_2">Write down in a journal three things you are grateful for</string>
+
+    <string name="todo6_1">Organize your workspace or study area</string>
+    <string name="todo6_2">Take a few deep breaths and focus on the present moment</string>
+
+    <string name="todo7_1">Plan a meeting with friends or family</string>
+    <string name="todo7_2">Take some pictures to capture beautiful moments</string>
+
+    <string name="todo8_1">Take a break from social media for a few hours</string>
+    <string name="todo8_2">Listen to a relaxation meditation or nature sounds before sleep</string>
+
+    <string name="todo9_1">Write a letter to a friend or loved one</string>
+    <string name="todo9_2">Watch your favorite movie or TV show, enjoying some time for yourself</string>
+
+    <string name="todo10_1">Go for a walk at sunset</string>
+    <string name="todo10_2">Take a hot bath with bath salts and essential oils</string>
+
+    <string name="todo11_1">Cook your favorite dish</string>
+    <string name="todo11_2">Write down your goals and dreams for the future in a journal</string>
+
+    <string name="todo12_1">Look through a photo album with beautiful memories</string>
+    <string name="todo12_2">Do some simple stretching exercises to improve flexibility</string>
+
+    <string name="todo13_1">Listen to an inspiring podcast or lecture</string>
+    <string name="todo13_2">Take a few deep breaths and focus on the present moment</string>
+
+    <string name="todo14_1">Find a quiet place and do a few minutes of meditation</string>
+    <string name="todo14_2">Read an article about something that interests you, expanding your knowledge</string>
+
+    <string name="todo15_1">Listen to your favorite song and dance</string>
+    <string name="todo15_2">Go outside and take some pictures of nature or architecture</string>
+
+    <string name="todo16_1">Make yourself a delicious, refreshing salad</string>
+    <string name="todo16_2">Listen to the sounds of nature and let them relax your mind</string>
+
+    <string name="todo17_1">Keep an emotions journal, writing down your feelings and thoughts</string>
+    <string name="todo17_2">Take a few minutes to practice mindfulness, focusing on the present moment</string>
+
+    <string name="todo18_1">Take a break from work or studying and relax on the couch</string>
+    <string name="todo18_2">Watch the sunset and admire the beauty of the surrounding world</string>
+
+    <string name="todo19_1">Go for a bike ride around the neighborhood</string>
+    <string name="todo19_2">Prepare yourself a hot drink and enjoy a moment of relaxation</string>
+
+    <string name="todo20_1">Read a few pages of a book before bedtime</string>
+    <string name="todo20_2">Write in your journal at least three things you intend to achieve next week</string>
+    <string name="todo">ToDo</string>
+    <string name="zadania_na_dzis">Tasks for you today: </string>
+
 
 </resources>
