@@ -5,9 +5,6 @@ import android.content.Context
 import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
-import android.os.Build
-import android.os.Build.VERSION_CODES.TIRAMISU
-import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -45,14 +42,13 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.core.content.edit
-import com.example.basicpsychea.ui.PsycheaScreen
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.quotes_list
+import com.example.basicpsychea.ui.PsycheaScreen
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
 @SuppressLint("PrivateResource")
-@RequiresApi(TIRAMISU)
 @Composable
 fun HomeScreen(
     screens: List<PsycheaScreen>,
@@ -256,7 +252,6 @@ fun SelectQuantityButton(
 }
 
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun calculateDaysSinceInstall(installDate: String): Long {
     val currentDate = LocalDate.now()
@@ -264,7 +259,6 @@ fun calculateDaysSinceInstall(installDate: String): Long {
     return ChronoUnit.DAYS.between(startDate, currentDate)
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun getInstallDate(): String {
     val sharedPreferences: SharedPreferences =

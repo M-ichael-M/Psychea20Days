@@ -1,7 +1,5 @@
 package com.example.basicpsychea.ui.screens
 
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -24,7 +22,6 @@ import androidx.compose.ui.unit.dp
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.todoList
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ToDoScreen() {
     val installDate = getInstallDate()

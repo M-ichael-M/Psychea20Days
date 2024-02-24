@@ -1,8 +1,6 @@
 package com.example.basicpsychea.ui.screens
 
 import android.annotation.SuppressLint
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -14,11 +12,10 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.unit.dp
-import com.example.basicpsychea.ui.PsycheaScreen
 import com.example.basicpsychea.R
+import com.example.basicpsychea.ui.PsycheaScreen
 
 @SuppressLint("PrivateResource")
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun ToolsScreen(
     screens: List<PsycheaScreen>,

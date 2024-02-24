@@ -15,9 +15,6 @@
  */
 package com.example.basicpsychea.ui
 
-import android.os.Build
-import android.os.Build.VERSION_CODES.TIRAMISU
-import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -109,7 +106,6 @@ fun PsycheaAppBar(
     )
 }
 
-@RequiresApi(TIRAMISU)
 @Composable
 fun PsycheaApp(navController: NavController = rememberNavController(), viewModelCiekawostki: CiekawostkiViewModel, viewModelCwiczenia: CwiczeniaViewModel, viewModelNawyki: NawykiViewModel, viewModelWiedza: WiedzaViewModel) {
 
@@ -233,7 +229,6 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 @Preview
 fun Preview() {

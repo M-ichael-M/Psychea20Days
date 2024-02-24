@@ -1,8 +1,6 @@
 package com.example.basicpsychea.ui.screens.tools
 
 import android.content.Intent
-import android.os.Build
-import androidx.annotation.RequiresApi
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
 import androidx.compose.animation.core.spring
@@ -44,7 +42,6 @@ import com.example.basicpsychea.R
 import com.example.basicpsychea.data.QuotesData
 import com.example.basicpsychea.data.quotes_list
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun QuotesScreen() {
     var showDialog by remember { mutableStateOf(false) }
@@ -100,7 +97,6 @@ fun QuotesScreen() {
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun QuoteItem(quote: QuotesData) {
     val installDate = com.example.basicpsychea.ui.screens.getInstallDate()
@@ -169,7 +165,6 @@ fun ShareTextButton(text: String) {
     }
 }
 
-@RequiresApi(Build.VERSION_CODES.O)
 @Composable
 @Preview(showBackground = true)
 fun QuotePrev()
