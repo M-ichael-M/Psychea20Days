@@ -9,7 +9,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -78,7 +77,6 @@ fun BodyItemNa(exercises: NawykiData, viewModel: NawykiViewModel) {
                 },
                 modifier = Modifier
                     .fillMaxSize()
-                    .height(150.dp)
                     .background(MaterialTheme.colorScheme.primary) // Use your preferred color here
                     .clip(MaterialTheme.shapes.medium)
             ) {
@@ -89,7 +87,7 @@ fun BodyItemNa(exercises: NawykiData, viewModel: NawykiViewModel) {
                 ) {
                     Text(
                         text = stringResource(exercises.title),
-                        style = MaterialTheme.typography.displayMedium
+                        style = MaterialTheme.typography.bodyLarge
                     )
                 }
             }

@@ -19,7 +19,6 @@ class MainActivity : ComponentActivity() {
     private val nawykiViewModel by viewModels<NawykiViewModel>()
     private val wiedzaViewModel by viewModels<WiedzaViewModel>()
 
-
     @RequiresApi(TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

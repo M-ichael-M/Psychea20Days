@@ -1,13 +1,10 @@
 package com.example.basicpsychea.ui.screens.tools
 
-import androidx.compose.animation.core.animateDpAsState
-import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.size
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Info
 import androidx.compose.material3.AlertDialog
@@ -28,19 +25,16 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.basicpsychea.R
+
 @Composable
 fun BoxerScreen(modifier: Modifier) {
-    var isClicked by remember { mutableStateOf(false) }
     var showDialog by remember { mutableStateOf(false) }
-
-    val targetSize = if (isClicked) 1000.dp else 1000.dp
-    val size by animateDpAsState(targetValue = targetSize, animationSpec = tween(1000), label = "")
 
     Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
         Box(
             modifier = modifier
-                .size(size)
-                .clickable { isClicked = !isClicked },
+                .fillMaxSize()
+                .clickable {},
             contentAlignment = Alignment.Center
         ) {
             Image(

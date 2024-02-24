@@ -16,7 +16,6 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.aspectRatio
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -119,6 +118,7 @@ fun HomeScreen(
                     modifier = Modifier
                         .padding(horizontal = 50.dp)
                         .fillMaxWidth()
+
                 ) {
                     Box(
                         modifier = Modifier
@@ -127,12 +127,12 @@ fun HomeScreen(
                                 shape = RoundedCornerShape(10.dp)
                             )
                             .padding(16.dp)
-                            .aspectRatio(3f / 2f)
                     ) {
                         Column(
                             modifier = Modifier
                                 .fillMaxSize()
-                                .padding(dimensionResource(R.dimen.padding_small)),
+                                .padding(dimensionResource(R.dimen.padding_small))
+                                .align(Alignment.Center),
                             horizontalAlignment = Alignment.CenterHorizontally,
                             verticalArrangement = Arrangement.Center
                         ) {
@@ -159,11 +159,13 @@ fun HomeScreen(
                 ) {
                     Box(
                         modifier = Modifier
+                            .fillMaxWidth()
                             .background(
                                 MaterialTheme.colorScheme.surfaceVariant,
                                 shape = RoundedCornerShape(10.dp)
                             )
                             .padding(16.dp)
+                            .align(Alignment.CenterHorizontally)
                     ) {
                         Icon(
                             painter = painterResource(id = R.drawable.baseline_format_quote_24),
@@ -189,7 +191,7 @@ fun HomeScreen(
                     }
                 }
 
-                if(daysSinceInstall>=20) {
+                if(daysSinceInstall>=10) {
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = modifier

@@ -8,7 +8,6 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -77,8 +76,7 @@ fun BodyItemCw(exercises: CwiczeniaData, viewModel: CwiczeniaViewModel) {
                 },
                 modifier = Modifier
                     .fillMaxSize()
-                    .height(150.dp)
-                    .background(MaterialTheme.colorScheme.primary) // Use your preferred color here
+                    .background(MaterialTheme.colorScheme.primary)
                     .clip(MaterialTheme.shapes.medium)
             ) {
                 Column(
@@ -88,7 +86,7 @@ fun BodyItemCw(exercises: CwiczeniaData, viewModel: CwiczeniaViewModel) {
                 ) {
                     Text(
                         text = stringResource(exercises.title),
-                        style = MaterialTheme.typography.displayMedium
+                        style = MaterialTheme.typography.bodyLarge
                     )
                 }
             }

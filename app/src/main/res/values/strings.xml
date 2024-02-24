@@ -186,6 +186,10 @@
     <string name="o_projekcie1">O projekcie</string>
     <string name="mail">Mail</string>
     <string name="strefa_wiedzy1">Strefa wiedzy</string>
-
+    <string name="x">𝕏</string>
+    <string name="facebook">Facebook</string>
+    <string name="instagram">Instagram</string>
+<string name="info_quotes">Every day you unlock a new quote. You can see the Quote of the Day on the main screen. All the quotes you\'ve already unlocked are available here. Keep using Psychea to unlock more quotes!</string>
+    <string name="share">Share</string>
 
 </resources>

@@ -7,7 +7,6 @@ import androidx.compose.animation.core.spring
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
-import androidx.compose.foundation.layout.heightIn
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
@@ -64,7 +63,7 @@ fun BodyItem(exercises: CiekawostkiData, modifier: Modifier = Modifier, viewMode
     Card(
         modifier = modifier
             .padding(dimensionResource(id = R.dimen.padding_small))
-            .clip(RoundedCornerShape(8.dp)) // Adjust the radius as needed for the background
+            .clip(RoundedCornerShape(8.dp))
     ) {
         Column(
             modifier = Modifier
@@ -82,13 +81,12 @@ fun BodyItem(exercises: CiekawostkiData, modifier: Modifier = Modifier, viewMode
                 },
                 modifier = Modifier
                     .fillMaxWidth()
-                    .heightIn(min = 150.dp)
                     .clip(RoundedCornerShape(8.dp))
                     .background(MaterialTheme.colorScheme.primary)
             ) {
                 Text(
                     text = stringResource(exercises.title),
-                    style = MaterialTheme.typography.displayMedium,
+                    style = MaterialTheme.typography.bodyLarge,
                     modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
                 )
             }

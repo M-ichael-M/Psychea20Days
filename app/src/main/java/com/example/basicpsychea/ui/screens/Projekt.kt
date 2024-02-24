@@ -67,7 +67,8 @@ fun projekt(modifier: Modifier = Modifier) {
                                 blurRadius = 4f
                             ),
                             textAlign = TextAlign.Center
-                        )
+                        ),
+                            modifier = Modifier.align(Alignment.CenterHorizontally)
                 )
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
                 Text(
@@ -97,6 +98,7 @@ fun projekt(modifier: Modifier = Modifier) {
                 Column {
                     ClickableFacebookProfileLink()
                     ClickableInstagramProfileLink()
+                    ClickableTwitterProfileLink()
                     ClickableMail()
                 }
             }
@@ -125,7 +127,7 @@ fun ClickableInstagramProfileLink() {
             contentDescription = null
         )
         Text(
-            "Instagram",
+            stringResource(R.string.instagram),
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier.padding(16.dp)
         )
@@ -154,7 +156,35 @@ fun ClickableInstagramProfileLink() {
             contentDescription = null
         )
         Text(
-            "Facebook",
+            stringResource(R.string.facebook),
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
+}
+
+@Composable
+fun ClickableTwitterProfileLink() {
+    val facebookProfileUrl = "https://twitter.com/Psychea20"
+    val context = LocalContext.current
+
+    Button(
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookProfileUrl))
+            context.startActivity(intent)
+        },
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+    ) {
+        Image(
+            modifier = Modifier
+                .height(40.dp),
+            painter = painterResource(R.drawable.x),
+            contentDescription = null
+        )
+        Text(
+            stringResource(R.string.x),
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier.padding(16.dp)
         )
