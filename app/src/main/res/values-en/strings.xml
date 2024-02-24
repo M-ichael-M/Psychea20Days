@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Psychea</string>
+    <string name="back_button">Back</string>
+    <string name="strefa_wicze">Exercise Zone</string>
+    <string name="strefa_ciekawostek">Fun Facts Zone</string>
+    <string name="strefa_wiedzy">Knowledge Zone</string>
+    <string name="zdrowe_nawyki">Healthy Habits</string>
+    <string name="o_projekcie">About the Project</string>
+    <string name="o_nas">About Us</string>
+    <string name="test_1">TEST 1</string>
+    <string name="test_2">TEST 2</string>
+    <string name="notification">Notification</string>
+    <string name="dzie">DAY</string>
+    <string name="we_udzia">GET INVOLVED!</string>
+    <string name="komunikat">"You have been using Psychea for 20 days! We encourage you to participate in the mental health survey."</string>
+    <string name="psychea">PSYCHEA</string>
+    <string name="o_zwolnionych">Released from Theory is a platform for students and high school students to create their own social projects.</string>
+    <string name="zwolnieni_z_teorii">Released from Theory</string>
+    <string name="opis">Description:</string>
+    <string name="opis_aplikacji">As part of the project "Psychea - 20 Days to a Healthy Mind," we are creating an innovative Android application dedicated to anyone interested in improving their mental health. Our application focuses on various aspects of mental health, offering a comprehensive set of tools.</string>
+    <string name="micha_ma_eczek">Michał Małeczek - CEO, Programmer, Designer</string>
+    <string name="krzysztof_rataj">Krzysztof Rataj - Social Media Specialist, Designer, Main Text Content Editor</string>
+    <string name="jacek_rogalski">Jacek Rogalski - Text Content Editor</string>
+    <string name="szymon_piekutowski">Szymon Piekutowski - Text Content Editor</string>
+    <string name="mateusz_daczkowski">Mateusz Daczkowski - Text Content Editor</string>
+    <string name="you_can_be_here">You can be here!</string>
+    <string name="o_nas_">About Us</string>
+    <string name="tworcze_zajecia">Creative Activities</string>
+    <string name="tworcze_zajecia_opis">Painting, drawing, playing a musical instrument, or creating something from paper or clay provides an opportunity for self-expression and relaxation. Creative activities positively affect the psyche by reducing tension and stress.</string>
+    <string name="czytanie">Reading</string>
+    <string name="czytanie_opis">Regular reading of books, especially those positive and motivating, develops imagination, allows one to detach from daily worries, and brings relaxation. Reading also beneficially affects concentration and eloquence.</string>
+
+    <string name="kontakt_z_natura">Nature Contact</string>
+    <string name="kontakt_z_natura_opis">Walks, trips to the park, or outings into nature help to destress and disconnect from urban hustle and bustle. Contact with nature allows for relaxation, improves mood, and reduces negative thoughts.</string>
+
+    <string name="medytacja">Meditation</string>
+    <string name="medytacja_opis">Regular meditation practice helps reduce stress, improve concentration, and increase a sense of calmness. It involves focusing attention on the breath and calming the mind, leading to improved mental well-being. You can start with a few minutes a day and gradually increase the duration of meditation.</string>
+
+    <string name="aktywnosc_fizyczna">Physical Activity</string>
+    <string name="aktywnosc_fizyczna_opis">Engaging in regular physical exercise, such as jogging, cycling, or dancing, helps release endorphins - the hormones of happiness. This improves mood, reduces stress, and increases overall productivity.</string>
+
+    <string name="prowadzenie_dziennika">Journaling</string>
+    <string name="prowadzenie_dziennika_opis">Writing a daily journal is an excellent way to express emotions and reflect on past experiences. It helps in understanding one\'s feelings, solving difficulties, and focusing on the positive aspects of life.</string>
+
+    <string name="dbanie_o_odpoczynek_i_sen">Taking Rest and Sleep Care</string>
+    <string name="dbanie_o_odpoczynek_i_sen_opis">Regular 7–9 hours of sleep per night and allocating time for rest are crucial for good mental health. It\'s worth planning time for relaxation, reading, listening to music, or conversations with loved ones to rejuvenate the mind and improve overall balance.</string>
+
+    <string name="wsparcie_spoleczne">Seeking Social Support</string>
+    <string name="wsparcie_spoleczne_opis">Establishing healthy social relationships with family, friends, or support groups can help cope with life\'s difficulties. Sharing problems and mutual assistance can significantly increase feelings of security and emotional satisfaction.</string>
+
+    <string name="zdrowa_dieta">Healthy Diet</string>
+    <string name="zdrowa_dieta_opis">The balance between proper nutrition and psyche is crucial. Consuming healthy, nutritious meals rich in vitamins and minerals positively affects brain function, and thus, mental health.</string>
+
+    <string name="cwiczenia_relaksacyjne">Relaxation Exercises</string>
+    <string name="cwiczenia_relaksacyjne_opis">Relaxation exercises, such as deep breathing, muscle stretching, and progressive relaxation, help relax the body and mind, reduce tension, increase concentration, and improve well-being.</string>
+
+    <string name="rownowaga_pracy_i_odpoczynku">Work-Life Balance</string>
+    <string name="rownowaga_pracy_i_odpoczynku_opis">Maintaining a balance between work and rest is crucial for a healthy psyche. Proper rest and leisure time allow for the regeneration of strength, stress reduction, and improvement in overall productivity and well-being.</string>
+
+    <string name="pozytywne_afirmacje">Positive Affirmations</string>
+    <string name="pozytywne_afirmacje_opis">Repeating positive affirmations, such as "I am strong" or "I am a valuable person," helps reinforce positive thinking and build self-confidence. This simple exercise helps strengthen mental health and build a positive approach to life.</string>
+    <string name="regularna_aktywnosc_fizyczna_title">Regular Physical Activity</string>
+    <string name="regularna_aktywnosc_fizyczna_description">Regular physical exercise has a beneficial impact on mental health. Exercise releases endorphins, chemicals in the brain that act as natural painkillers and stress relievers. It can also improve sleep and increase energy levels.</string>
+
+    <string name="zrownowazona_dieta_title">Balanced Diet</string>
+    <string name="zrownowazona_dieta_description">Nutrition plays a significant role in brain function. Consuming diverse, nutrient-rich meals supports mental health. Try to avoid excessive consumption of sugar, saturated fats, and processed foods.</string>
+
+    <string name="wystarczajacy_sen_title">Adequate Sleep</string>
+    <string name="wystarczajacy_sen_description">Sleep plays a crucial role in physical and mental regeneration. Lack of adequate sleep can lead to mental health problems such as increased stress or decreased well-being.</string>
+
+    <string name="zarzadzanie_stresem_title">Stress Management</string>
+    <string name="zarzadzanie_stresem_description">Relaxation techniques such as meditation, deep breathing, or yoga can help reduce stress levels. Practicing these methods regularly can improve coping skills in difficult situations.</string>
+
+    <string name="spoleczne_wsparcie_title">Social Support</string>
+    <string name="spoleczne_wsparcie_description">Maintaining healthy social relationships is crucial for good mental health. Sharing feelings with loved ones, conversations, and emotional support can help cope with life difficulties.</string>
+
+    <string name="rozwoj_pasji_title">Developing Hobbies</string>
+    <string name="rozwoj_pasji_description">Finding time for hobbies and activities that bring joy can act as a natural way to relieve stress and improve mood. Hobbies are also an important element of self-development.</string>
+
+    <string name="utrzymanie_rownowagi_zycia_title">Maintaining Work-Life Balance</string>
+    <string name="utrzymanie_rownowagi_zycia_description">Setting boundaries between work and personal life helps maintain balance. Excessive involvement in work can lead to fatigue and mental health problems.</string>
+
+    <string name="depresja">Depression</string>
+    <string name="definicja_depresji">Depression is a mood disorder characterized by feelings of sadness, worthlessness, loss of interest in life and pleasure, as well as changes in mental and physical functioning.</string>
+    <string name="objawy_depresji">Symptoms of depression may include sadness, loss of energy, difficulty concentrating, changes in appetite, insomnia or excessive sleepiness, feelings of worthlessness or excessive guilt, suicidal thoughts.</string>
+
+    <string name="zaburzenia_lękowe">Anxiety Disorders</string>
+    <string name="definicja_zaburzeń_lękowych">Anxiety disorders are a group of mental disorders characterized by excessive fear or worries that are disproportionate to real threats and can lead to significant suffering and limitations in daily functioning.</string>
+    <string name="przykłady_zaburzeń_lękowych">Examples: Generalized Anxiety Disorder (GAD), social phobia, specific phobia, obsessive-compulsive disorder (OCD), post-traumatic stress disorder (PTSD).</string>
+
+    <string name="zaburzenia_osobowości">Personality Disorders</string>
+    <string name="definicja_zaburzeń_osobowości">Personality disorders are patterns of behavior, emotions, and thinking that are enduring, ingrained, and lead to significant problems in social and occupational functioning.</string>
+    <string name="przykłady_zaburzeń_osobowości">Examples: Borderline Personality Disorder (BPD), Narcissistic Personality Disorder (NPD), Avoidant Personality Disorder (AvPD).</string>
+
+    <string name="zaburzenia_afektywne_dwubiegunowe">Bipolar Affective Disorder (Bipolarity)</string>
+    <string name="definicja_zaburzeń_afektywnych_dwubiegunowych">Bipolar affective disorders are a group of mental disorders characterized by periods of mania, during which there is excessive mood or energy, and periods of depression.</string>
+    <string name="objawy_zaburzeń_afektywnych_dwubiegunowych">Symptoms: During mania, there may be excessive excitement, excessive self-esteem, rapid thinking, impulsiveness. During depression, there may be sadness, feelings of hopelessness, fatigue, decreased interest in life.</string>
+
+    <string name="zaburzenia_psychotyczne">Psychotic Disorders</string>
+    <string name="definicja_zaburzeń_psychotycznych">Psychotic disorders are a group of disorders characterized by a loss of contact with reality, which can manifest as hallucinations, delusions, disorganized thinking, and behavior.</string>
+    <string name="przykłady_zaburzeń_psychotycznych">Examples: Schizophrenia, Schizoaffective Disorder, Brief Reactive Psychotic Disorder.</string>
+
+    <string name="zaburzenia_odżywiania">Eating Disorders</string>
+    <string name="definicja_zaburzeń_odżywiania">Eating disorders are mental disorders that affect how a person consumes food, often leading to unhealthy eating behaviors and serious health consequences.</string>
+    <string name="przykłady_zaburzeń_odżywiania">Examples: Anorexia Nervosa, Bulimia Nervosa, Binge Eating Disorder (BED).</string>
+
+    <string name="adhd">Attention-Deficit/Hyperactivity Disorder (ADHD)</string>
+    <string name="definicja_adhd">Attention-Deficit/Hyperactivity Disorder (ADHD) is a neurobiological disorder characterized by difficulties in concentration, excessive impulsivity, and hyperactivity.</string>
+    <string name="objawy_adhd">Symptoms: Impaired attention span, impulsivity, excessive motor activity, difficulties in task organization and planning.</string>
+    <string name="zaburzenia_snu">Sleep Disorders</string>
+    <string name="definicja_zaburzeń_snu">Sleep disorders are various disturbances that affect a person\'s ability to achieve satisfying and restorative sleep.</string>
+    <string name="przykłady_zaburzeń_snu">Examples: Insomnia, sleep apnea, circadian rhythm sleep-wake disorders.</string>
+
+    <string name="zaburzenia_używania_substancji">Substance Use Disorders</string>
+    <string name="definicja_zaburzeń_używania_substancji">Substance use disorders are a group of disorders resulting from the misuse or addiction to psychoactive substances such as alcohol, drugs, medications.</string>
+    <string name="przykłady_zaburzeń_używania_substancji">Examples: Alcoholism, drug addiction, prescription drug addiction.</string>
+
+    <string name="zaburzenia_nerwicowe">Anxiety Disorders</string>
+    <string name="definicja_zaburzeń_nerwicowych">Anxiety disorders are a group of mental disorders characterized by the presence of strong and chronic anxiety symptoms, which often lead to avoidance of anxiety-provoking situations.</string>
+    <string name="przykłady_zaburzeń_nerwicowych">Examples: Generalized anxiety disorder (GAD), panic disorder, obsessive-compulsive disorder (OCD).</string>
+    <string name="strefa_wiczen">Exercise Zone</string>
+    <string name="strefa_ciekawostekk">Fun Facts Zone</string>
+
+    <string name="nieswiadomosc_title">Unconsciousness</string>
+    <string name="nieswiadomosc_description">Most of the cognitive processes, emotions, and motivations occur beyond an individual\'s conscious perception. Unconscious processes can have a significant impact on our behavior and decisions, even if we are not aware of them.</string>
+
+    <string name="deja_vu_title">Déjà Vu Phenomenon</string>
+    <string name="deja_vu_description">Déjà vu is the feeling that we have experienced a particular situation or place before, although we cannot recall when or where it happened. Although scientists are not certain about its exact cause, it is believed that this phenomenon is related to a temporary disruption in perceptual processes.</string>
+
+    <string name="sklonnosc_do_ulegania_wplywom_grupowym_title">Group Conformity</string>
+    <string name="sklonnosc_do_ulegania_wplywom_grupowym_description">People tend to conform to the behaviors and opinions of others in a group, even if it contradicts their own beliefs. This phenomenon, known as group pressure, can lead to making decisions that are not in line with one\'s own values and convictions.</string>
+
+    <string name="efekt_bumerangu_title">Boomerang Effect</string>
+    <string name="efekt_bumerangu_description">The boomerang effect is a phenomenon in which persuading someone to change their views or behaviors may result in the opposite effect, i.e., reinforcing them in their original beliefs. This is an important phenomenon in the context of social communication and education.</string>
+
+    <string name="plastycznosc_mozgu_title">Brain Plasticity</string>
+    <string name="plastycznosc_mozgu_description">The human brain has the ability to adapt and change, known as brain plasticity. This enables us, for example, to learn new skills, recover functions after brain injuries, and change our habits and beliefs. Brain plasticity allows us to continuously adapt to changing life circumstances and environments.</string>
+    <string name="greggames">GREG GAMES Grzegorz Mikulski - Publisher of applications on Google Play platform</string>
+    <string name="partnerzy">Partners:</string>
+    <string name="zesp">Team:</string>
+    <string name="_20_dni_do_zdrowej_psychiki">20 days to a healthy mind</string>
+    <string name="narz_dzia">Tools</string>
+    <string name="infolinia">Helpline</string>
+    <string name="ca_odobowa_linia_wsparcia">24/7 Support Line</string>
+    <string name="telefon_zaufania_dla_dzieci_i_m_odzie_y">Helpline for Children and Youth</string>
+    <string name="telefony_wsprcia_infolinia_jest_bezp_atne_dzwonienie_na_te_numery_jest_pierwsz_rzecz_jak_mo_emy_zrobi_gdy_nasz_stan_si_pogarsza_a_nie_mo_emy_uda_si_do_psychologa">"Support phones - helpline is toll-free. Calling these numbers is the first thing we can do when our mental state deteriorates and we cannot go to a psychologist."</string>
+    <string name="psychea_20_dni_do_zdrowej_psychiki">PSYCHEA - 20 days to a healthy mind</string>
+    <string name="_116111">+48116111</string>
+    <string name="_800702222">+48800702222</string>
+    <string name="boxer">Waves</string>
+    <string name="informacja">Information</string>
+    <string name="waves_info">Free your mind! It\'s a kind of clicker. If you\'re stressed, start tapping the screen to release anger. It also helps when you need to focus but feel distracted.</string>
+    <string name="info">Info</string>
+    <string name="quote_1">"Your mental health is as important as your physical health." - Unknown</string>
+    <string name="quote_2">"Start by doing what's necessary; then do what's possible; and suddenly you are doing the impossible." - Francis of Assisi</string>
+    <string name="quote_3">"Positive thinking brings positive results." - Michael Josephson</string>
+    <string name="quote_4">"Strength does not come from never falling, but from rising every time we fall." - Confucius</string>
+    <string name="quote_5">"The greatest glory in living lies not in never falling, but in rising every time we fall." - Vince Lombardi</string>
+    <string name="quote_6">"The road to success is paved with failures, but they're the bricks that make the path worthwhile." - Unknown</string>
+    <string name="quote_7">"Daily efforts are the key to lasting success." - Unknown</string>
+    <string name="quote_8">"Your thoughts shape your life. If you want to change your life, you must first change your thoughts." - Unknown</string>
+    <string name="quote_9">"Even the longest journey begins with a single step." - Laozi</string>
+    <string name="quote_10">"Action is the antidote to fear, action is the antidote to uncertainty, action is the antidote to doubt." - Anthony Robbins</string>
+    <string name="quote_11">"Never give up on the things that make you smile." - Unknown</string>
+    <string name="quote_12">"Life is not a journey along a straight road, but a dance on hills and valleys." - Unknown</string>
+    <string name="quote_13">"If you're going through hell, keep going. Everything comes to an end." - Winston Churchill</string>
+    <string name="quote_14">"Success is not the key to happiness. Happiness is the key to success. If you love what you are doing, you will be successful." - Albert Schweitzer</string>
+    <string name="quote_15">"Sometimes the smallest step in the right direction ends up being the biggest step of your life." - Unknown</string>
+    <string name="quote_16">"Your limitations are only in your imagination." - Unknown</string>
+    <string name="quote_17">"Courage is not about never falling, but about rising every time we fall." - Confucius</string>
+    <string name="quote_18">"Rest is a misunderstanding for those who work." - John Lennon</string>
+    <string name="quote_19">"It's important to look to the future with optimism, but always remember the lessons of the past." - Unknown</string>
+    <string name="quote_20">"Life is like riding a bicycle. To keep your balance, you must keep moving." - Albert Einstein</string>
+    <string name="clearworries">Clear Worries</string>
+    <string name="ok">OK</string>
+    <string name="worries_info">Every day, we accumulate many worries and stress over various situations. Many of these worries are trivial, cluttering our minds unnecessarily. Enter what\'s bothering you or causing you stress, and then symbolically forget about it by clicking the button. Free your mind and focus on more important matters!</string>
+    <string name="wpisz_swoje_zmartwienia">Enter your worries...</string>
+    <string name="usu_zmartwienia">Clear Worries!</string>
+    <string name="twoje_cytaty">Your Quotes</string>
+    <string name="zablokowane">Blocked</string>
+    <string name="lock">Lock</string>
+    <string name="zdrowe_nawyki6">Healthy Habits</string>
+    <string name="o_projekcie1">About the Project</string>
+    <string name="mail">Email</string>
+    <string name="strefa_wiedzy1">Knowledge Zone</string>
+
+</resources>

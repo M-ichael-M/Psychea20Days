@@ -1,6 +1,6 @@
 package com.example.basicpsychea
 
-import android.os.Build
+import android.os.Build.VERSION_CODES.TIRAMISU
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -20,7 +20,7 @@ class MainActivity : ComponentActivity() {
     private val wiedzaViewModel by viewModels<WiedzaViewModel>()
 
 
-    @RequiresApi(Build.VERSION_CODES.O)
+    @RequiresApi(TIRAMISU)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
@@ -28,7 +28,6 @@ class MainActivity : ComponentActivity() {
                 PsycheaApp(viewModelCiekawostki = ciekawostkiViewModel, viewModelCwiczenia = cwiczeniaViewModel, viewModelNawyki = nawykiViewModel, viewModelWiedza = wiedzaViewModel)
             }
         }
-
     }
 }
 

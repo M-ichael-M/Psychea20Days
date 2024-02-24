@@ -6,6 +6,7 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import android.os.Build
+import android.os.Build.VERSION_CODES.TIRAMISU
 import androidx.annotation.RequiresApi
 import androidx.annotation.StringRes
 import androidx.compose.foundation.Image
@@ -52,17 +53,18 @@ import java.time.LocalDate
 import java.time.temporal.ChronoUnit
 
 @SuppressLint("PrivateResource")
-@RequiresApi(Build.VERSION_CODES.O)
+@RequiresApi(TIRAMISU)
 @Composable
 fun HomeScreen(
     screens: List<PsycheaScreen>,
     onNextButtonClicked: (PsycheaScreen) -> Unit,
     modifier: Modifier = Modifier
 ) {
+
     val installDate = getInstallDate()
     val daysSinceInstall = calculateDaysSinceInstall(installDate)
     var daysSinceInstallTo20 = daysSinceInstall
-    var quoteIndex = daysSinceInstall
+    val quoteIndex: Long
     if(daysSinceInstall<20)
     {
         quoteIndex = daysSinceInstall
@@ -76,7 +78,6 @@ fun HomeScreen(
 
         quoteIndex = daysSinceInstallTo20
     }
-
 
     LazyColumn(
         modifier = modifier.padding(top = 20.dp),
