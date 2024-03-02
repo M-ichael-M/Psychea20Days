@@ -11,8 +11,8 @@ android {
         applicationId = "com.psychea.basicpsychea"
         minSdk = 26
         targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        versionCode = 2
+        versionName = "1.1.2"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
@@ -63,6 +63,12 @@ dependencies {
     implementation("androidx.test:monitor:1.6.1")
     implementation("androidx.test.ext:junit-ktx:1.1.5")
     implementation ("androidx.lifecycle:lifecycle-viewmodel-compose:2.7.0")
+    implementation("com.android.volley:volley:1.2.1")
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.3")
+
+
     androidTestImplementation("junit:junit:4.13.2")
     debugImplementation("androidx.compose.ui:ui-test-manifest")
     debugImplementation("androidx.compose.ui:ui-tooling")
