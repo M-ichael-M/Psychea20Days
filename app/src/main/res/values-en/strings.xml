@@ -250,6 +250,12 @@
     <string name="todo20_2">Write in your journal at least three things you intend to achieve next week</string>
     <string name="todo">ToDo</string>
     <string name="zadania_na_dzis">Tasks for you today: </string>
+    <string name="bardzo_zle">Very bad</string>
+    <string name="slabo">Poorly</string>
+    <string name="nic_specjalnego">Nothing special</string>
+    <string name="dobrze">Well</string>
+    <string name="wspaniale">Great</string>
+    <string name="ocen_jak_mija_ci_dzisiaj_dzien">Rate how your day is going today!</string>
 
 
 </resources>

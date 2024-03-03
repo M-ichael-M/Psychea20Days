@@ -24,6 +24,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -74,6 +75,8 @@ fun HomeScreen(
         quoteIndex = daysSinceInstallTo20
     }
 
+    var userCheckEmotions = false
+
     LazyColumn(
         modifier = modifier.padding(top = 20.dp),
         verticalArrangement = Arrangement.SpaceBetween
@@ -109,6 +112,28 @@ fun HomeScreen(
                 )
 
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
+                if(daysSinceInstall<=10) {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = modifier
+                            .padding(10.dp)
+                            .background(MaterialTheme.colorScheme.secondary)
+                    ) {
+                        Column(
+                            modifier = modifier
+                        ) {
+                            Text(
+                                text = stringResource(R.string.komunikat),
+                                color = MaterialTheme.colorScheme.onSecondary,
+                                modifier = Modifier.padding(16.dp)
+                            )
+                            ClickableFormLink()
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
 
                 Column(
                     modifier = Modifier
@@ -149,6 +174,8 @@ fun HomeScreen(
                     }
                 }
 
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
                 Column(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -187,22 +214,80 @@ fun HomeScreen(
                     }
                 }
 
-                if(daysSinceInstall>=10) {
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
+
+                Column (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
                     Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = modifier
-                            .padding(10.dp)
-                            .background(MaterialTheme.colorScheme.secondary)
-                    ) {
-                        Column(
-                            modifier = modifier
-                        ) {
-                            Text(
-                                text = stringResource(R.string.komunikat),
-                                color = MaterialTheme.colorScheme.onSecondary,
-                                modifier = Modifier.padding(16.dp)
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(
+                                MaterialTheme.colorScheme.tertiaryContainer
                             )
-                            ClickableFormLink()
+                            .padding(8.dp)
+                            .align(Alignment.CenterHorizontally)
+                    ) {
+                        Column(modifier = Modifier.padding(8.dp)) {
+                            Text(
+                                text = stringResource(R.string.ocen_jak_mija_ci_dzisiaj_dzien),
+                                modifier = Modifier
+                                    .padding(8.dp)
+                                    .align(Alignment.CenterHorizontally),
+                                fontSize = 18.sp
+                            )
+                            Row(
+                                horizontalArrangement = Arrangement.Center,
+                                verticalAlignment = Alignment.CenterVertically,
+                                modifier = Modifier.fillMaxWidth()
+                            ) {
+                                IconButton(
+                                    onClick = {},
+                                    modifier = Modifier.padding(4.dp)
+                                ) {
+                                    Icon(
+                                        painterResource(id = R.drawable.big_happy),
+                                        contentDescription = stringResource(R.string.wspaniale)
+                                    )
+                                }
+                                IconButton(
+                                    onClick = {},
+                                    modifier = Modifier.padding(4.dp)
+                                ) {
+                                    Icon(
+                                        painterResource(id = R.drawable.happy),
+                                        contentDescription = stringResource(R.string.dobrze)
+                                    )
+                                }
+                                IconButton(
+                                    onClick = {},
+                                    modifier = Modifier.padding(4.dp)
+                                ) {
+                                    Icon(
+                                        painterResource(id = R.drawable.neutral),
+                                        contentDescription = stringResource(R.string.nic_specjalnego)
+                                    )
+                                }
+                                IconButton(
+                                    onClick = {},
+                                    modifier = Modifier.padding(4.dp)
+                                ) {
+                                    Icon(
+                                        painterResource(id = R.drawable.sad),
+                                        contentDescription = stringResource(R.string.slabo)
+                                    )
+                                }
+                                IconButton(
+                                    onClick = {},
+                                    modifier = Modifier.padding(4.dp)
+                                ) {
+                                    Icon(
+                                        painterResource(id = R.drawable.super_sad_emoji),
+                                        contentDescription = stringResource(R.string.bardzo_zle)
+                                    )
+                                }
+                            }
                         }
                     }
                 }
@@ -286,11 +371,11 @@ fun ClickableFormLink() {
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse(formLink))
             context.startActivity(intent)
         },
-        modifier = Modifier.padding(16.dp)
+        modifier = Modifier.padding(16.dp),
     ) {
         Text(
             stringResource(R.string.we_udzia),
-            color = MaterialTheme.colorScheme.onPrimary
+            color = MaterialTheme.colorScheme.onSecondary
         )
     }
 }
