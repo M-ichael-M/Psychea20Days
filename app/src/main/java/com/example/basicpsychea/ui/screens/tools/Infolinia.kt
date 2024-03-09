@@ -27,32 +27,26 @@ import androidx.compose.ui.unit.dp
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.infoliniaData
 import com.example.basicpsychea.data.infolinia_list
-
-
 @Composable
-fun InfoliniaScreen()
-{
-    Box(modifier = Modifier.padding(8.dp)) {
-        Column(modifier= Modifier.border(1.dp, color = Color.LightGray, shape = RoundedCornerShape(8.dp))) {
+fun InfoliniaScreen() {
+    LazyColumn(modifier = Modifier.padding(8.dp)) {
+        item {
             Card(
                 modifier = Modifier
                     .padding(8.dp)
                     .fillMaxWidth(),
-            )
-            {
+            ) {
                 Text(
-                    text = stringResource(R.string.telefony_wsprcia_infolinia_jest_bezp_atne_dzwonienie_na_te_numery_jest_pierwsz_rzecz_jak_mo_emy_zrobi_gdy_nasz_stan_si_pogarsza_a_nie_mo_emy_uda_si_do_psychologa), style = MaterialTheme.typography.headlineLarge,
+                    text = stringResource(R.string.telefony_wsprcia_infolinia_jest_bezp_atne_dzwonienie_na_te_numery_jest_pierwsz_rzecz_jak_mo_emy_zrobi_gdy_nasz_stan_si_pogarsza_a_nie_mo_emy_uda_si_do_psychologa),
+                    style = MaterialTheme.typography.headlineLarge,
                     modifier = Modifier.padding(16.dp),
                     textAlign = TextAlign.Center,
-
                 )
             }
+        }
 
-            LazyColumn {
-                items(infolinia_list) { infoliniaItem ->
-                    ClickablePhoneNumber(exercises = infoliniaItem)
-                }
-            }
+        items(infolinia_list) { infoliniaItem ->
+            ClickablePhoneNumber(exercises = infoliniaItem)
         }
     }
 }
@@ -60,7 +54,6 @@ fun InfoliniaScreen()
 @Composable
 fun ClickablePhoneNumber(exercises: infoliniaData) {
     val phoneNumber = stringResource(exercises.phoneNumber)
-
     val context = LocalContext.current
 
     Button(

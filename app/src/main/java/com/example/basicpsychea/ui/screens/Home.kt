@@ -113,7 +113,7 @@ fun HomeScreen(
 
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
-                if(daysSinceInstall<=10) {
+                if(daysSinceInstall>=10) {
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = modifier
