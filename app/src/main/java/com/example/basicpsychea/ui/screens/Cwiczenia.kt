@@ -1,5 +1,6 @@
 package com.example.basicpsychea.ui.screens
 
+import android.text.Editable.Factory
 import androidx.annotation.StringRes
 import androidx.compose.animation.animateContentSize
 import androidx.compose.animation.core.Spring
@@ -27,12 +28,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.CwiczeniaData
 import com.example.basicpsychea.data.cwiczenia_list
+import com.example.basicpsychea.ui.AppViewModelProvider
 
 @Composable
-fun Cwiczenia(viewModel: CwiczeniaViewModel) {
+fun Cwiczenia(viewModel: CwiczeniaViewModel = viewModel(factory = AppViewModelProvider.Factory)) {
     Column(modifier = Modifier) {
         Card(
             modifier = Modifier

@@ -28,12 +28,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.NawykiData
 import com.example.basicpsychea.data.nawyki_list
+import com.example.basicpsychea.ui.AppViewModelProvider
 
 @Composable
-fun nawyki(modifier: Modifier = Modifier, viewModel: NawykiViewModel) {
+fun nawyki(modifier: Modifier = Modifier, viewModel: NawykiViewModel = viewModel(factory = AppViewModelProvider.Factory)) {
     Column(modifier = modifier) {
         Card(
             modifier = Modifier
