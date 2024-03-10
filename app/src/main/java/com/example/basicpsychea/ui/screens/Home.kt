@@ -45,8 +45,13 @@ import androidx.compose.ui.unit.sp
 import androidx.core.content.edit
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.quotes_list
+import com.example.basicpsychea.ui.MoodViewModel
 import com.example.basicpsychea.ui.PsycheaScreen
+import kotlinx.coroutines.flow.first
+import kotlinx.coroutines.runBlocking
+import java.time.Instant
 import java.time.LocalDate
+import java.time.ZoneId
 import java.time.temporal.ChronoUnit
 
 @SuppressLint("PrivateResource")
@@ -54,7 +59,8 @@ import java.time.temporal.ChronoUnit
 fun HomeScreen(
     screens: List<PsycheaScreen>,
     onNextButtonClicked: (PsycheaScreen) -> Unit,
-    modifier: Modifier = Modifier
+    modifier: Modifier = Modifier,
+    moodViewModel: MoodViewModel
 ) {
 
     val installDate = getInstallDate()
@@ -75,7 +81,16 @@ fun HomeScreen(
         quoteIndex = daysSinceInstallTo20
     }
 
-    var userCheckEmotions = false
+    val lastRecord = moodViewModel.getLast()
+    val lastRecordValue: Double = runBlocking {
+        lastRecord.first()
+    }
+    val lastRecordDate = Instant.ofEpochMilli(lastRecordValue.toLong())
+        .atZone(ZoneId.systemDefault())
+        .toLocalDate()
+
+    val today = LocalDate.now()
+    val userCheckEmotions = today.isEqual(lastRecordDate)
 
     LazyColumn(
         modifier = modifier.padding(top = 20.dp),
@@ -105,15 +120,17 @@ fun HomeScreen(
                     )
                 )
 
-                Text(text = stringResource(R.string._20_dni_do_zdrowej_psychiki),
+                Text(
+                    text = stringResource(R.string._20_dni_do_zdrowej_psychiki),
                     style = TextStyle(
                         color = MaterialTheme.colorScheme.outline,
-                        fontSize = 25.sp)
+                        fontSize = 25.sp
+                    )
                 )
 
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
-                if(daysSinceInstall>=10) {
+                if (daysSinceInstall >= 10) {
                     Box(
                         contentAlignment = Alignment.Center,
                         modifier = modifier
@@ -176,121 +193,134 @@ fun HomeScreen(
 
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
-                Column(
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    Box(
-                        modifier = Modifier
-                            .fillMaxWidth()
-                            .background(
-                                MaterialTheme.colorScheme.surfaceVariant,
-                                shape = RoundedCornerShape(10.dp)
-                            )
-                            .padding(16.dp)
-                            .align(Alignment.CenterHorizontally)
-                    ) {
-                        Icon(
-                            painter = painterResource(id = R.drawable.baseline_format_quote_24),
-                            contentDescription = null,
+
+                    Box {
+                        Column(
                             modifier = Modifier
-                                .align(Alignment.TopStart)
-                                .size(35.dp)
-                        )
-                        Text(
-                            text = stringResource(quotes_list[quoteIndex.toInt()].quote),
-                            modifier = Modifier.padding(start = 16.dp, end = 16.dp, bottom = 36.dp, top = 36.dp),
-                            fontStyle = FontStyle.Italic,
-                            color = Color.Black,
-                            fontSize = 18.sp
-                        )
-                        Icon(
-                            painter = painterResource(id = R.drawable.baseline_format_quote_24),
-                            contentDescription = null,
-                            modifier = Modifier
-                                .align(Alignment.BottomEnd)
-                                .size(35.dp)
-                        )
-                    }
+                                .fillMaxWidth()
+                        ) {
+                            Box(
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .background(
+                                        MaterialTheme.colorScheme.surfaceVariant,
+                                        shape = RoundedCornerShape(10.dp)
+                                    )
+                                    .padding(16.dp)
+                                    .align(Alignment.CenterHorizontally)
+                            ) {
+                                Icon(
+                                    painter = painterResource(id = R.drawable.baseline_format_quote_24),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .align(Alignment.TopStart)
+                                        .size(35.dp)
+                                )
+                                Text(
+                                    text = stringResource(quotes_list[quoteIndex.toInt()].quote),
+                                    modifier = Modifier.padding(
+                                        start = 16.dp,
+                                        end = 16.dp,
+                                        bottom = 36.dp,
+                                        top = 36.dp
+                                    ),
+                                    fontStyle = FontStyle.Italic,
+                                    color = Color.Black,
+                                    fontSize = 18.sp
+                                )
+                                Icon(
+                                    painter = painterResource(id = R.drawable.baseline_format_quote_24),
+                                    contentDescription = null,
+                                    modifier = Modifier
+                                        .align(Alignment.BottomEnd)
+                                        .size(35.dp)
+                                )
+                            }
+                        }
+
                 }
 
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
-                Column (
-                    modifier = Modifier
-                        .fillMaxWidth()
-                ) {
-                    Box(
+                if(!userCheckEmotions)
+                {
+                    Column (
                         modifier = Modifier
                             .fillMaxWidth()
-                            .background(
-                                MaterialTheme.colorScheme.tertiaryContainer
-                            )
-                            .padding(8.dp)
-                            .align(Alignment.CenterHorizontally)
                     ) {
-                        Column(modifier = Modifier.padding(8.dp)) {
-                            Text(
-                                text = stringResource(R.string.ocen_jak_mija_ci_dzisiaj_dzien),
-                                modifier = Modifier
-                                    .padding(8.dp)
-                                    .align(Alignment.CenterHorizontally),
-                                fontSize = 18.sp
-                            )
-                            Row(
-                                horizontalArrangement = Arrangement.Center,
-                                verticalAlignment = Alignment.CenterVertically,
-                                modifier = Modifier.fillMaxWidth()
-                            ) {
-                                IconButton(
-                                    onClick = {},
-                                    modifier = Modifier.padding(4.dp)
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(
+                                    MaterialTheme.colorScheme.tertiaryContainer
+                                )
+                                .padding(8.dp)
+                                .align(Alignment.CenterHorizontally)
+                        ) {
+                            Column(modifier = Modifier.padding(8.dp)) {
+                                Text(
+                                    text = stringResource(R.string.ocen_jak_mija_ci_dzisiaj_dzien),
+                                    modifier = Modifier
+                                        .padding(8.dp)
+                                        .align(Alignment.CenterHorizontally),
+                                    fontSize = 18.sp
+                                )
+                                Row(
+                                    horizontalArrangement = Arrangement.Center,
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.fillMaxWidth()
                                 ) {
-                                    Icon(
-                                        painterResource(id = R.drawable.big_happy),
-                                        contentDescription = stringResource(R.string.wspaniale)
-                                    )
-                                }
-                                IconButton(
-                                    onClick = {},
-                                    modifier = Modifier.padding(4.dp)
-                                ) {
-                                    Icon(
-                                        painterResource(id = R.drawable.happy),
-                                        contentDescription = stringResource(R.string.dobrze)
-                                    )
-                                }
-                                IconButton(
-                                    onClick = {},
-                                    modifier = Modifier.padding(4.dp)
-                                ) {
-                                    Icon(
-                                        painterResource(id = R.drawable.neutral),
-                                        contentDescription = stringResource(R.string.nic_specjalnego)
-                                    )
-                                }
-                                IconButton(
-                                    onClick = {},
-                                    modifier = Modifier.padding(4.dp)
-                                ) {
-                                    Icon(
-                                        painterResource(id = R.drawable.sad),
-                                        contentDescription = stringResource(R.string.slabo)
-                                    )
-                                }
-                                IconButton(
-                                    onClick = {},
-                                    modifier = Modifier.padding(4.dp)
-                                ) {
-                                    Icon(
-                                        painterResource(id = R.drawable.super_sad_emoji),
-                                        contentDescription = stringResource(R.string.bardzo_zle)
-                                    )
+                                    IconButton(
+                                        onClick = {moodViewModel.insertMood(5)},
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.big_happy),
+                                            contentDescription = stringResource(R.string.wspaniale)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = {moodViewModel.insertMood(4)},
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.happy),
+                                            contentDescription = stringResource(R.string.dobrze)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = {moodViewModel.insertMood(3)},
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.neutral),
+                                            contentDescription = stringResource(R.string.nic_specjalnego)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = {moodViewModel.insertMood(2)},
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.sad),
+                                            contentDescription = stringResource(R.string.slabo)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = {moodViewModel.insertMood(1)},
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.super_sad_emoji),
+                                            contentDescription = stringResource(R.string.bardzo_zle)
+                                        )
+                                    }
                                 }
                             }
                         }
                     }
                 }
+
 
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
 
@@ -314,6 +344,10 @@ fun HomeScreen(
                     }
                 }
             }
+        }
+
+        item {
+            Image(painter = painterResource(id = R.drawable.stopka), contentDescription = "Calm down", modifier = Modifier.fillMaxWidth())
         }
     }
 }

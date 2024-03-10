@@ -45,15 +45,11 @@ import androidx.navigation.compose.rememberNavController
 import com.example.basicpsychea.R
 import com.example.basicpsychea.ui.screens.ArticleScreen
 import com.example.basicpsychea.ui.screens.Ciekawostki
-import com.example.basicpsychea.ui.screens.CiekawostkiViewModel
 import com.example.basicpsychea.ui.screens.Cwiczenia
-import com.example.basicpsychea.ui.screens.CwiczeniaViewModel
 import com.example.basicpsychea.ui.screens.HomeScreen
-import com.example.basicpsychea.ui.screens.NawykiViewModel
 import com.example.basicpsychea.ui.screens.ToDoScreen
 import com.example.basicpsychea.ui.screens.ToolsScreen
 import com.example.basicpsychea.ui.screens.Wiedza
-import com.example.basicpsychea.ui.screens.WiedzaViewModel
 import com.example.basicpsychea.ui.screens.my
 import com.example.basicpsychea.ui.screens.nawyki
 import com.example.basicpsychea.ui.screens.projekt
@@ -61,7 +57,6 @@ import com.example.basicpsychea.ui.screens.tools.BoxerScreen
 import com.example.basicpsychea.ui.screens.tools.ClearWorriesScreen
 import com.example.basicpsychea.ui.screens.tools.InfoliniaScreen
 import com.example.basicpsychea.ui.screens.tools.MoodEntryScreen
-import com.example.basicpsychea.ui.screens.tools.MoodViewModel
 import com.example.basicpsychea.ui.screens.tools.QuotesScreen
 
 
@@ -112,7 +107,7 @@ fun PsycheaAppBar(
 }
 
 @Composable
-fun PsycheaApp(navController: NavController = rememberNavController()) {
+fun PsycheaApp(navController: NavController = rememberNavController(), moodViewModel: MoodViewModel) {
 
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = PsycheaScreen.valueOf(
@@ -153,7 +148,8 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
                     },
                     modifier = Modifier
                         .fillMaxSize()
-                        .padding(16.dp)
+                        .padding(16.dp),
+                    moodViewModel = moodViewModel
                 )
             }
 
@@ -246,7 +242,7 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
 
             composable(PsycheaScreen.Mood.name)
             {
-                MoodEntryScreen()
+                MoodEntryScreen(moodViewModel = moodViewModel)
             }
         }
     }
