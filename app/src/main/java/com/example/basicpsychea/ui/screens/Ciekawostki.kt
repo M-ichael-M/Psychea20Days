@@ -27,12 +27,14 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.CiekawostkiData
 import com.example.basicpsychea.data.ciekawostki_list
+import com.example.basicpsychea.ui.AppViewModelProvider
 
 @Composable
-fun Ciekawostki(modifier: Modifier = Modifier, viewModel: CiekawostkiViewModel) {
+fun Ciekawostki(modifier: Modifier = Modifier, viewModel: CiekawostkiViewModel = viewModel(factory = AppViewModelProvider.Factory)) {
     LazyColumn(modifier = modifier) {
         item {
             Card(
@@ -113,5 +115,5 @@ fun Ciekawostki_Description(@StringRes ciekawostki_Description: Int)
 @Composable
 fun CiekawostkiPreview() {
 
-        //Ciekawostki()
+    //Ciekawostki()
 }

@@ -189,8 +189,7 @@
     <string name="x">𝕏</string>
     <string name="facebook">Facebook</string>
     <string name="instagram">Instagram</string>
-<string name="info_quotes">Every day you unlock a new quote. You can see the Quote of the Day on the main screen. All the quotes you\'ve already unlocked are available here. Keep using Psychea to unlock more quotes!</string>
-    <string name="share">Share</string>
+    <string name="info_quotes">Każdego dnia odblokowujesz nowy cytat. Cytat dnia możesz zobaczyć na ekranie głównym. Wszystkie cytaty, które już odblokowałeś, są dostępne tutaj. Używaj dalej Psychei, aby odblokować więcej cytatów!</string>    <string name="share">Share</string>
 
     <string name="todo1_1">Idź na spacer</string>
     <string name="todo1_2">Zrób listę miłych rzeczy, które przydarzyły ci się w tym tygodniu</string>
@@ -253,6 +252,14 @@
     <string name="todo20_2">Zapisz w dzienniku co najmniej trzy rzeczy, które masz zamiar osiągnąć w przyszłym tygodniu</string>
     <string name="todo">ToDo</string>
     <string name="zadania_na_dzis">Zadania dla ciebie na dziś:</string>
+    <string name="bardzo_zle">Bardzo źle</string>
+    <string name="slabo">Słabo</string>
+    <string name="nic_specjalnego">Nic specjalnego</string>
+    <string name="dobrze">Dobrze</string>
+    <string name="wspaniale">Wspaniale</string>
+    <string name="ocen_jak_mija_ci_dzisiaj_dzien">Oceń jak mija Ci dzisiaj dzień!</string>
+    <string name="articles">Arytkuły</string>
+    <string name="calm_down">Calm down</string>
 
 
 </resources>

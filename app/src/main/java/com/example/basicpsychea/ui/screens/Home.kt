@@ -58,24 +58,9 @@ fun HomeScreen(
 
     val installDate = getInstallDate()
     val daysSinceInstall = calculateDaysSinceInstall(installDate)
-    var daysSinceInstallTo20 = daysSinceInstall
-    val quoteIndex: Long
-    if(daysSinceInstall<20)
-    {
-        quoteIndex = daysSinceInstall
-    }
-    else
-    {
-        while(daysSinceInstallTo20>=20)
-        {
-            daysSinceInstallTo20=-20
-        }
-
-        quoteIndex = daysSinceInstallTo20
-    }
+    val quoteIndex = daysSinceInstall%20
 
     LazyColumn(
-        modifier = modifier.padding(top = 20.dp),
         verticalArrangement = Arrangement.SpaceBetween
     ) {
         item {
@@ -102,7 +87,8 @@ fun HomeScreen(
                     )
                 )
 
-                Text(text = stringResource(R.string._20_dni_do_zdrowej_psychiki),
+                Text(
+                    text = stringResource(R.string._20_dni_do_zdrowej_psychiki),
                     style = TextStyle(
                         color = MaterialTheme.colorScheme.outline,
                         fontSize = 25.sp)
@@ -110,6 +96,27 @@ fun HomeScreen(
 
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_medium)))
 
+                if(daysSinceInstall >= 10) {
+                    Box(
+                        contentAlignment = Alignment.Center,
+                        modifier = modifier
+                            .padding(10.dp)
+                            .background(MaterialTheme.colorScheme.secondary)
+                    ) {
+                        Column(
+                            modifier = modifier
+                        ) {
+                            Text(
+                                text = stringResource(R.string.komunikat),
+                                color = MaterialTheme.colorScheme.onSecondary,
+                                modifier = Modifier.padding(16.dp)
+                            )
+                            ClickableFormLink()
+                        }
+                    }
+                }
+
+                Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
                 Column(
                     modifier = Modifier
                         .padding(horizontal = 50.dp)
@@ -187,26 +194,6 @@ fun HomeScreen(
                     }
                 }
 
-                if(daysSinceInstall>=10) {
-                    Box(
-                        contentAlignment = Alignment.Center,
-                        modifier = modifier
-                            .padding(10.dp)
-                            .background(MaterialTheme.colorScheme.secondary)
-                    ) {
-                        Column(
-                            modifier = modifier
-                        ) {
-                            Text(
-                                text = stringResource(R.string.komunikat),
-                                color = MaterialTheme.colorScheme.onSecondary,
-                                modifier = Modifier.padding(16.dp)
-                            )
-                            ClickableFormLink()
-                        }
-                    }
-                }
-
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
 
             }
@@ -229,6 +216,13 @@ fun HomeScreen(
                     }
                 }
             }
+        }
+
+
+        item {
+            Image(painter = painterResource(id = R.drawable.stopka), contentDescription = stringResource(
+                R.string.calm_down
+            ), modifier = Modifier.fillMaxWidth())
         }
     }
 }

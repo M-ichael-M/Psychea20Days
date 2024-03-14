@@ -1,18 +1,3 @@
-/*
- * Copyright (C) 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *      https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
- */
 package com.example.basicpsychea.ui
 
 import androidx.annotation.StringRes
@@ -43,16 +28,13 @@ import androidx.navigation.compose.composable
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
 import com.example.basicpsychea.R
+import com.example.basicpsychea.ui.screens.ArticleScreen
 import com.example.basicpsychea.ui.screens.Ciekawostki
-import com.example.basicpsychea.ui.screens.CiekawostkiViewModel
 import com.example.basicpsychea.ui.screens.Cwiczenia
-import com.example.basicpsychea.ui.screens.CwiczeniaViewModel
 import com.example.basicpsychea.ui.screens.HomeScreen
-import com.example.basicpsychea.ui.screens.NawykiViewModel
 import com.example.basicpsychea.ui.screens.ToDoScreen
 import com.example.basicpsychea.ui.screens.ToolsScreen
 import com.example.basicpsychea.ui.screens.Wiedza
-import com.example.basicpsychea.ui.screens.WiedzaViewModel
 import com.example.basicpsychea.ui.screens.my
 import com.example.basicpsychea.ui.screens.nawyki
 import com.example.basicpsychea.ui.screens.projekt
@@ -72,11 +54,12 @@ enum class PsycheaScreen(@StringRes val title: Int) {
     Projekt(title = R.string.o_projekcie),
     My(title = R.string.o_nas),
     ToDo(title = R.string.todo),
+    Articles(title = R.string.articles),
 
     Infolinia(title = R.string.infolinia),
     Boxer(title = R.string.boxer),
     ClearWorries(title = R.string.clearworries),
-    Quotes(title = R.string.twoje_cytaty)
+    Quotes(title = R.string.twoje_cytaty),
 
 }
 @OptIn(ExperimentalMaterial3Api::class)
@@ -107,7 +90,7 @@ fun PsycheaAppBar(
 }
 
 @Composable
-fun PsycheaApp(navController: NavController = rememberNavController(), viewModelCiekawostki: CiekawostkiViewModel, viewModelCwiczenia: CwiczeniaViewModel, viewModelNawyki: NawykiViewModel, viewModelWiedza: WiedzaViewModel) {
+fun PsycheaApp(navController: NavController = rememberNavController()) {
 
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = PsycheaScreen.valueOf(
@@ -130,10 +113,7 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                 HomeScreen(
                     screens = listOf(
                         PsycheaScreen.ToDo,
-                        PsycheaScreen.Wiedza,
-                        PsycheaScreen.Ciekawostki,
-                        PsycheaScreen.Cwiczenia,
-                        PsycheaScreen.Nawyki,
+                        PsycheaScreen.Articles,
                         PsycheaScreen.Narzedzia,
                         PsycheaScreen.Projekt,
                         PsycheaScreen.My
@@ -141,10 +121,7 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                     onNextButtonClicked = { screen ->
                         when (screen) {
                             PsycheaScreen.ToDo -> navController.navigate(PsycheaScreen.ToDo.name)
-                            PsycheaScreen.Wiedza -> navController.navigate(PsycheaScreen.Wiedza.name)
-                            PsycheaScreen.Ciekawostki -> navController.navigate(PsycheaScreen.Ciekawostki.name)
-                            PsycheaScreen.Cwiczenia -> navController.navigate(PsycheaScreen.Cwiczenia.name)
-                            PsycheaScreen.Nawyki -> navController.navigate(PsycheaScreen.Nawyki.name)
+                            PsycheaScreen.Articles -> navController.navigate(PsycheaScreen.Articles.name)
                             PsycheaScreen.Narzedzia -> navController.navigate(PsycheaScreen.Narzedzia.name)
                             PsycheaScreen.Projekt -> navController.navigate(PsycheaScreen.Projekt.name)
                             PsycheaScreen.My -> navController.navigate(PsycheaScreen.My.name)
@@ -158,20 +135,37 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                 )
             }
 
+            composable(PsycheaScreen.Articles.name)
+            {
+                ArticleScreen(screens = listOf(PsycheaScreen.Wiedza,
+                    PsycheaScreen.Ciekawostki,
+                    PsycheaScreen.Cwiczenia,
+                    PsycheaScreen.Nawyki), onNextButtonClicked ={screen ->
+                    when (screen) {
+                        PsycheaScreen.Wiedza -> navController.navigate(PsycheaScreen.Wiedza.name)
+                        PsycheaScreen.Ciekawostki ->navController.navigate(PsycheaScreen.Ciekawostki.name)
+                        PsycheaScreen.Cwiczenia -> navController.navigate(PsycheaScreen.Cwiczenia.name)
+                        PsycheaScreen.Nawyki -> navController.navigate(PsycheaScreen.Nawyki.name)
+
+                        else -> {}
+                    }
+                })
+            }
+
             composable(PsycheaScreen.Wiedza.name) {
-                Wiedza(viewModel = viewModelWiedza)
+                Wiedza()
             }
 
             composable(PsycheaScreen.Ciekawostki.name) {
-                Ciekawostki(viewModel = viewModelCiekawostki)
+                Ciekawostki()
             }
 
             composable(PsycheaScreen.Cwiczenia.name) {
-                Cwiczenia(viewModel = viewModelCwiczenia)
+                Cwiczenia()
             }
 
             composable(PsycheaScreen.Nawyki.name) {
-                nawyki(viewModel = viewModelNawyki)
+                nawyki()
             }
 
             composable(PsycheaScreen.Narzedzia.name){
@@ -180,17 +174,17 @@ fun PsycheaApp(navController: NavController = rememberNavController(), viewModel
                         PsycheaScreen.Infolinia,
                         PsycheaScreen.Boxer,
                         PsycheaScreen.ClearWorries,
-                        PsycheaScreen.Quotes
-                ), onNextButtonClicked = {screen ->
-                when (screen) {
-                    PsycheaScreen.Infolinia -> navController.navigate(PsycheaScreen.Infolinia.name)
-                    PsycheaScreen.Boxer ->navController.navigate(PsycheaScreen.Boxer.name)
-                    PsycheaScreen.ClearWorries -> navController.navigate(PsycheaScreen.ClearWorries.name)
-                    PsycheaScreen.Quotes -> navController.navigate(PsycheaScreen.Quotes.name)
+                        PsycheaScreen.Quotes,
+                    ), onNextButtonClicked = {screen ->
+                        when (screen) {
+                            PsycheaScreen.Infolinia -> navController.navigate(PsycheaScreen.Infolinia.name)
+                            PsycheaScreen.Boxer ->navController.navigate(PsycheaScreen.Boxer.name)
+                            PsycheaScreen.ClearWorries -> navController.navigate(PsycheaScreen.ClearWorries.name)
+                            PsycheaScreen.Quotes -> navController.navigate(PsycheaScreen.Quotes.name)
 
-                    else -> {}
-                }
-                })
+                            else -> {}
+                        }
+                    })
             }
 
             composable(PsycheaScreen.Projekt.name) {

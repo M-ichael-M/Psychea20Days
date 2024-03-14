@@ -26,21 +26,7 @@ import com.example.basicpsychea.data.todoList
 fun ToDoScreen() {
     val installDate = getInstallDate()
     val daysSinceInstall = calculateDaysSinceInstall(installDate)
-    var daysSinceInstallTo20 = daysSinceInstall
-    val todoId: Long
-    if(daysSinceInstall<20)
-    {
-        todoId = daysSinceInstall
-    }
-    else
-    {
-        while(daysSinceInstallTo20>=20)
-        {
-            daysSinceInstallTo20=-20
-        }
-
-        todoId = daysSinceInstallTo20
-    }
+    val todoId = daysSinceInstall%20
 
     Column {
         Card(
