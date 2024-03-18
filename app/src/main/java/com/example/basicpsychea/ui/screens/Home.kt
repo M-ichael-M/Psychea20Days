@@ -6,6 +6,11 @@ import android.content.Intent
 import android.content.SharedPreferences
 import android.net.Uri
 import androidx.annotation.StringRes
+import androidx.compose.animation.AnimatedVisibility
+import androidx.compose.animation.core.LinearOutSlowInEasing
+import androidx.compose.animation.core.tween
+import androidx.compose.animation.fadeIn
+import androidx.compose.animation.fadeOut
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -24,9 +29,16 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableLongStateOf
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
@@ -45,14 +57,17 @@ import androidx.core.content.edit
 import com.example.basicpsychea.R
 import com.example.basicpsychea.data.quotes_list
 import com.example.basicpsychea.ui.PsycheaScreen
+import kotlinx.coroutines.flow.firstOrNull
 import java.time.LocalDate
 import java.time.temporal.ChronoUnit
+import java.util.Calendar
 
 @SuppressLint("PrivateResource")
 @Composable
 fun HomeScreen(
     screens: List<PsycheaScreen>,
     onNextButtonClicked: (PsycheaScreen) -> Unit,
+    viewModel: HomeViewModel,
     modifier: Modifier = Modifier
 ) {
 
@@ -60,8 +75,36 @@ fun HomeScreen(
     val daysSinceInstall = calculateDaysSinceInstall(installDate)
     val quoteIndex = daysSinceInstall%20
 
+    val today = System.currentTimeMillis()
+    var lastRecord by remember { mutableLongStateOf(0L) }
+
+    LaunchedEffect(Unit) {
+        viewModel.getLast().firstOrNull()?.let {
+            lastRecord = it
+        }
+    }
+
+    val cal1 = Calendar.getInstance().apply {
+        timeInMillis = today
+        set(Calendar.HOUR_OF_DAY, 0)
+        set(Calendar.MINUTE, 0)
+        set(Calendar.SECOND, 0)
+        set(Calendar.MILLISECOND, 0)
+    }
+
+    val cal2 = Calendar.getInstance().apply {
+        timeInMillis = lastRecord
+        set(Calendar.HOUR_OF_DAY, 0)
+        set(Calendar.MINUTE, 0)
+        set(Calendar.SECOND, 0)
+        set(Calendar.MILLISECOND, 0)
+    }
+
+    val userCheckEmotions = cal1.timeInMillis == cal2.timeInMillis
+
     LazyColumn(
-        verticalArrangement = Arrangement.SpaceBetween
+        verticalArrangement = Arrangement.SpaceBetween,
+        modifier = Modifier.padding(8.dp)
     ) {
         item {
             Column(
@@ -197,6 +240,109 @@ fun HomeScreen(
                 Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
 
             }
+            if(!userCheckEmotions)
+            {
+                Column (
+                    modifier = Modifier
+                        .fillMaxWidth()
+                ) {
+                    var isVisible by remember { mutableStateOf(true) }
+
+                    AnimatedVisibility(
+                        visible = isVisible,
+                        enter = fadeIn(animationSpec = tween(durationMillis = 500, easing = LinearOutSlowInEasing)),
+                        exit = fadeOut(animationSpec = tween(durationMillis = 500, easing = LinearOutSlowInEasing))
+                    ) {
+                        Box(
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .background(MaterialTheme.colorScheme.tertiaryContainer)
+                                .padding(8.dp)
+                                .align(Alignment.CenterHorizontally)
+                        ) {
+                            Column(modifier = Modifier.padding(8.dp)) {
+                                Text(
+                                    text = stringResource(R.string.ocen_jak_mija_ci_dzisiaj_dzien),
+                                    modifier = Modifier
+                                        .padding(8.dp)
+                                        .align(Alignment.CenterHorizontally),
+                                    fontSize = 18.sp
+                                )
+                                Row(
+                                    horizontalArrangement = Arrangement.Center,
+                                    verticalAlignment = Alignment.CenterVertically,
+                                    modifier = Modifier.fillMaxWidth()
+                                ) {
+                                    IconButton(
+                                        onClick = {
+                                            viewModel.insertMood(5)
+                                            isVisible = false
+                                        },
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.big_happy),
+                                            contentDescription = stringResource(R.string.wspaniale)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = {
+                                            viewModel.insertMood(4)
+                                            isVisible = false
+                                        },
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.happy),
+                                            contentDescription = stringResource(R.string.dobrze)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = {
+                                            viewModel.insertMood(3)
+                                            isVisible = false
+                                        },
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.neutral),
+                                            contentDescription = stringResource(R.string.nic_specjalnego)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = {
+                                            viewModel.insertMood(2)
+                                            isVisible = false
+                                        },
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.sad),
+                                            contentDescription = stringResource(R.string.slabo)
+                                        )
+                                    }
+                                    IconButton(
+                                        onClick = {
+                                            viewModel.insertMood(1)
+                                            isVisible = false
+                                        },
+                                        modifier = Modifier.padding(4.dp)
+                                    ) {
+                                        Icon(
+                                            painterResource(id = R.drawable.super_sad_emoji),
+                                            contentDescription = stringResource(R.string.bardzo_zle)
+                                        )
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+
+            Spacer(modifier = Modifier.height(dimensionResource(R.dimen.padding_small)))
+
         }
 
         item {

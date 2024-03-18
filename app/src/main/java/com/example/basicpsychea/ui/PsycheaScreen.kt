@@ -32,6 +32,7 @@ import com.example.basicpsychea.ui.screens.ArticleScreen
 import com.example.basicpsychea.ui.screens.Ciekawostki
 import com.example.basicpsychea.ui.screens.Cwiczenia
 import com.example.basicpsychea.ui.screens.HomeScreen
+import com.example.basicpsychea.ui.screens.HomeViewModel
 import com.example.basicpsychea.ui.screens.ToDoScreen
 import com.example.basicpsychea.ui.screens.ToolsScreen
 import com.example.basicpsychea.ui.screens.Wiedza
@@ -41,6 +42,8 @@ import com.example.basicpsychea.ui.screens.projekt
 import com.example.basicpsychea.ui.screens.tools.BoxerScreen
 import com.example.basicpsychea.ui.screens.tools.ClearWorriesScreen
 import com.example.basicpsychea.ui.screens.tools.InfoliniaScreen
+import com.example.basicpsychea.ui.screens.tools.MoodViewModel
+import com.example.basicpsychea.ui.screens.tools.MoodsScreen
 import com.example.basicpsychea.ui.screens.tools.QuotesScreen
 
 
@@ -60,6 +63,7 @@ enum class PsycheaScreen(@StringRes val title: Int) {
     Boxer(title = R.string.boxer),
     ClearWorries(title = R.string.clearworries),
     Quotes(title = R.string.twoje_cytaty),
+    Moods(title = R.string.emocje)
 
 }
 @OptIn(ExperimentalMaterial3Api::class)
@@ -90,7 +94,7 @@ fun PsycheaAppBar(
 }
 
 @Composable
-fun PsycheaApp(navController: NavController = rememberNavController()) {
+fun PsycheaApp(navController: NavController = rememberNavController(), moodViewModel: MoodViewModel, homeViewModel: HomeViewModel) {
 
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = PsycheaScreen.valueOf(
@@ -129,6 +133,7 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
                             else -> {}
                         }
                     },
+                    homeViewModel,
                     modifier = Modifier
                         .fillMaxSize()
                         .padding(16.dp)
@@ -175,12 +180,14 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
                         PsycheaScreen.Boxer,
                         PsycheaScreen.ClearWorries,
                         PsycheaScreen.Quotes,
+                        PsycheaScreen.Moods
                     ), onNextButtonClicked = {screen ->
                         when (screen) {
                             PsycheaScreen.Infolinia -> navController.navigate(PsycheaScreen.Infolinia.name)
                             PsycheaScreen.Boxer ->navController.navigate(PsycheaScreen.Boxer.name)
                             PsycheaScreen.ClearWorries -> navController.navigate(PsycheaScreen.ClearWorries.name)
                             PsycheaScreen.Quotes -> navController.navigate(PsycheaScreen.Quotes.name)
+                            PsycheaScreen.Moods -> navController.navigate(PsycheaScreen.Moods.name)
 
                             else -> {}
                         }
@@ -218,6 +225,11 @@ fun PsycheaApp(navController: NavController = rememberNavController()) {
             composable(PsycheaScreen.ToDo.name)
             {
                 ToDoScreen()
+            }
+
+            composable(PsycheaScreen.Moods.name)
+            {
+                MoodsScreen(moodViewModel)
             }
         }
     }
