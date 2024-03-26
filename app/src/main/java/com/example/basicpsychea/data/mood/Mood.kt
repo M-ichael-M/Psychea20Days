@@ -8,4 +8,5 @@ data class Mood(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val emotion: Int,
     val dateOfEmotion: Long,
+    val daysSinceInstallation: Int,
 )

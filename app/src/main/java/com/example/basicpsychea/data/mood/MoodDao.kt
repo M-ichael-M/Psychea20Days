@@ -31,6 +31,15 @@ interface MoodDao {
     @Insert
     suspend fun insertOne(mood: Mood)
 
-    @Query("SELECT COUNT(*) FROM user_mood")
-    fun howMany(): Flow<Int>
+
+    @Query("SELECT id FROM user_mood "+
+    "ORDER BY id DESC " +
+    "LIMIT 1;")
+    fun getLastId(): Flow<Int>
+
+    @Query("SELECT emotion FROM user_mood "+
+    "WHERE daysSinceInstallation = :data")
+    fun getEmotionByDate(data: Int): Flow<Int>
+
+
 }

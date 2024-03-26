@@ -35,6 +35,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableLongStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
@@ -104,7 +105,7 @@ fun HomeScreen(
 
     LazyColumn(
         verticalArrangement = Arrangement.SpaceBetween,
-        modifier = Modifier.padding(8.dp)
+        modifier = Modifier.padding(start = 8.dp, end = 8.dp)
     ) {
         item {
             Column(
@@ -275,7 +276,7 @@ fun HomeScreen(
                                 ) {
                                     IconButton(
                                         onClick = {
-                                            viewModel.insertMood(5)
+                                            if(isVisible) viewModel.insertMood(5, daysSinceInstall)
                                             isVisible = false
                                         },
                                         modifier = Modifier.padding(4.dp)
@@ -287,7 +288,7 @@ fun HomeScreen(
                                     }
                                     IconButton(
                                         onClick = {
-                                            viewModel.insertMood(4)
+                                            if(isVisible) viewModel.insertMood(4, daysSinceInstall)
                                             isVisible = false
                                         },
                                         modifier = Modifier.padding(4.dp)
@@ -299,7 +300,7 @@ fun HomeScreen(
                                     }
                                     IconButton(
                                         onClick = {
-                                            viewModel.insertMood(3)
+                                            if(isVisible) viewModel.insertMood(3, daysSinceInstall)
                                             isVisible = false
                                         },
                                         modifier = Modifier.padding(4.dp)
@@ -311,7 +312,7 @@ fun HomeScreen(
                                     }
                                     IconButton(
                                         onClick = {
-                                            viewModel.insertMood(2)
+                                            if(isVisible) viewModel.insertMood(2, daysSinceInstall)
                                             isVisible = false
                                         },
                                         modifier = Modifier.padding(4.dp)
@@ -323,7 +324,7 @@ fun HomeScreen(
                                     }
                                     IconButton(
                                         onClick = {
-                                            viewModel.insertMood(1)
+                                            if(isVisible) viewModel.insertMood(1,daysSinceInstall)
                                             isVisible = false
                                         },
                                         modifier = Modifier.padding(4.dp)
@@ -337,7 +338,20 @@ fun HomeScreen(
                             }
                         }
                     }
+
+                    AnimatedVisibility(
+                        visible = !isVisible,
+                        enter = fadeIn(animationSpec = tween(durationMillis = 500, delayMillis = 750, easing = LinearOutSlowInEasing)),
+                        exit = fadeOut(animationSpec = tween(durationMillis = 500, easing = LinearOutSlowInEasing))
+                    ) {
+                        Porday(viewModel = viewModel, daysSinceInstall = daysSinceInstall)
+                    }
                 }
+            }
+            else
+            {
+                Porday(viewModel = viewModel, daysSinceInstall = daysSinceInstall)
+
             }
 
 
@@ -432,5 +446,81 @@ fun ClickableFormLink() {
             stringResource(R.string.we_udzia),
             color = MaterialTheme.colorScheme.onPrimary
         )
+    }
+}
+
+@Composable
+fun Porday(viewModel: HomeViewModel, daysSinceInstall: Long)
+{
+    var emotionToday by remember { mutableIntStateOf(0) }
+    LaunchedEffect(Unit) {
+        viewModel.getEmotionByDate(daysSinceInstall.toInt()).firstOrNull()?.let {
+            emotionToday = it
+        }
+    }
+    Column {
+        Box(
+            modifier = Modifier
+                .fillMaxWidth()
+                .background(MaterialTheme.colorScheme.tertiaryContainer)
+                .padding(8.dp)
+                .align(Alignment.CenterHorizontally)
+        ) {
+            Column(modifier = Modifier.padding(16.dp)) {
+
+                when (emotionToday) {
+                    5 -> {
+                        Text(
+                            text = stringResource(R.string.wspaniale_ciesz_si_tym_dniem),
+                            fontSize = 18.sp,
+                            modifier = Modifier.padding(8.dp)
+                        )
+                    }
+
+                    4 -> {
+                        Text(text = stringResource(R.string.spraw_by_ten_dzie_by_jeszcze_lepszy_wykonaj_zadania_na_dzi_z_todo),
+                            fontSize = 18.sp,
+                            modifier = Modifier.padding(8.dp)
+                        )
+                        Text(text = stringResource(R.string.lokalizacja_todo),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+
+                    3 -> {
+                        Text(text = stringResource(R.string.playlisty_emocje),
+                            fontSize = 18.sp,
+                            modifier = Modifier.padding(8.dp)
+                        )
+                        Text(text = stringResource(R.string.lokalizacja_playlisty),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+
+                    2 -> {
+                        Text(text = stringResource(R.string.medytacje_emocje),
+                            fontSize = 18.sp,
+                            modifier = Modifier.padding(8.dp)
+                        )
+                        Text(text = stringResource(R.string.lokalizacja_medytacje),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+
+                    1 -> {
+
+                        Text(
+                            text = stringResource(R.string.emocje_liniawsparcia),
+                            fontSize = 18.sp,
+                            modifier = Modifier.padding(8.dp)
+                        )
+                        Text(
+                            text = stringResource(R.string.telefonzaufania_lokalizacja),
+                            style = MaterialTheme.typography.bodyMedium
+                        )
+                    }
+                }
+            }
+        }
     }
 }

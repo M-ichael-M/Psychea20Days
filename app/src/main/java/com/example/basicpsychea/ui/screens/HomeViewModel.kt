@@ -18,10 +18,22 @@ class HomeViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun insertMood(emotion: Int)
+    init {
+        CoroutineScope(viewModelScope.coroutineContext).launch {
+            repo.insertOne(Mood(emotion = 1, daysSinceInstallation = 0, dateOfEmotion = 1710462706780))
+            repo.insertOne(Mood(emotion = 1, daysSinceInstallation = 1, dateOfEmotion = 1710562706780))
+            repo.insertOne(Mood(emotion = 1, daysSinceInstallation = 2, dateOfEmotion = 1710662706780))
+
+        }
+
+    }
+
+
+    fun insertMood(emotion: Int, daysSinceInstall: Long)
     {
         val time = System.currentTimeMillis()
-        val mood = Mood(emotion=emotion, dateOfEmotion = time)
+
+        val mood = Mood(emotion=emotion, dateOfEmotion = time, daysSinceInstallation = daysSinceInstall.toInt())
         CoroutineScope(viewModelScope.coroutineContext).launch {
             repo.insertOne(mood)
         }
@@ -29,5 +41,15 @@ class HomeViewModel(app: Application) : AndroidViewModel(app) {
 
     fun getLast(): Flow<Long> {
         return repo.getLast()
+    }
+
+    fun insertOutstandingMood(mood: Mood)
+    {
+        CoroutineScope(viewModelScope.coroutineContext).launch{ repo.insertOne(mood) }
+    }
+
+    fun getEmotionByDate(day: Int): Flow<Int>
+    {
+        return repo.getEmotionByDate(day)
     }
 }

@@ -38,9 +38,12 @@ class MoodRepository(context: Context): MoodDao {
         dao.insertOne(mood)
     }
 
-    override fun howMany(): Flow<Int> {
-        return dao.howMany()
+    override fun getLastId(): Flow<Int> {
+        return dao.getLastId()
     }
 
+    override fun getEmotionByDate(data: Int): Flow<Int> {
+        return dao.getEmotionByDate(data)
+    }
 
 }
