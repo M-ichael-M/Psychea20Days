@@ -7,7 +7,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.wrapContentHeight
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -34,6 +34,7 @@ import com.example.basicpsychea.ui.screens.Cwiczenia
 import com.example.basicpsychea.ui.screens.HomeScreen
 import com.example.basicpsychea.ui.screens.HomeViewModel
 import com.example.basicpsychea.ui.screens.ToDoScreen
+import com.example.basicpsychea.ui.screens.ToDoViewModel
 import com.example.basicpsychea.ui.screens.ToolsScreen
 import com.example.basicpsychea.ui.screens.Wiedza
 import com.example.basicpsychea.ui.screens.my
@@ -84,7 +85,7 @@ fun PsycheaAppBar(
             if (canNavigateBack) {
                 IconButton(onClick = navigateUp) {
                     Icon(
-                        imageVector = Icons.Filled.ArrowBack,
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
                         contentDescription = stringResource(R.string.back_button)
                     )
                 }
@@ -94,7 +95,7 @@ fun PsycheaAppBar(
 }
 
 @Composable
-fun PsycheaApp(navController: NavController = rememberNavController(), moodViewModel: MoodViewModel, homeViewModel: HomeViewModel) {
+fun PsycheaApp(navController: NavController = rememberNavController(), moodViewModel: MoodViewModel, homeViewModel: HomeViewModel, toDoViewModel: ToDoViewModel) {
 
     val backStackEntry by navController.currentBackStackEntryAsState()
     val currentScreen = PsycheaScreen.valueOf(
@@ -224,7 +225,7 @@ fun PsycheaApp(navController: NavController = rememberNavController(), moodViewM
 
             composable(PsycheaScreen.ToDo.name)
             {
-                ToDoScreen()
+                ToDoScreen(toDoViewModel)
             }
 
             composable(PsycheaScreen.Moods.name)

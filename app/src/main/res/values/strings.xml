@@ -273,6 +273,6 @@
     <string name="lokalizacja_medytacje"><![CDATA[Psychea -> Narzędzia -> Trening mózgu]]></string>
     <string name="emocje_liniawsparcia">Rozważ konsultacje z linią wsparcia!</string>
     <string name="telefonzaufania_lokalizacja"><![CDATA[Psychea -> Narzędzia -> Telefon zaufania]]></string>
-
+    <string name="tiktok" translatable="false">TikTok</string>
 
 </resources>

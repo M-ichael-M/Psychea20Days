@@ -99,6 +99,7 @@ fun projekt(modifier: Modifier = Modifier) {
                     ClickableFacebookProfileLink()
                     ClickableInstagramProfileLink()
                     ClickableTwitterProfileLink()
+                    ClickableTiktokProfileLink()
                     ClickableMail()
                 }
             }
@@ -216,6 +217,34 @@ fun ClickableMail() {
         )
         Text(
             stringResource(R.string.mail),
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
+}
+
+@Composable
+fun ClickableTiktokProfileLink() {
+    val facebookProfileUrl = "https://www.tiktok.com/@psychea20"
+    val context = LocalContext.current
+
+    Button(
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookProfileUrl))
+            context.startActivity(intent)
+        },
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+    ) {
+        Image(
+            modifier = Modifier
+                .height(40.dp),
+            painter = painterResource(R.drawable.tiktok),
+            contentDescription = null
+        )
+        Text(
+            stringResource(R.string.tiktok),
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier.padding(16.dp)
         )
