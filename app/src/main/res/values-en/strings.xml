@@ -265,10 +265,12 @@
     <string name="wspaniale_ciesz_si_tym_dniem">Amazing! Enjoy this day!</string>
     <string name="spraw_by_ten_dzie_by_jeszcze_lepszy_wykonaj_zadania_na_dzi_z_todo">"Make this day even better, complete today's tasks from ToDo!"</string>
     <string name="playlisty_emocje">Listen to music from specially curated playlists for you!</string>
-    <string name="medytacje_emocje">Benefit from meditation sessions, and your day will be better!</string>
+    <string name="medytacje_emocje">Rest for a while and your day will be better</string>
     <string name="emocje_liniawsparcia">Consider consultations with the support line!</string>
     <string name="lokalizacja_playlisty"><![CDATA[Psychea -> Tools -> Playlists]]></string>
     <string name="lokalizacja_medytacje"><![CDATA[Psychea -> Tools -> Brain Gym]]></string>
     <string name="telefonzaufania_lokalizacja"><![CDATA[Psychea -> Tools -> Helpline]]></string>
-
+    <string name="wszystkie_todo">You completed all ToDo tasks that day!</string>
+    <string name="jedno_todo">You completed one ToDo task that day!</string>
+    <string name="zero_todo">You didn\'t complete any ToDo tasks that day</string>
 </resources>

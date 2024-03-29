@@ -261,7 +261,7 @@
     <string name="articles">Arytkuły</string>
     <string name="calm_down">Calm down</string>
     <string name="emocje">Emocje</string>
-    <string name="zmieni_mi_si_dzi_nastr_j">Zmienił mi się dziś nastrój...</string>
+    <string name="zmieni_mi_si_dzi_nastr_j">Zmienił mi się dziś nastrój…</string>
     <string name="dzien">Dzień</string>
     <string name="arrow_down">arrow_down</string>
     <string name="wspaniale_ciesz_si_tym_dniem">Wspaniale! Ciesz się tym dniem!</string>
@@ -269,10 +269,13 @@
     <string name="playlisty_emocje">Posłuchaj muzyki z specjalnie przygotowanych dla ciebie playlist!</string>
     <string name="lokalizacja_playlisty"><![CDATA[Psychea -> Narzędzia -> Playlisty]]></string>
     <string name="lokalizacja_todo" translatable="false"><![CDATA[Psychea -> ToDo]]></string>
-    <string name="medytacje_emocje">Skorzystaj z sesji ćwiczeń medytacji, a twój dzień będzie lepszy!</string>
+    <string name="medytacje_emocje">Odpocznij chwilę, a twój dzień będzie lepszy!</string>
     <string name="lokalizacja_medytacje"><![CDATA[Psychea -> Narzędzia -> Trening mózgu]]></string>
     <string name="emocje_liniawsparcia">Rozważ konsultacje z linią wsparcia!</string>
     <string name="telefonzaufania_lokalizacja"><![CDATA[Psychea -> Narzędzia -> Telefon zaufania]]></string>
     <string name="tiktok" translatable="false">TikTok</string>
+    <string name="wszystkie_todo">Tego dnia wykonałeś wszystkie zadania z ToDo!</string>
+    <string name="jedno_todo">Tego dnia wykonałeś jedno zadanie z ToDo!</string>
+    <string name="zero_todo">Nie wykonałeś zadań z ToDo tego dnia</string>
 
 </resources>

@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.basicpsychea.data.mood.Mood
+import com.example.basicpsychea.ui.GoalRepository
 import com.example.basicpsychea.ui.MoodRepository
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.Flow
@@ -13,6 +14,7 @@ class MoodViewModel(app: Application) : AndroidViewModel(app) {
     val expandedStateMap = mutableMapOf<Int, Boolean>()
 
     private val repo = MoodRepository(app.applicationContext)
+    private val repoGoal = GoalRepository(app.applicationContext)
 
     fun getMoods(): Flow<List<Mood>> {
         return repo.getAll()
@@ -70,5 +72,8 @@ class MoodViewModel(app: Application) : AndroidViewModel(app) {
         return repo.getEmotionByDate(data)
     }
 
-
+    fun getTodoByDay(day: Long): Flow<Int>
+    {
+        return repoGoal.getToDoByDay(day)
+    }
 }

@@ -62,9 +62,7 @@ fun MoodsScreen(viewModel: MoodViewModel) {
     val daysSinceInstall = calculateDaysSinceInstall(installDate = getInstallDate())
     val today = System.currentTimeMillis()
     var lastRecord by remember { mutableLongStateOf(0L) }
-    val dateOfInstalation: Calendar = Calendar.getInstance().apply {
-        timeInMillis = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(getInstallDate())!!.time
-    }
+
 
     LaunchedEffect(Unit) {
         viewModel.getLast().firstOrNull()?.let {
@@ -190,12 +188,56 @@ fun EmotionsChart(emotions: List<Int>) {
 
 @Composable
 fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
+    val installDate = getInstallDate()
+    var todoDb by remember { mutableIntStateOf(5) }
+    var recordExist by remember { mutableStateOf(false) }
+    var isChecked1 by remember {
+        mutableStateOf(false)
+    }
+    var isChecked2  by remember {
+        mutableStateOf(false)
+    }
+
+    LaunchedEffect(Unit) {
+        viewModel.getTodoByDay(emocja.daysSinceInstallation.toLong()).firstOrNull()?.let {
+            todoDb = it
+        }
+
+        when (todoDb) {
+            1 -> {
+                recordExist = true
+                isChecked1 = true
+                isChecked2 = false
+            }
+            2 -> {
+                recordExist = true
+                isChecked1 = false
+                isChecked2 = true
+            }
+            3 -> {
+                recordExist = true
+                isChecked1 = true
+                isChecked2 = true
+            }
+            0 -> {
+                recordExist = true
+                isChecked1 = false
+                isChecked2 = false
+            }
+            5 -> {
+                recordExist = false
+            }
+
+        }
+    }
+    
     var expanded by remember {
         mutableStateOf(viewModel.expandedStateMap[emocja.id] ?: false)
     }
     Card(modifier = Modifier
         .fillMaxWidth()
-        .padding(dimensionResource(id = R.dimen.padding_small))) {
+        .padding(dimensionResource(id = R.dimen.padding_small)),
+    ) {
         Column(
             modifier = Modifier
                 .animateContentSize(
@@ -203,7 +245,7 @@ fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
                         dampingRatio = Spring.DampingRatioNoBouncy,
                         stiffness = Spring.StiffnessMedium
                     )
-                )
+                ),
         ) {
             val emocjaA = emocja.emotion
             val drawable: Painter
@@ -226,7 +268,7 @@ fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
             }
 
             Row(horizontalArrangement = Arrangement.Absolute.Center) {
-                Box(Modifier.fillMaxWidth()) {
+                Box(Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.primary)) {
                     Row {
                         Image(
                             painter = drawable,
@@ -240,8 +282,8 @@ fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
                         Column(Modifier.align(Alignment.CenterVertically)) {
                             Text(text = emocja.daysSinceInstallation.toString(), Modifier.align(
                                 Alignment.CenterHorizontally
-                            ))
-                            Text(text = stringResource(R.string.dzien))
+                            ), color = MaterialTheme.colorScheme.onPrimary)
+                            Text(text = stringResource(R.string.dzien), color = MaterialTheme.colorScheme.onPrimary)
                         }
                     }
 
@@ -252,7 +294,8 @@ fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
                         },
                         Modifier
                             .align(Alignment.CenterEnd)
-                            .fillMaxHeight(),
+                            .fillMaxHeight()
+                            ,
                         shape = CircleShape
                     ) {
                         Icon(
@@ -263,7 +306,20 @@ fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
                 }
             }
             if (expanded) {
-                Text("roz")
+                Box(Modifier.padding(16.dp)){
+                    if(isChecked1 == true && isChecked2 == true)
+                    {
+                        Text(text = stringResource(R.string.wszystkie_todo))
+                    }
+                    else if((isChecked1 && !isChecked2) || (!isChecked1 && isChecked2))
+                    {
+                        Text(text = stringResource(R.string.jedno_todo))
+                    }
+                    else
+                    {
+                        Text(text = stringResource(R.string.zero_todo))
+                    }
+                }
             }
         }
     }
