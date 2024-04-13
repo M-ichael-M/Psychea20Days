@@ -20,11 +20,6 @@ class MoodViewModel(app: Application) : AndroidViewModel(app) {
         return repo.getAll()
     }
 
-    init
-    {
-        clearDb()
-    }
-
     fun clearDb() {
             CoroutineScope(viewModelScope.coroutineContext).launch {
                 repo.dropDatabase()

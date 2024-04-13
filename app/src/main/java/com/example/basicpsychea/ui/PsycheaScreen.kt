@@ -45,6 +45,7 @@ import com.example.basicpsychea.ui.screens.tools.ClearWorriesScreen
 import com.example.basicpsychea.ui.screens.tools.InfoliniaScreen
 import com.example.basicpsychea.ui.screens.tools.MoodViewModel
 import com.example.basicpsychea.ui.screens.tools.MoodsScreen
+import com.example.basicpsychea.ui.screens.tools.PlaylistyScreen
 import com.example.basicpsychea.ui.screens.tools.QuotesScreen
 
 
@@ -64,7 +65,8 @@ enum class PsycheaScreen(@StringRes val title: Int) {
     Boxer(title = R.string.boxer),
     ClearWorries(title = R.string.clearworries),
     Quotes(title = R.string.twoje_cytaty),
-    Moods(title = R.string.emocje)
+    Moods(title = R.string.emocje),
+    Playlisty(title = R.string.playlisty)
 
 }
 @OptIn(ExperimentalMaterial3Api::class)
@@ -181,7 +183,8 @@ fun PsycheaApp(navController: NavController = rememberNavController(), moodViewM
                         PsycheaScreen.Boxer,
                         PsycheaScreen.ClearWorries,
                         PsycheaScreen.Quotes,
-                        PsycheaScreen.Moods
+                        PsycheaScreen.Moods,
+                        PsycheaScreen.Playlisty
                     ), onNextButtonClicked = {screen ->
                         when (screen) {
                             PsycheaScreen.Infolinia -> navController.navigate(PsycheaScreen.Infolinia.name)
@@ -189,6 +192,7 @@ fun PsycheaApp(navController: NavController = rememberNavController(), moodViewM
                             PsycheaScreen.ClearWorries -> navController.navigate(PsycheaScreen.ClearWorries.name)
                             PsycheaScreen.Quotes -> navController.navigate(PsycheaScreen.Quotes.name)
                             PsycheaScreen.Moods -> navController.navigate(PsycheaScreen.Moods.name)
+                            PsycheaScreen.Playlisty -> navController.navigate(PsycheaScreen.Playlisty.name)
 
                             else -> {}
                         }
@@ -231,6 +235,11 @@ fun PsycheaApp(navController: NavController = rememberNavController(), moodViewM
             composable(PsycheaScreen.Moods.name)
             {
                 MoodsScreen(moodViewModel)
+            }
+
+            composable(PsycheaScreen.Playlisty.name)
+            {
+                PlaylistyScreen()
             }
         }
     }

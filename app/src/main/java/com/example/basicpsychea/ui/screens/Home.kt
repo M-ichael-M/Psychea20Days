@@ -502,9 +502,9 @@ fun Porday(viewModel: HomeViewModel, daysSinceInstall: Long)
                             fontSize = 18.sp,
                             modifier = Modifier.padding(8.dp)
                         )
-                        Text(text = stringResource(R.string.lokalizacja_medytacje),
-                            style = MaterialTheme.typography.bodyMedium
-                        )
+                        //Text(text = stringResource(R.string.lokalizacja_medytacje),
+                       //     style = MaterialTheme.typography.bodyMedium
+                        //)
                     }
 
                     1 -> {

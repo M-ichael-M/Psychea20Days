@@ -273,4 +273,9 @@
     <string name="wszystkie_todo">You completed all ToDo tasks that day!</string>
     <string name="jedno_todo">You completed one ToDo task that day!</string>
     <string name="zero_todo">You didn\'t complete any ToDo tasks that day</string>
+    <string name="relax">Relax</string>
+    <string name="playlisty">Playlists</string>
+    <string name="szumy">Noises</string>
+    <string name="klasyki">Classical</string>
+
 </resources>

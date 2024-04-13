@@ -8,7 +8,6 @@ import androidx.compose.animation.core.spring
 import androidx.compose.animation.core.tween
 import androidx.compose.animation.fadeIn
 import androidx.compose.animation.fadeOut
-import androidx.compose.foundation.Canvas
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -39,9 +38,6 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.geometry.Size
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
@@ -53,9 +49,7 @@ import com.example.basicpsychea.data.mood.Mood
 import com.example.basicpsychea.ui.screens.calculateDaysSinceInstall
 import com.example.basicpsychea.ui.screens.getInstallDate
 import kotlinx.coroutines.flow.firstOrNull
-import java.text.SimpleDateFormat
 import java.util.Calendar
-import java.util.Locale
 
 @Composable
 fun MoodsScreen(viewModel: MoodViewModel) {
@@ -99,7 +93,6 @@ fun MoodsScreen(viewModel: MoodViewModel) {
                         .padding(8.dp)
                         .fillMaxWidth(),
                 ) {
-                    Text(text = moods.toString())
                     if (!userCheckEmotions) {
                         NewEmotion(viewModel = viewModel, daysSinceInstall)
                     } else {
@@ -107,7 +100,6 @@ fun MoodsScreen(viewModel: MoodViewModel) {
                     }
                 }
             }
-            //item { ColumnChartV2(viewModel, today, daysSinceInstall) }
 
             items(moodsRev) {
                 mood ->
@@ -118,77 +110,7 @@ fun MoodsScreen(viewModel: MoodViewModel) {
 }
 
 @Composable
-fun ColumnChartV2(viewModel: MoodViewModel, today: Long, daysSinceInstall: Long) {
-    val dateFormat = SimpleDateFormat("yyyy-MM-dd", Locale.getDefault())
-
-
-    val emocjeList = remember { mutableListOf<Int>() }
-
-    val calendar = Calendar.getInstance()
-    calendar.timeInMillis = today
-    var dayOfWeek = calendar.get(Calendar.DAY_OF_WEEK)
-    dayOfWeek = (dayOfWeek + 5) % 7
-
-    val calendarOdEnd = Calendar.getInstance()
-    val installDate = dateFormat.parse(getInstallDate())
-    calendarOdEnd.time = installDate!!
-    var dayOfWeekEnd = calendarOdEnd.get(Calendar.DAY_OF_WEEK)
-    dayOfWeekEnd = (dayOfWeekEnd + 5) % 7
-
-    val odPoczatku = dayOfWeek
-    val odKonca = 6 - dayOfWeekEnd
-
-    repeat(odPoczatku) {
-        emocjeList.add(0)
-    }
-
-    LaunchedEffect(Unit) {
-        repeat(daysSinceInstall.toInt()) { i ->
-            val emocjaFlow = viewModel.getEmotionByDate(i)
-            emocjaFlow.firstOrNull()?.let { emocja ->
-                emocjeList.add(emocja)
-            } ?: emocjeList.add(0)
-        }
-    }
-
-    repeat(odKonca) {
-        emocjeList.add(0)
-    }
-
-
-}
-
-@Composable
-fun EmotionsChart(emotions: List<Int>) {
-    val maxValue = 5 // maksymalna wartość emocji
-    val maxColumnHeight = 200.dp // maksymalna wysokość kolumny w pikselach
-    val columnWidth = 30.dp // szerokość kolumny
-    val columnSpacing = 10.dp // odstęp między kolumnami
-
-    Column(
-        modifier = Modifier
-            .padding(16.dp)
-            .fillMaxWidth()
-    ) {
-        Canvas(modifier = Modifier.fillMaxWidth()) {
-            emotions.forEachIndexed { index, emotion ->
-                val columnHeight = (emotion.toFloat() / maxValue.toFloat()) * maxColumnHeight.value
-                val startX = index * (columnWidth.value + columnSpacing.value)
-                val startY = size.height - columnHeight
-
-                drawRect(
-                    color = Color.Blue,
-                    topLeft = Offset(startX, startY),
-                    size = Size(columnWidth.value, columnHeight)
-                )
-            }
-        }
-    }
-}
-
-@Composable
 fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
-    val installDate = getInstallDate()
     var todoDb by remember { mutableIntStateOf(5) }
     var recordExist by remember { mutableStateOf(false) }
     var isChecked1 by remember {
@@ -307,7 +229,7 @@ fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
             }
             if (expanded) {
                 Box(Modifier.padding(16.dp)){
-                    if(isChecked1 == true && isChecked2 == true)
+                    if(isChecked1 && isChecked2)
                     {
                         Text(text = stringResource(R.string.wszystkie_todo))
                     }
@@ -422,6 +344,13 @@ fun NewEmotion(viewModel: MoodViewModel, daysSinceInstall: Long)
                     }
                 }
             }
+        }
+        AnimatedVisibility(
+            visible = !isVisible,
+            enter = fadeIn(animationSpec = tween(durationMillis = 500, delayMillis = 750, easing = LinearOutSlowInEasing)),
+            exit = fadeOut(animationSpec = tween(durationMillis = 500, easing = LinearOutSlowInEasing))
+        ) {
+            UpdateEmotion(viewModel = viewModel, daysSinceInstall = daysSinceInstall)
         }
     }
 }

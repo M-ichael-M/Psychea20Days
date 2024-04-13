@@ -14,9 +14,6 @@ import kotlinx.coroutines.launch
 class ToDoViewModel(app: Application) : AndroidViewModel(app) {
     private val repo = GoalRepository(app.applicationContext)
 
-    init {
-        dropDb()
-    }
     fun dropDb()
     {
         CoroutineScope(viewModelScope.coroutineContext).launch {

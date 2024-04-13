@@ -100,6 +100,8 @@ fun projekt(modifier: Modifier = Modifier) {
                     ClickableInstagramProfileLink()
                     ClickableTwitterProfileLink()
                     ClickableTiktokProfileLink()
+                    ClickableYoutubeProfileLink()
+                    ClickableRedditProfileLink()
                     ClickableMail()
                 }
             }
@@ -245,6 +247,62 @@ fun ClickableTiktokProfileLink() {
         )
         Text(
             stringResource(R.string.tiktok),
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
+}
+
+@Composable
+fun ClickableYoutubeProfileLink() {
+    val facebookProfileUrl = "https://www.youtube.com/@Psychea20"
+    val context = LocalContext.current
+
+    Button(
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookProfileUrl))
+            context.startActivity(intent)
+        },
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+    ) {
+        Image(
+            modifier = Modifier
+                .height(40.dp),
+            painter = painterResource(R.drawable.yt),
+            contentDescription = null
+        )
+        Text(
+            stringResource(R.string.youtube),
+            color = MaterialTheme.colorScheme.onPrimary,
+            modifier = Modifier.padding(16.dp)
+        )
+    }
+}
+
+@Composable
+fun ClickableRedditProfileLink() {
+    val facebookProfileUrl = "https://www.reddit.com/user/Successful_Disk8541/"
+    val context = LocalContext.current
+
+    Button(
+        onClick = {
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(facebookProfileUrl))
+            context.startActivity(intent)
+        },
+        modifier = Modifier
+            .padding(16.dp)
+            .fillMaxWidth()
+    ) {
+        Image(
+            modifier = Modifier
+                .height(40.dp),
+            painter = painterResource(R.drawable.reddit),
+            contentDescription = null
+        )
+        Text(
+            stringResource(R.string.reddit),
             color = MaterialTheme.colorScheme.onPrimary,
             modifier = Modifier.padding(16.dp)
         )

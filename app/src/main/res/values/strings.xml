@@ -277,5 +277,11 @@
     <string name="wszystkie_todo">Tego dnia wykonałeś wszystkie zadania z ToDo!</string>
     <string name="jedno_todo">Tego dnia wykonałeś jedno zadanie z ToDo!</string>
     <string name="zero_todo">Nie wykonałeś zadań z ToDo tego dnia</string>
+    <string name="playlisty">Playlisty</string>
+    <string name="szumy">Szumy</string>
+    <string name="relax">Relax</string>
+    <string name="klasyki">Klasyki</string>
+    <string name="youtube" translatable="false">YouTube</string>
+    <string name="reddit" translatable="false">Reddit</string>
 
 </resources>

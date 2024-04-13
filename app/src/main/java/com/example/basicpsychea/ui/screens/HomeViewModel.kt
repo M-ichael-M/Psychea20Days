@@ -18,15 +18,6 @@ class HomeViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    init {
-        CoroutineScope(viewModelScope.coroutineContext).launch {
-            repo.insertOne(Mood(emotion = 1, daysSinceInstallation = 0, dateOfEmotion = 1710462706780))
-            repo.insertOne(Mood(emotion = 1, daysSinceInstallation = 1, dateOfEmotion = 1710562706780))
-
-        }
-
-    }
-
 
     fun insertMood(emotion: Int, daysSinceInstall: Long)
     {
