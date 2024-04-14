@@ -12,8 +12,8 @@ android {
         applicationId = "com.psychea.basicpsychea"
         minSdk = 26
         targetSdk = 34
-        versionCode = 4
-        versionName = "1.4.12"
+        versionCode = 5
+        versionName = "1.4.24"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables {
