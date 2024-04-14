@@ -283,5 +283,6 @@
     <string name="klasyki">Klasyki</string>
     <string name="youtube" translatable="false">YouTube</string>
     <string name="reddit" translatable="false">Reddit</string>
+    <string name="twoja_rednia_emocji_od_zainstalowania_aplikacji">"Twoja średnia emocji od zainstalowania aplikacji: "</string>
 
 </resources>

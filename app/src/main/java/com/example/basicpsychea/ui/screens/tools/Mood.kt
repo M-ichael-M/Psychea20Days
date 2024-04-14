@@ -21,6 +21,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.Icon
@@ -38,10 +39,13 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.basicpsychea.R
@@ -49,6 +53,8 @@ import com.example.basicpsychea.data.mood.Mood
 import com.example.basicpsychea.ui.screens.calculateDaysSinceInstall
 import com.example.basicpsychea.ui.screens.getInstallDate
 import kotlinx.coroutines.flow.firstOrNull
+import java.math.BigDecimal
+import java.math.RoundingMode
 import java.util.Calendar
 
 @Composable
@@ -84,9 +90,57 @@ fun MoodsScreen(viewModel: MoodViewModel) {
 
     val moods: List<Mood> by viewModel.getMoods().collectAsState(initial = emptyList())
     val moodsRev = moods.reversed()
+    val averageEmotion: Double = if (moods.isNotEmpty()) {
+        val sum = moods.map { it.emotion }.sum()
+        val average = sum.toDouble() / moods.size
+        BigDecimal(average).setScale(1, RoundingMode.HALF_UP).toDouble()
+    } else {
+        0.0 // Lub dowolna wartość domyślna, jeśli lista jest pusta
+    }
 
     Column {
         LazyColumn(modifier = Modifier.padding(8.dp)) {
+            item {
+                Card(
+                    modifier = Modifier
+                        .fillMaxWidth()
+                        .padding(8.dp)
+                        .align(Alignment.CenterHorizontally),
+                    shape = RoundedCornerShape(8.dp) // Zaokrąglenie rogów
+                ) {
+                    Box(
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .background(
+                                color = MaterialTheme.colorScheme.secondaryContainer,
+                                shape = RoundedCornerShape(8.dp)
+                            )
+                    ) {
+                        Column {
+                            Text(
+                                text = stringResource(R.string.twoja_rednia_emocji_od_zainstalowania_aplikacji),
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(16.dp),
+                                color = Color.Black, // Kolor tekstu
+                                fontSize = 18.sp, // Rozmiar tekstu
+                            )
+                            Text(
+                                text = averageEmotion.toString(),
+                                textAlign = TextAlign.Center,
+                                modifier = Modifier
+                                    .fillMaxWidth()
+                                    .padding(bottom = 16.dp),
+                                color = Color.Black, // Kolor tekstu
+                                fontSize = 24.sp, // Rozmiar tekstu
+                                fontWeight = FontWeight.Bold // Wytłuszczenie tekstu
+                            )
+                        }
+                    }
+                }
+
+            }
             item {
                 Card(
                     modifier = Modifier
@@ -100,7 +154,7 @@ fun MoodsScreen(viewModel: MoodViewModel) {
                     }
                 }
             }
-
+            
             items(moodsRev) {
                 mood ->
                 EmocjeItem(emocja = mood, viewModel = viewModel)
@@ -190,7 +244,10 @@ fun EmocjeItem(emocja: Mood, viewModel: MoodViewModel) {
             }
 
             Row(horizontalArrangement = Arrangement.Absolute.Center) {
-                Box(Modifier.fillMaxWidth().background(MaterialTheme.colorScheme.primary)) {
+                Box(
+                    Modifier
+                        .fillMaxWidth()
+                        .background(MaterialTheme.colorScheme.primary)) {
                     Row {
                         Image(
                             painter = drawable,

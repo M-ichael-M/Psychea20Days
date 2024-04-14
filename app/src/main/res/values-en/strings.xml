@@ -277,5 +277,6 @@
     <string name="playlisty">Playlists</string>
     <string name="szumy">Noises</string>
     <string name="klasyki">Classical</string>
+    <string name="twoja_rednia_emocji_od_zainstalowania_aplikacji">Your average emotions since installing the application: </string>
 
 </resources>
