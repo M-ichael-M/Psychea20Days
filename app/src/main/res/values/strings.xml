@@ -284,5 +284,9 @@
     <string name="youtube" translatable="false">YouTube</string>
     <string name="reddit" translatable="false">Reddit</string>
     <string name="twoja_rednia_emocji_od_zainstalowania_aplikacji">"Twoja średnia emocji od zainstalowania aplikacji: "</string>
+    <string name="wiadomo_od_tw_rc_w">Wiadomość od twórcy</string>
+    <string name="zako_czenie_projektu">Zakończenie projektu</string>
+    <string name="for_better_psyche">~ For better psyche ~</string>
+    <string name="kierownik_projektu_micha_ma_eczek">- kierownik projektu, Michał Małeczek</string>
 
 </resources>
