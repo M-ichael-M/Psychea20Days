@@ -135,8 +135,8 @@ fun projekt(modifier: Modifier = Modifier) {
                         title = { Text(stringResource(R.string.zako_czenie_projektu)) },
                         text = {
                             Column {
-                                Text("Cześć! Nasz projekt dobiega końca. Dla naszego zespołu był to naprawdę wspaniały czas, liczę, że dla ciebie również. Zarówno my jak i wy nauczyliśmy się sporo podczas tego projektu. Zakończenie projektu nie oznacza oczywiście końca Psychea! Aplikacja będzie ciągle dostępna w Google Play i będzie przez Nas obsługiwana. Zachęcamy do dalszego korzystanie z naszej aplikacji i polecania jej znajomym i rodzinie. Jeśli masz jakieś pomysły odnośnie rozwoju aplikacji koniecznie daj nam o tym znać, a jeśli lubisz naszą aplikacje wystaw pozytywną ocenę w Google Play! Zachęcamy też do obserwowania naszych mediów społecznościowych.")
-                                Text(text = "Dzięki, że byliście z nami!")
+                                Text(stringResource(R.string.podziekowania_koncowe))
+                                Text(text = stringResource(R.string.dzi_ki_e_byli_cie_z_nami))
                                 Text(text = stringResource(R.string.for_better_psyche))
                                 Spacer(modifier = Modifier.height(10.dp))
                                 Text(text = stringResource(R.string.kierownik_projektu_micha_ma_eczek))

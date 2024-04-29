@@ -71,7 +71,6 @@ fun HomeScreen(
     viewModel: HomeViewModel,
     modifier: Modifier = Modifier
 ) {
-
     val installDate = getInstallDate()
     val daysSinceInstall = calculateDaysSinceInstall(installDate)
     val quoteIndex = daysSinceInstall%20

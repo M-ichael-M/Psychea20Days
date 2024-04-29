@@ -281,6 +281,9 @@
     <string name="for_better_psyche">~ For better psyche ~</string>
     <string name="wiadomo_od_tw_rc_w">Message from author</string>
     <string name="kierownik_projektu_micha_ma_eczek">- project manager, Michał Małeczek</string>
+    <string name="zako_czenie_projektu">Project Completion</string>
+    <string name="podziekowania_koncowe">Hi there! Our project is coming to an end. For our team, it has been a truly great time, and I hope it has been the same for you. Both we and you have learned a lot during this project. The end of the project does not mean the end of Psychea! The app will still be available on Google Play and will be maintained by us. We encourage you to continue using our app and recommending it to your friends and family. If you have any ideas regarding the app\'s development, please let us know! If you enjoy our app, please leave us a positive review on Google Play! We also encourage you to follow us on our social media channels.</string>
+    <string name="dzi_ki_e_byli_cie_z_nami">Thank you for being with us!</string>
 
 
 </resources>
