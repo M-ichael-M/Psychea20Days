@@ -20,12 +20,6 @@ class MoodViewModel(app: Application) : AndroidViewModel(app) {
         return repo.getAll()
     }
 
-    fun clearDb() {
-            CoroutineScope(viewModelScope.coroutineContext).launch {
-                repo.dropDatabase()
-        }
-    }
-
     fun updateMood(emotion: Int, id: Int, daysSinceInstall: Long)
     {
         val time = System.currentTimeMillis()
@@ -46,13 +40,6 @@ class MoodViewModel(app: Application) : AndroidViewModel(app) {
         }
     }
 
-    fun insertOneMood(mood: Mood)
-    {
-        CoroutineScope(viewModelScope.coroutineContext).launch {
-            repo.insertOne(mood)
-        }
-    }
-
     fun getLast(): Flow<Long> {
         return repo.getLast()
     }
@@ -60,11 +47,6 @@ class MoodViewModel(app: Application) : AndroidViewModel(app) {
     fun getLastId(): Flow<Int>
     {
         return repo.getLastId()
-    }
-
-    fun getEmotionByDate(data: Int): Flow<Int>
-    {
-        return repo.getEmotionByDate(data)
     }
 
     fun getTodoByDay(day: Long): Flow<Int>

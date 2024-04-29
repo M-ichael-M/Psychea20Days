@@ -14,12 +14,6 @@ import kotlinx.coroutines.launch
 class ToDoViewModel(app: Application) : AndroidViewModel(app) {
     private val repo = GoalRepository(app.applicationContext)
 
-    fun dropDb()
-    {
-        CoroutineScope(viewModelScope.coroutineContext).launch {
-            repo.dropDatabase()
-        }
-    }
     fun getAll(): Flow<List<Goal>>
     {
         return repo.getAll()
@@ -30,7 +24,7 @@ class ToDoViewModel(app: Application) : AndroidViewModel(app) {
         return repo.getToDoByDay(days)
     }
 
-    fun updateRecord(todo: Int, days: Int)
+    fun updateRecord(todo: Int)
     {
         CoroutineScope(viewModelScope.coroutineContext).launch {
             repo.updateReocrd(todo)
@@ -45,10 +39,5 @@ class ToDoViewModel(app: Application) : AndroidViewModel(app) {
         CoroutineScope(viewModelScope.coroutineContext).launch {
             repo.insertRecord(goal)
         }
-    }
-
-    fun getLastRecord()
-    {
-        repo.getLastRecord()
     }
 }

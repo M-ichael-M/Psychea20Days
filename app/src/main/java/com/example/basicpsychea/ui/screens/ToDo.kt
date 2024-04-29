@@ -154,7 +154,7 @@ fun ToDoScreen(viewModel: ToDoViewModel) {
                                     }
                                 }
 
-                                viewModel.updateRecord(value, daysSinceInstall.toInt())
+                                viewModel.updateRecord(value)
 },
                             modifier = Modifier.padding(8.dp)
                         )
@@ -209,7 +209,7 @@ fun ToDoScreen(viewModel: ToDoViewModel) {
                                     }
                                 }
 
-                                viewModel.updateRecord(value, daysSinceInstall.toInt())
+                                viewModel.updateRecord(value)
                                               },
                             modifier = Modifier.padding(8.dp)
                         )

@@ -91,7 +91,7 @@ fun MoodsScreen(viewModel: MoodViewModel) {
     val moods: List<Mood> by viewModel.getMoods().collectAsState(initial = emptyList())
     val moodsRev = moods.reversed()
     val averageEmotion: Double = if (moods.isNotEmpty()) {
-        val sum = moods.map { it.emotion }.sum()
+        val sum = moods.sumOf { it.emotion }
         val average = sum.toDouble() / moods.size
         BigDecimal(average).setScale(1, RoundingMode.HALF_UP).toDouble()
     } else {
