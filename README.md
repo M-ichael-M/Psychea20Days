@@ -75,12 +75,6 @@ Poor mental health is a growing societal issue affecting people of all ages, gen
 
 ---
 
-## 📸 Screenshots & Media
-
-> *Add images or demo videos of the app interface here.*
-
----
-
 ## 📬 Contact
 
 📧 psychea.contact@gmail.com  
